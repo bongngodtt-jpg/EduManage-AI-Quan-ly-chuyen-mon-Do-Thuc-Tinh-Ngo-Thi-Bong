@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EduManage AI V5 Premium – Quản lý chuyên môn đa điểm trường</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f2a5c;--blue:#2563eb;--bg:#f3f6fb;--card:#fff;--tx:#14213d;--mu:#5b6b88;--ln:#e1e8f2;--ok:#15803d;--wa:#b45309;--er:#dc2626;--okb:#dcfce7;--wab:#fef3c7;--erb:#fee2e2;--sel:#e8f0ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1426;--card:#121f3a;--tx:#e6ecf8;--mu:#94a3c4;--ln:#243558;--sel:#1b2f5c;--okb:#12351f;--wab:#3b2c0a;--erb:#3d1414;--ok:#4ade80;--wa:#fbbf24;--er:#f87171}}
+:root[data-theme="dark"]{--bg:#0b1426;--card:#121f3a;--tx:#e6ecf8;--mu:#94a3c4;--ln:#243558;--sel:#1b2f5c;--okb:#12351f;--wab:#3b2c0a;--erb:#3d1414;--ok:#4ade80;--wa:#fbbf24;--er:#f87171}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.5 'Be Vietnam Pro',system-ui,Arial,sans-serif}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+aside{background:var(--navy);color:#cfdcf7;padding:18px 12px;position:sticky;top:0;height:100vh;overflow:auto}
+.logo{font-weight:700;color:#fff;font-size:16px;padding:4px 10px 14px}.logo small{display:block;font-weight:400;color:#8fa6d6;font-size:12px}
+.ng{font-size:12px;color:#8fa6d6;padding:12px 12px 4px}
+nav button{display:block;width:100%;text-align:left;background:none;border:0;color:inherit;padding:8px 12px;border-radius:8px;font:inherit;cursor:pointer}
+nav button:hover{background:#1b3a78}nav button.on{background:var(--blue);color:#fff;font-weight:600}
+main{min-width:0}
+.top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:12px 24px;background:var(--card);border-bottom:1px solid var(--ln)}
+.top h1{font-size:17px;margin:0}.top p{margin:0;color:var(--mu);font-size:12.5px}
+.who{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.av{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:600}
+.ban{background:var(--wab);color:var(--wa);padding:8px 24px;font-size:12.5px}
+.ct{padding:20px 24px;display:grid;gap:16px}.ct>h2{font-size:19px;margin:0}.ct>*{min-width:0}.app.sc{grid-template-columns:1fr}.app.sc aside{display:none}.cr{display:grid;grid-template-columns:1fr 120px;gap:8px;align-items:center;margin:6px 0}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.sp{flex:1}.lc{display:flex;flex-direction:column;gap:6px}.lc h3{margin:0;font-size:1rem}.bd{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.75rem;background:var(--sel);color:var(--tx)}.stv{color:#f59e0b;letter-spacing:1px}.chips{display:flex;gap:6px;overflow-x:auto;padding:4px 0 8px;margin-bottom:4px}.chips button{white-space:nowrap;border:1px solid var(--ln);background:var(--card);color:var(--tx);border-radius:999px;padding:6px 12px;font:inherit;font-size:.85rem;cursor:pointer}.chips button.on{background:var(--blue);color:#fff;border-color:var(--blue)}.pv{white-space:pre-wrap;max-height:200px;overflow:auto;border:1px solid var(--ln);border-radius:8px;padding:8px;margin:6px 0}.bch{display:grid;grid-template-columns:110px 1fr 46px;gap:8px;align-items:center;margin:6px 0;font-size:.88rem}.bch i{display:block;height:12px;border-radius:6px;background:rgba(128,128,128,.25);overflow:hidden}.bch i b{display:block;height:100%;background:#0ea5e9}.dn{width:110px;height:110px;border-radius:50%}.alr{border-left:5px solid var(--er);background:var(--erb);color:#7f1d1d}@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .alr{color:#fecaca;background:#3b1219}}:root[data-theme="dark"] .alr{color:#fecaca;background:#3b1219}.ck{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+select,input,textarea{font:inherit;padding:8px 10px;border:1px solid var(--ln);border-radius:8px;background:var(--card);color:var(--tx)}
+.btn{background:var(--blue);color:#fff;border:0;padding:9px 14px;border-radius:8px;font:inherit;font-weight:600;cursor:pointer}.btn.g{background:var(--card);color:var(--tx);border:1px solid var(--ln)}.btn:disabled{opacity:.45;cursor:default}
+:is(.btn,nav button,select,input,textarea,tr.cl,.kpi):focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:16px;color:var(--tx)}
+button.kpi{text-align:left;font:inherit;cursor:pointer}button.kpi:hover{border-color:var(--blue)}
+.kpi b{display:block;font-size:25px;line-height:1.2}.kpi span{display:block;font-size:12.5px;font-weight:600}.kpi small{color:var(--mu);font-size:11.5px}
+.kpi.er b{color:var(--er)}.kpi.wa b{color:var(--wa)}.kpi.ok b{color:var(--ok)}
+h2{font-size:15px;margin:0 0 10px}h3{font-size:13.5px;margin:14px 0 6px}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--ln);text-align:left;white-space:nowrap}th{color:var(--mu);font-weight:600;font-size:12.5px}
+tr.cl{cursor:pointer}tr.cl:hover{background:var(--sel)}
+.pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;font-weight:600}
+.p-ok{background:var(--okb);color:var(--ok)}.p-wa{background:var(--wab);color:var(--wa)}.p-er{background:var(--erb);color:var(--er)}.p-mu{background:var(--sel);color:var(--blue)}
+.hb{display:grid;grid-template-columns:130px 1fr 92px;gap:8px;align-items:center;margin:8px 0;font-size:13px}
+.tr{height:12px;background:var(--sel);border-radius:6px;overflow:hidden}.tr i{display:block;height:100%;background:var(--blue)}
+.ai li{margin:7px 0}a.l{color:var(--blue);cursor:pointer;text-decoration:underline}
+.note{color:var(--mu);font-size:12.5px}.empty{text-align:center;padding:40px 10px;color:var(--mu)}
+dialog{border:0;border-radius:12px;padding:20px;width:min(560px,94vw);max-height:90vh;background:var(--card);color:var(--tx)}dialog::backdrop{background:#0008}
+label{display:block;margin:10px 0 4px;font-weight:600;font-size:13px}dialog input:not([type=file]),dialog select,dialog textarea{width:100%}
+#toast{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;display:none;z-index:99}#toast.e{background:var(--er)}
+@media(max-width:820px){.app{grid-template-columns:1fr}aside{position:static;height:auto}nav{display:flex;overflow-x:auto;gap:4px;align-items:center}nav button{white-space:nowrap;width:auto}.ng{display:none}.ct,.top,.ban{padding-left:14px;padding-right:14px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+:root{--bg:#f3f6fb;--card:#fff;--tx:#1e293b;--mu:#64748b;--ln:#e2e8f0;--sel:#eaf1fe;--blue:#2563eb;--navy:#0f2547}
+aside{background:linear-gradient(180deg,#0f2547,#15356d)}.logo{font-size:18px;letter-spacing:.2px}
+nav button{border-radius:10px;margin:1px 0}nav button.on{box-shadow:0 2px 8px rgba(37,99,235,.45)}
+.top{position:sticky;top:0;z-index:5;box-shadow:0 1px 0 var(--ln)}.top h1{color:var(--navy)}
+:root[data-theme="dark"] .top h1{color:var(--tx)}
+.card{border-radius:14px;box-shadow:0 1px 2px rgba(15,37,71,.05),0 6px 18px rgba(15,37,71,.04)}
+.btn{border-radius:10px;transition:filter .15s}.btn:hover{filter:brightness(1.08)}
+th{background:var(--sel);text-transform:uppercase;font-size:11.5px;letter-spacing:.3px}tr:nth-child(even) td{background:rgba(37,99,235,.035)}
+button.kpi{position:relative;transition:transform .15s,border-color .15s}button.kpi:hover{transform:translateY(-2px)}
+.ic{float:right;font-style:normal;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--sel);font-size:17px}
+.hero{background:linear-gradient(120deg,#1d4ed8,#0ea5c6);color:#fff;border-radius:14px;padding:18px 22px}.hero b{font-size:18px}.hero small{display:block;opacity:.9;margin-top:2px}
+@media print{aside,.top,.ban,.bar,dialog,#toast{display:none!important}.app{display:block}.ct{padding:0}.card{box-shadow:none;break-inside:avoid}tr:nth-child(even) td{background:none}}
+</style><style id="theme-dep">
+/* Bảng màu mới: xanh ngọc – xanh dương, mỗi nhóm chỉ số một màu riêng */
+:root{--navy:#0f2f3d;--blue:#0e8f8a;--bg:#eef4f4;--card:#fff;--tx:#14262e;--mu:#5d7079;--ln:#dbe5e5;--sel:#e3f3f2;--ok:#0e7a4b;--okb:#dcf5e8;--wa:#a8620a;--wab:#fdf0d2;--er:#c4392b;--erb:#fde4e0}
+:root[data-theme="dark"]{--bg:#0b161b;--card:#13232a;--tx:#e6f0f1;--mu:#8fa6ae;--ln:#233840;--sel:#173540;--blue:#2fb8b1;--ok:#4fd48f;--okb:#12352a;--wa:#f2c25b;--wab:#3a2f0e;--er:#f28a7d;--erb:#3d1a16}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b161b;--card:#13232a;--tx:#e6f0f1;--mu:#8fa6ae;--ln:#233840;--sel:#173540;--blue:#2fb8b1;--ok:#4fd48f;--okb:#12352a;--wa:#f2c25b;--wab:#3a2f0e;--er:#f28a7d;--erb:#3d1a16}}
+aside{background:linear-gradient(180deg,#0f2f3d,#0b2230)}
+nav button:hover{background:#ffffff14}
+nav button.on{background:linear-gradient(90deg,#0e8f8a,#2f7fd1);box-shadow:0 3px 10px rgba(14,143,138,.4)}
+.av{background:linear-gradient(135deg,#0e8f8a,#2f7fd1)}
+.btn{background:linear-gradient(90deg,#0e8f8a,#2f7fd1)}.btn.g{background:var(--card)}
+.hero{background:linear-gradient(110deg,#0e8f8a,#2f7fd1)}
+.top h1{color:var(--tx)}
+.ban{background:var(--wab);color:var(--wa)}
+th{background:var(--sel);color:var(--mu)}tr:nth-child(even) td{background:rgba(14,143,138,.04)}
+.tr i{background:linear-gradient(90deg,#0e8f8a,#2f7fd1)}
+#toast{background:#0f2f3d}
+:is(.btn,nav button,select,input,textarea,tr.cl,.kpi):focus-visible{outline-color:#0e8f8a}
+.kpis button.kpi{--c:#0e8f8a;border-left:5px solid var(--c)}
+.kpis button.kpi b{color:var(--c)}
+.kpis button.kpi .ic{background:color-mix(in srgb,var(--c) 15%,transparent)}
+.kpis button.kpi:hover{border-color:var(--c);box-shadow:0 8px 20px color-mix(in srgb,var(--c) 22%,transparent)}
+.kpis button.kpi:nth-child(1){--c:#0e8f8a}.kpis button.kpi:nth-child(2){--c:#2f7fd1}.kpis button.kpi:nth-child(3){--c:#5b6bd6}
+.kpis button.kpi:nth-child(4){--c:#0e8f56}.kpis button.kpi:nth-child(5){--c:#e5604d}.kpis button.kpi:nth-child(6){--c:#d98a0b}
+.kpis button.kpi:nth-child(7){--c:#c4492f}.kpis button.kpi:nth-child(8){--c:#0e8f56}.kpis button.kpi:nth-child(9){--c:#7b5bd6}
+.kpis button.kpi:nth-child(10){--c:#e5604d}.kpis button.kpi:nth-child(11){--c:#0e8f8a}.kpis button.kpi:nth-child(12){--c:#2f7fd1}
+.kpis button.kpi:nth-child(13){--c:#5d7079}.kpis button.kpi:nth-child(14){--c:#d98a0b}
+:root[data-theme="dark"] .kpis button.kpi:nth-child(n){filter:saturate(1.15) brightness(1.15)}
+</style>
+</head><body>
+<div class="app">
+<aside><div class="logo">EduManage AI<small>Quản lý chuyên môn đa điểm trường</small></div><nav id="nav"></nav></aside>
+<main>
+<div class="top"><button class="btn g" onclick="sb()" aria-label="Thu gọn hoặc mở menu">☰</button><div><h1>Trường Tiểu học Đỗ Thúc Tịnh</h1><p>Năm học 2026–2027 · Học kỳ I</p></div>
+<div class="who"><select id="rl" onchange="setRole(this.value)" aria-label="Xem thử theo vai trò"><option value="bgh">Xem thử: Cán bộ quản lý</option><option value="tt">Xem thử: Tổ trưởng</option><option value="gv">Xem thử: Giáo viên</option><option value="ad">Xem thử: Quản trị</option></select><select id="mg" aria-label="Cán bộ quản lý" style="display:none" onchange="setMg(this.value)"></select><select id="tt2" aria-label="Tổ phụ trách" style="display:none" onchange="ttTo=this.value;fl.to='';selId=null;render()"></select>
+<button class="btn g" onclick="bell()" aria-label="Thông báo">🔔 <span id="bc"></span></button><button class="btn g" onclick="window.print()" aria-label="In trang hiện tại">🖨</button><button class="btn g" onclick="theme()" aria-label="Đổi chế độ sáng/tối">◐</button>
+<div><b id="un"></b><br><span class="note" id="ul"></span></div><div class="av" id="av"></div></div></div>
+<div class="ban" id="ban"></div>
+<div class="ct" id="v"></div></main></div>
+<dialog id="dlg"></dialog>
+<dialog id="cf"><p id="cm"></p><div class="bar"><span class="sp"></span><button class="btn g" onclick="$('cf').close()">Hủy</button><button class="btn" id="cy">Xác nhận</button></div></dialog>
+<div id="toast" role="status"></div>
+<script>
+const KEY='edm-v3b',OLD='edm-none',TZ='Asia/Ho_Chi_Minh',BASE=Date.UTC(2026,8,21),PG=10;
+const nowTs=()=>new Date().toLocaleString('sv-SE',{timeZone:TZ}),TODAY=nowTs().slice(0,10);
+const wkOf=iso=>Math.floor((Date.parse(iso.slice(0,10))-BASE)/6048e5)+1,CW=wkOf(TODAY);
+const SUB=['Đã nộp','Đang rà soát','Cần chỉnh sửa','Chờ duyệt','Đã duyệt','Từ chối'];
+const ALLST=['Chưa nộp','Bản nháp','Đã nộp','Đang rà soát','Cần chỉnh sửa','Chờ duyệt','Đã duyệt','Từ chối','Thu hồi'];
+const STC={'Đã duyệt':'ok','Chờ duyệt':'wa','Đang rà soát':'wa','Cần chỉnh sửa':'er','Từ chối':'er','Chưa nộp':'er'};
+const TY=['Kế hoạch bài dạy','Kế hoạch giáo dục','Biên bản sinh hoạt','Phiếu dự giờ','Báo cáo chuyên môn','Sổ chủ nhiệm','Kế hoạch giáo dục cá nhân HSKT'],TO=['Tổ 1','Tổ 2','Tổ 3','Tổ 4','Tổ 5'];
+const AC={nop:['Đã nộp','Nộp hồ sơ'],thuhoi:['Thu hồi','Thu hồi hồ sơ'],ver:['Đã nộp','Nộp phiên bản mới'],rs:['Đang rà soát','Bắt đầu rà soát'],cho:['Chờ duyệt','Chuyển chờ duyệt'],duyet:['Đã duyệt','Phê duyệt'],sua:['Cần chỉnh sửa','Yêu cầu chỉnh sửa'],tc:['Từ chối','Từ chối hồ sơ']};
+const R={bgh:{n:'Ngô Thị Bông',l:'Phó Hiệu trưởng'},tt:{n:'Trần Văn Hòa',l:'Tổ trưởng chuyên môn'},gv:{n:'Nguyễn Thị Lan',l:'Giáo viên',tid:'GV001'},ad:{n:'Quản trị hệ thống',l:'Quản trị viên',av:'QT'}};
+const $=id=>document.getElementById(id),pc=(a,b)=>Math.round(a/b*100),fr=r=>r==null?'—':r+'%';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const cnt=(ds,s)=>ds.filter(d=>d.st==s).length,pill=(s,c)=>`<span class="pill p-${c||STC[s]||'mu'}">${esc(s)}</span>`;
+const opt=(a,v)=>a.map(([k,l])=>`<option value="${esc(k)}"${k==v?' selected':''}>${esc(l)}</option>`).join('');
+const day=w=>new Date(BASE+(w-1)*6048e5).toISOString().slice(0,10);
+const CR=[["Yêu cầu cần đạt", "Ghi đúng yêu cầu cần đạt của bài theo chương trình, có cả phẩm chất, năng lực. Có yêu cầu cần đạt riêng đối với lớp có học sinh khuyết tật"], ["Đồ dùng dạy học", "Nêu rõ đồ dùng của giáo viên và học sinh, phù hợp hoạt động"], ["Hoạt động Khởi động", "Có mục tiêu, cách tổ chức, tạo hứng thú và kết nối bài mới"], ["Hoạt động hình thành kiến thức mới", "Học sinh tự khám phá, có hình thức tổ chức cụ thể (cá nhân, nhóm). Có thể hiện nhiệm vụ ngắn gọn với HSKT (nếu có)"], ["Hoạt động luyện tập, thực hành", "Bài tập bám yêu cầu cần đạt, có phân hoá học sinh. Có thể hiện nhiệm vụ ngắn gọn với HSKT (nếu có)"], ["Hoạt động vận dụng, trải nghiệm", "Liên hệ thực tế, đời sống của học sinh. Có thể hiện nhiệm vụ ngắn gọn với HSKT (nếu có)"], ["Đánh giá thường xuyên", "Có cách nhận xét, đánh giá học sinh trong tiết học theo Thông tư 27/2020"], ["Điều chỉnh sau bài dạy", "Có ghi điều chỉnh (nếu bài đã dạy)"], ["Tích hợp giáo dục địa phương, lồng ghép nội dung giáo dục AI, kĩ năng công dân số...", "Có ghi nội dung tích hợp, lồng ghép tại mục yêu cầu cần đạt, trước mục đồ dùng dạy học"]],PR="Vai trò: Bạn là tổ trưởng chuyên môn trường tiểu học, rà soát kế hoạch bài dạy (KHBD) theo Chương trình GDPT 2018 để góp ý nội bộ. Không chấm điểm, không xếp loại giáo viên.\n\nTHÔNG TIN DO TỔ TRƯỞNG ĐIỀN\n- Môn / lớp / bài: [điền]\n- Lớp có học sinh khuyết tật (HSKT): [Có / Không]\n- Bài đã dạy: [Đã dạy / Chưa dạy]\n\nBẢO MẬT: Nếu bài còn tên học sinh, giáo viên hoặc thông tin nhận dạng, thay bằng [tên] trong mọi phần trả lời.\n\n9 TIÊU CHÍ\n1. Yêu cầu cần đạt: đúng yêu cầu của bài, có phẩm chất, năng lực; nếu lớp có HSKT thì có yêu cầu riêng cho HSKT.\n2. Đồ dùng dạy học: nêu rõ của giáo viên và học sinh, phù hợp hoạt động.\n3. Hoạt động khởi động: có mục tiêu, cách tổ chức, tạo hứng thú, kết nối bài mới.\n4. Hoạt động hình thành kiến thức mới: học sinh tự khám phá, hình thức tổ chức cụ thể (cá nhân, nhóm); nếu có HSKT thì có nhiệm vụ ngắn gọn cho HSKT.\n5. Hoạt động luyện tập, thực hành: bám yêu cầu cần đạt, có phân hóa học sinh; nếu có HSKT thì có nhiệm vụ cho HSKT.\n6. Hoạt động vận dụng, trải nghiệm: liên hệ thực tế, đời sống học sinh; nếu có HSKT thì có nhiệm vụ cho HSKT.\n7. Đánh giá thường xuyên: có cách nhận xét, đánh giá học sinh trong tiết học theo Thông tư 27/2020/TT-BGDĐT (đã được sửa đổi, bổ sung).\n8. Điều chỉnh sau bài dạy: có ghi điều chỉnh nếu bài đã dạy.\n9. Tích hợp, lồng ghép (giáo dục địa phương, nội dung giáo dục AI, kĩ năng công dân số...): có ghi ở mục yêu cầu cần đạt, trước mục đồ dùng dạy học.\n\nQUY TẮC ĐÁNH GIÁ\n- Mỗi tiêu chí chọn đúng một kết quả: \"Đạt\", \"Chưa đạt\" hoặc \"Không áp dụng\".\n- \"Chưa đạt\" khi mục có nhưng thiếu ý của tiêu chí, hoặc không thấy mục đó (ghi \"Không thấy trong bài\").\n- Không có HSKT: phần HSKT trong tiêu chí 1, 4, 5, 6 không tính, các ý còn lại vẫn đánh giá bình thường. Bài chưa dạy: tiêu chí 8 là \"Không áp dụng\".\n- Dẫn chứng phải trích nguyên văn, tối đa 15 từ, đặt trong ngoặc kép. Không diễn đạt lại rồi trình bày như trích dẫn. Không có thì ghi \"Không thấy trong bài\".\n- Chỉ dựa vào nội dung bài. Không thêm kiến thức môn học, không góp ý ngoài 9 tiêu chí. Không chắc thì ghi \"Cần tổ trưởng kiểm tra\", không đoán.\n\nĐỊNH DẠNG TRẢ LỜI\nA. Bảng 4 cột: Tiêu chí | Kết quả | Dẫn chứng | Gợi ý sửa (tối đa 2 câu, cụ thể, làm được ngay).\nB. Nhận xét gửi giáo viên (xưng \"thầy/cô\", 3–4 câu, giọng nhã nhặn): nêu 1 điểm làm tốt cụ thể, rồi 1–2 việc cần sửa ưu tiên (theo các tiêu chí Chưa đạt). Không khen chung chung. Nếu nhiều tiêu chí chưa đạt thì nói rõ nhưng lịch sự.\nC. Dòng cuối cùng, đúng cú pháp, để dán vào phần mềm (Đ = Đạt, C = Chưa đạt, K = Không áp dụng):\nKQ: 1=?; 2=?; 3=?; 4=?; 5=?; 6=?; 7=?; 8=?; 9=?\n\nKế hoạch bài dạy:\n[Dán nội dung kế hoạch bài dạy vào đây]",AB={'Kế hoạch bài dạy':'KHBD','Kế hoạch giáo dục':'KHGD','Biên bản sinh hoạt':'BBSH','Phiếu dự giờ':'PDG','Báo cáo chuyên môn':'BCCM','Sổ chủ nhiệm':'SCN','Kế hoạch giáo dục cá nhân HSKT':'KHGDCN_HSKT'};
+let ttTo=TO[0];const tOK=t=>t.active!==false&&(role!='tt'||t.to==ttTo),hint=d=>(AB[d.ty]||'HS')+(d.ty==TY[0]?'_K5_TiengViet':'_[Tổ]_[Tháng]');
+function critStat(ds){let p=0,t=0;const per=CR.map(()=>[0,0]);ds.forEach(d=>{const r=d.rv;if(r&&r.ok&&r.c)r.c.forEach((v,i)=>{if(v&&v!='k'){t++;per[i][1]++;if(v=='d'){p++;per[i][0]++}}})});return{p,t,per,rate:t?pc(p,t):null}}
+const agr=()=>{const p=D.pilot||{},t=(p.y||0)+(p.n||0);return t?pc(p.y||0,t):p.agree};
+function agTap(k){if(!(role=='bgh'||role=='ad'||role=='tt'))return;D.pilot=D.pilot||{};D.pilot[k]=(D.pilot[k]||0)+1;aud('Ghi nhận phản hồi giáo viên: '+(k=='y'?'đồng ý':'không đồng ý'));save();render();toast('Đã ghi nhận')}
+function cmpBars(m){const G=['Không','Có'],L={Không:'Thủ công (không AI)',Có:'Có AI hỗ trợ'},st=G.map(a=>{const x=m.filter(d=>d.rv.ai==a),t=x.filter(d=>d.rv.min!==''),bad=x.reduce((s,d)=>s+(d.rv.c||[]).filter(v=>v=='c').length,0);return{a,n:x.length,min:t.length?t.reduce((s,d)=>s+ +d.rv.min,0)/t.length:null,bad:x.length?bad/x.length:null,wrong:x.reduce((s,d)=>s+(+d.rv.wrong||0),0),jud:x.reduce((s,d)=>s+(d.rv.c||[]).filter(v=>v&&v!='k').length,0)}});
+if(!m.length)return'<p class="note">Chưa có phiếu được xác nhận để so sánh.</p>';
+const mx=k=>Math.max(1,...st.map(z=>z[k]||0)),bar=(k,u)=>st.map(z=>`<div class="bch"><span>${L[z.a]}</span><i><b style="width:${Math.round((z[k]||0)/mx(k)*100)}%"></b></i><span>${z[k]==null?'—':z[k].toFixed(1)+u}</span></div>`).join('');
+const ai=st[1];return`<h3>So sánh thủ công và có AI</h3><p class="note">Thời gian trung bình (phút/phiếu)</p>${bar('min','')}<p class="note">Số tiêu chí chưa đạt phát hiện trung bình mỗi phiếu</p>${bar('bad','')}<p class="note">Có AI: ${ai.n} phiếu · ${ai.jud-ai.wrong>=0?ai.jud-ai.wrong:0} nhận định đúng · ${ai.wrong} nhận định sai (trên ${ai.jud} tiêu chí đã đánh giá)</p>`}
+function pilotCard(ds){const m=ds.filter(d=>d.rv&&d.rv.ok),av=a=>{const x=m.filter(d=>d.rv.ai==a&&d.rv.min!=='');return x.length?(x.reduce((s,d)=>s+ +d.rv.min,0)/x.length).toFixed(1)+' phút ('+x.length+' phiếu)':'chưa có'},w=m.filter(d=>d.rv.ai=='Có').reduce((s,d)=>s+(+d.rv.wrong||0),0),g=agr(),e=role=='bgh'||role=='ad'||role=='tt';
+return`<div class="card"><h2>Kết quả thí điểm 29/10</h2><ul><li>Rà soát thủ công (không dùng AI), thời gian trung bình: ${av('Không')}</li><li>Rà soát có AI, thời gian trung bình (gồm thời gian đọc và sửa): ${av('Có')}</li><li>Số nhận định AI sai đã ghi nhận: ${w}</li><li>Tỷ lệ giáo viên đồng ý: ${g===''||g==null?'chưa nhập':g+'%'}</li></ul>${cmpBars(m)}${e?`<div class="bar"><span>Ghi nhận nhanh phản hồi của giáo viên (${(D.pilot||{}).y||0} đồng ý · ${(D.pilot||{}).n||0} không đồng ý):</span><button class="btn g" onclick="agTap('y')">+1 Đồng ý</button><button class="btn g" onclick="agTap('n')">+1 Không đồng ý</button></div><div class="bar"><label for="pg" style="margin:0">% giáo viên đồng ý (từ Phiếu số liệu)</label><input id="pg" type="number" min="0" max="100" value="${g??''}" style="width:90px"><button class="btn g" onclick="savePg()">Lưu</button></div>`:''}<p class="note">Thời gian và số nhận định sai lấy từ các phiếu rà soát đã được tổ trưởng xác nhận; số % giáo viên đồng ý nhập tay sau khi có Phiếu số liệu sáng 30/10.</p></div>`}
+function savePg(){const v=$('pg').value;if(v!==''&&(isNaN(v)||+v<0||+v>100))return toast('Hãy nhập số từ 0 đến 100',1);D.pilot=D.pilot||{};D.pilot.agree=v===''?'':+v;aud('Cập nhật % giáo viên đồng ý (thí điểm)');save();render();toast('Đã lưu')}
+function qdBlock(d){return`<label for="qd">Đường dẫn trên Q.DOC</label><div class="bar"><input id="qd" value="${esc(d.qdoc||'')}" ${role=='ad'?'disabled':''} style="flex:1" placeholder="Dán đường dẫn hoặc thư mục trên Q.DOC"><button class="btn g" ${role=='ad'?'disabled':''} onclick="qsave('${d.id}')">Lưu</button></div><p class="note">Gợi ý tên tệp chuẩn: ${esc(hint(d))}</p>`}
+function qsave(id){const d=doc(id);if(!d||role=='ad')return;d.qdoc=$('qd').value.trim().slice(0,300);aud('Cập nhật đường dẫn Q.DOC: '+d.name);save();toast('Đã lưu đường dẫn Q.DOC')}
+function cp(){const ok=()=>toast('Đã sao chép câu lệnh. Hãy dán vào Gemini bằng tài khoản Google của trường.'),fb=()=>{const a=document.createElement('textarea');a.value=buildPR();a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();let r=false;try{r=document.execCommand('copy')}catch(e){}a.remove();r?ok():toast('Không sao chép được. Hãy mở mục Xem câu lệnh, bôi đen và sao chép thủ công.',1)};
+if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(buildPR()).then(ok,fb);else fb()}
+function seed(){let r=11;const Rn=()=>(r=(r*1103515245+12345)%2147483648)/2147483648,pk=a=>a[Math.floor(Rn()*a.length)];
+const nm=[['Điểm trường chính','Ngô Thị Bông',55,.92],['Phân hiệu 1','Lê Thị Hoa',51,.8],['Phân hiệu 2','Nguyễn Thị Thuý Hằng',33,.9],['Phân hiệu 3','Trần Thị Mỹ Hạnh',32,.62]];
+const D={v:3,mode:'mau',events:[],pilot:{},upd:'Dữ liệu mẫu ban đầu',schools:[],teachers:[],docs:[],tasks:[],audit:[]};
+const fem=['Lan','Mai','Hạnh','Thu','Yến','Linh','Dung'],mal=['Hòa','Nam','Hùng','Tâm','Phúc','Long'],ho=['Nguyễn','Trần','Lê','Phạm','Võ','Đặng','Hoàng'];
+const due=['2026-11-05','2026-10-15','2026-10-25','2026-09-30'],dn=['Kế hoạch bài dạy tuần 9','Kế hoạch giáo dục cá nhân học kỳ I','Biên bản sinh hoạt tổ tháng 10','Phiếu dự giờ tháng 10'],ty=[0,1,2,3];
+let ti=0,di=0;
+nm.forEach((x,i)=>{const sid='DT0'+(i+1);D.schools.push({id:sid,code:sid,name:x[0],addr:'',pt:x[1],ct:'',active:true,hist:[{at:TODAY,by:'Hệ thống',act:'Tạo dữ liệu mẫu'}]});
+for(let k=0;k<x[2];k++){ti++;const g=k%3==2,name=ti==1?'Nguyễn Thị Lan':pk(ho)+(g?' Văn ':' Thị ')+pk(g?mal:fem),t={id:'GV'+String(ti).padStart(3,'0'),name,sid,to:TO[(ti-1)%5]};D.teachers.push(t);
+for(let j=0;j<4;j++){di++;const fx=i%2?.1:0;let st;if(Rn()>x[3])st=Rn()<.5?'Bản nháp':'Chưa nộp';else{const q=Rn();st=q<.12+fx?'Cần chỉnh sửa':q<.27+fx?'Đang rà soát':q<.42+fx?'Chờ duyệt':q<.52+fx?'Đã nộp':'Đã duyệt'}
+const wk=1+Math.floor(Rn()*6),sb=SUB.includes(st),d={id:'HS'+String(di).padStart(4,'0'),name:dn[j],ty:TY[ty[j]],tid:t.id,tname:name,sid,to:t.to,mo:+due[j].slice(5,7),due:due[j],st,upd:sb?day(wk):TODAY,ver:[],log:[]};
+if(sb){d.ver.push({v:1,by:name,at:day(wk),note:'Bản đầu',file:''});d.log.push({at:day(wk),by:name+' (Giáo viên)',act:'Nộp hồ sơ',note:''});if(st=='Đã duyệt')d.log.push({at:day(wk),by:'Ngô Thị Bông (Phó Hiệu trưởng)',act:'Phê duyệt',note:''})}
+D.docs.push(d)}}});
+D.tasks=[['Nộp biên bản sinh hoạt tổ tháng 10','DT02','2026-10-25'],['Nộp kế hoạch bài dạy tuần 9','DT04','2026-10-20'],['Nộp phiếu dự giờ tháng 10','DT04','2026-10-26'],['Nộp báo cáo chuyên môn tháng 10','DT01','2026-10-27'],['Nộp kế hoạch giáo dục tổ học kỳ I','all','2026-11-05']].map((x,i)=>({id:'NV0'+(i+1),title:x[0],sid:x[1],due:x[2],done:false}));
+D.lib=seedLib();return D}
+let D,persistOK=true,role='bgh',cur=0,selId=null;
+function migrate(x){if(!x||typeof x!='object')return null;if(x.v==2&&Array.isArray(x.docs)&&Array.isArray(x.tasks)){x.docs.forEach(d=>delete d.wk);x.v=3;x.migratedFrom=2}if(x.v==3){x.lib=x.lib||(x.mode=='that'?[]:seedLib());x.events=x.events||[];x.pilot=x.pilot||{};x.mode=x.mode||'mau'}
+if(x.v==3){const OLDTO={'Tổ khối 1–2':'Tổ 1','Tổ khối 3':'Tổ 3','Tổ khối 4–5':'Tổ 4'},isOld=v=>v in OLDTO;
+const has=[...(x.teachers||[]),...(x.docs||[]),...(x.events||[]),...(x.lib||[])].some(o=>o&&isOld(o.to));
+if(has){const tm={};if(x.mode=='mau')(x.teachers||[]).forEach((t,i)=>{if(isOld(t.to)){t.to=TO[i%5]}tm[t.id]=t.to});
+else(x.teachers||[]).forEach(t=>{if(isOld(t.to))t.to=OLDTO[t.to];tm[t.id]=t.to});
+const byName={};(x.teachers||[]).forEach(t=>byName[t.name]=t.to);
+(x.docs||[]).forEach(d=>{if(isOld(d.to))d.to=tm[d.tid]||OLDTO[d.to]});
+(x.events||[]).forEach(e=>{if(isOld(e.to))e.to=byName[e.teacher]||OLDTO[e.to]});
+(x.lib||[]).forEach(l=>{if(isOld(l.to)){const m=/Lớp\s*([1-5])/.exec(l.grade||'');l.to=x.mode=='mau'&&m?'Tổ '+m[1]:OLDTO[l.to]}})}}
+return x}
+function validate(x){const e=validate0(x);if(e)return e;const sid=new Set(x.schools.map(s=>s.id)),T=new Set(),K=new Set(),E=new Set();
+for(const t of x.teachers){if(!t.id||!t.name||T.has(t.id))return'mã giáo viên thiếu hoặc trùng ('+t.id+')';T.add(t.id);if(!sid.has(t.sid))return'giáo viên '+t.id+' thuộc điểm trường không tồn tại'}
+for(const t of x.tasks){if(!t.id||K.has(t.id))return'mã nhiệm vụ thiếu hoặc trùng ('+t.id+')';K.add(t.id);if(t.sid!='all'&&!sid.has(t.sid))return'nhiệm vụ '+t.id+' thuộc điểm trường không tồn tại'}
+for(const e of x.events||[]){if(!e.id||E.has(e.id)||!['sh','dg'].includes(e.k)||!sid.has(e.sid))return'bản ghi sinh hoạt/dự giờ lỗi hoặc trùng mã ('+e.id+')';E.add(e.id)}
+for(const d of x.docs)if(d.rv&&!Array.isArray(d.rv.c))return'phiếu rà soát của '+d.id+' sai cấu trúc';return''}
+function validate0(x){if(!x||x.v!==3||!['schools','teachers','docs','tasks','audit'].every(k=>Array.isArray(x[k])))return'cấu trúc tệp không đúng phiên bản V3';
+if(x.schools.some(s=>!s.id||!s.name||!s.code))return'điểm trường thiếu mã hoặc tên';const cd=x.schools.map(s=>s.code.toLowerCase());if(new Set(cd).size!=cd.length)return'mã điểm trường trùng';
+const sid=new Set(x.schools.map(s=>s.id)),tid=new Set(x.teachers.map(t=>t.id)),ids=new Set();
+for(const d of x.docs){if(ids.has(d.id))return'mã hồ sơ trùng '+d.id;ids.add(d.id);if(!sid.has(d.sid)||!tid.has(d.tid))return'hồ sơ '+d.id+' tham chiếu điểm trường/giáo viên không tồn tại';if(!ALLST.includes(d.st))return'trạng thái không hợp lệ ở '+d.id;if(!Array.isArray(d.ver)||!Array.isArray(d.log))return'hồ sơ '+d.id+' thiếu phiên bản/nhật ký'}return''}
+let LOADERR='',RAW=null;
+try{RAW=localStorage.getItem(KEY)||localStorage.getItem(OLD)}catch(e){}
+if(RAW){try{D=migrate(JSON.parse(RAW));const er=D?validate(D):'dữ liệu rỗng hoặc sai định dạng';if(er){LOADERR=er;D=null}}catch(e){LOADERR='tệp lưu trữ không đọc được ('+e.message+')';D=null}}
+if(!D){D=seed();if(LOADERR){try{localStorage.setItem('edm-corrupt',RAW)}catch(e){}}}
+try{if(RAW&&!LOADERR&&!localStorage.getItem('edm-pre41'))localStorage.setItem('edm-pre41',RAW)}catch(e){}
+(()=>{const M={'Phân hiệu 1':'Lê Thị Hoa','Phân hiệu 2':'Nguyễn Thị Thuý Hằng','Phân hiệu 3':'Trần Thị Mỹ Hạnh'};(D.schools||[]).forEach(x=>{if(!x.pt&&M[x.name])x.pt=M[x.name]})})();
+const prev=()=>{try{localStorage.setItem('edm-prev',JSON.stringify(D))}catch(e){}};
+function save(){if(LOADERR){persistOK=false;return false}D.upd=nowTs();try{localStorage.setItem(KEY,JSON.stringify(D));persistOK=true}catch(e){persistOK=false;toast('Không lưu được vào trình duyệt (đầy hoặc bị chặn). Hãy tải bản sao lưu.',1)}return persistOK}
+const fl={sid:'',to:'',mo:'',df:'',dt:''},hf={st:'',ty:'',q:'',sort:'upd',pg:1};
+let mgSid='DT01';
+const ME=()=>{if(role!='bgh')return R[role];const x=D.schools.find(z=>z.id==mgSid&&z.pt);return x?{n:x.pt,l:x.id=='DT01'?R.bgh.l:'Cán bộ quản lý '+x.name}:R.bgh},sn=id=>(D.schools.find(s=>s.id==id)||{}).name||id,doc=id=>D.docs.find(d=>d.id==id);
+const overdue=t=>!t.done&&!!t.due&&t.due<TODAY,odDoc=d=>!!d.due&&d.due<TODAY&&!SUB.includes(d.st);
+function aud(a){D.audit.unshift({at:nowTs().slice(0,16),by:ME().n,role:ME().l,act:a});D.audit.splice(100)}
+function toast(m,e){if(!e&&!persistOK){m='CHƯA LƯU được vào trình duyệt, thay đổi sẽ mất khi tải lại; hãy tải bản sao lưu. ('+m+')';e=1}const t=$('toast');t.textContent=m;t.className=e?'e':'';t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',2800)}
+function ask(m,fn){$('cm').textContent=m;$('cy').onclick=()=>{$('cf').close();fn()};$('cf').showModal()}
+function theme(){const h=document.documentElement,d=h.dataset.theme?h.dataset.theme=='dark':matchMedia('(prefers-color-scheme:dark)').matches;h.dataset.theme=d?'light':'dark';try{localStorage.setItem('edm-theme',h.dataset.theme)}catch(e){}}
+/* Tầng tính toán */
+const docsF=()=>D.docs.filter(d=>(!fl.sid||d.sid==fl.sid)&&(!fl.to||d.to==fl.to)&&(!fl.mo||d.mo==fl.mo)&&(!fl.df||(d.due&&d.due>=fl.df))&&(!fl.dt||(d.due&&d.due<=fl.dt))&&(role!='gv'||d.tid==R.gv.tid)&&(role!='tt'||d.to==ttTo));
+const gvSid=()=>(D.teachers.find(t=>t.id==R.gv.tid)||{}).sid;
+const tasksF=()=>D.tasks.filter(t=>(!fl.sid||t.sid=='all'||t.sid==fl.sid)&&(role!='gv'||t.sid=='all'||t.sid==gvSid())&&(!fl.df||t.due>=fl.df)&&(!fl.dt||t.due<=fl.dt));
+function stats(ds){const n=ds.length,sub=ds.filter(d=>SUB.includes(d.st)).length,ap=cnt(ds,'Đã duyệt'),fix=cnt(ds,'Cần chỉnh sửa'),ev=ap+fix+cnt(ds,'Từ chối');return{n,sub,not:n-sub,od:ds.filter(odDoc).length,rv:cnt(ds,'Đang rà soát'),fix,ap,wait:cnt(ds,'Chờ duyệt'),ev,rate:n?pc(sub,n):null,apr:ev?pc(ap,ev):null}}
+function rows(){const all=docsF();return D.schools.filter(s=>!fl.sid||s.id==fl.sid).map(s=>{const ds=all.filter(d=>d.sid==s.id),w=n=>ds.filter(d=>d.ver.length&&wkOf(d.ver[0].at)==n).length,sb=t=>ds.filter(d=>d.ty==t&&SUB.includes(d.st)).length;
+return{s,ds,st:stats(ds),gv:D.teachers.filter(t=>t.sid==s.id&&(!fl.to||t.to==fl.to)&&tOK(t)).length,bb:sb(TY[2]),dg:sb(TY[3]),od:D.tasks.filter(t=>overdue(t)&&(t.sid=='all'||t.sid==s.id)).length,tr:w(CW)-w(CW-1)}})}
+/* Giao diện chung */
+const filterBar=()=>`<div class="bar"><select aria-label="Điểm trường" onchange="fl.sid=this.value;hf.pg=1;render()">${opt([['','Tất cả điểm trường'],...D.schools.map(s=>[s.id,s.name])],fl.sid)}</select><select aria-label="Tổ chuyên môn" onchange="fl.to=this.value;hf.pg=1;render()">${opt([['',role=='tt'?ttTo:'Tất cả tổ'],...(role=='tt'?[]:TO.map(x=>[x,x]))],fl.to)}</select><select aria-label="Tháng hạn nộp" onchange="fl.mo=this.value;hf.pg=1;render()">${opt([['','Học kỳ I (mọi tháng)'],['9','Hạn nộp tháng 9'],['10','Hạn nộp tháng 10'],['11','Hạn nộp tháng 11']],fl.mo)}</select><input type="date" aria-label="Hạn nộp từ ngày" value="${fl.df}" onchange="fl.df=this.value;hf.pg=1;render()"><span class="note">–</span><input type="date" aria-label="Hạn nộp đến ngày" value="${fl.dt}" onchange="fl.dt=this.value;hf.pg=1;render()"><span class="note">Cập nhật: ${esc(D.upd)}</span></div>`;
+const empty=(t,m)=>`<div class="card empty"><b>${t}</b><p>${m}</p></div>`;
+function docTable(ds){if(!ds.length)return'<div class="empty">Không có hồ sơ phù hợp. Hãy bỏ bớt bộ lọc hoặc tạo hồ sơ mới.</div>';
+return`<div class="tw"><table><tr><th>Tên hồ sơ</th><th>Loại</th><th>Người nộp</th><th>Điểm trường</th><th>Hạn nộp</th><th>Phiên bản</th><th>Trạng thái</th></tr>${ds.map(d=>`<tr class="cl" tabindex="0" onkeydown="if(event.key=='Enter')openDoc('${d.id}')" onclick="openDoc('${d.id}')"><td>${esc(d.name)}</td><td>${esc(d.ty)}</td><td>${esc(d.tname)}</td><td>${esc(sn(d.sid))}</td><td>${d.due||'—'}</td><td>${d.ver.length||'—'}</td><td>${pill(d.st)}${odDoc(d)?' '+pill('Quá hạn','er'):''}</td></tr>`).join('')}</table></div>`}
+function schoolTable(rs){return`<div class="tw"><table><tr><th>Điểm trường</th><th>GV</th><th>Hồ sơ cần nộp</th><th>Hoàn thành</th><th>Phê duyệt</th><th>Biên bản</th><th>Phiếu dự giờ</th><th>Cần sửa</th><th>NV quá hạn</th><th>Nộp tuần này so với trước</th></tr>${rs.map(r=>`<tr class="cl" tabindex="0" onclick="selId='${r.s.id}';go(1)"><td><b>${esc(r.s.name)}</b>${r.s.active?'':' (ngừng)'}</td><td>${r.gv}</td><td>${r.st.n}</td><td>${fr(r.st.rate)} (${r.st.sub}/${r.st.n})</td><td>${fr(r.st.apr)} (${r.st.ap}/${r.st.ev})</td><td>${r.bb}</td><td>${r.dg}</td><td>${r.st.fix}</td><td>${r.od?pill(r.od,'er'):0}</td><td>${r.tr>0?'▲ +':r.tr<0?'▼ ':'= '}${r.tr}</td></tr>`).join('')}</table></div>`}
+const bars=(t,rs,f)=>`<div class="card"><h2>${t} <span class="note">${MH()}</span></h2>${rs.map(r=>{const[p,l]=f(r);return`<div class="hb"><span>${esc(r.s.name)}</span><div class="tr"><i style="width:${Math.min(100,p)}%"></i></div><b>${l}</b></div>`}).join('')||'<div class="empty">Chưa có dữ liệu</div>'}</div>`;
+/* Dashboard */
+let KP=[];
+function dash(){const ds=docsF(),s=stats(ds),cs=critStat(ds),rs=rows(),od=tasksF().filter(overdue).length;
+KP=[['Điểm trường hoạt động',rs.filter(r=>r.s.active).length,'đang hoạt động','',{v:1}],['Giáo viên',D.teachers.filter(t=>(!fl.sid||t.sid==fl.sid)&&(!fl.to||t.to==fl.to)&&tOK(t)).length,'theo bộ lọc','',{v:1}],['Hồ sơ cần nộp',s.n,'','',{st:''}],['Đã nộp',s.sub,'trên hồ sơ cần nộp','',{st:'_nop'}],['Chưa nộp',s.not,'gồm nháp và thu hồi','er',{st:'_chua'}],['Đang rà soát',s.rv,'','wa',{st:'Đang rà soát'}],['Cần chỉnh sửa',s.fix,'','er',{st:'Cần chỉnh sửa'}],['Đã duyệt',s.ap,'','ok',{st:'Đã duyệt'}],['Chờ Cán bộ quản lý phê duyệt',s.wait,'','wa',{st:'Chờ duyệt'}],['Nhiệm vụ quá hạn',od,'chưa hoàn thành, quá hạn','er',{v:2}],['Tỷ lệ hoàn thành',fr(s.rate),`${s.sub}/${s.n} hồ sơ cần nộp`,'ok',{st:'_nop'}],['Tỷ lệ phê duyệt',fr(s.apr),s.ev?`duyệt/(duyệt+sửa+từ chối) = ${s.ap}/${s.ev}`:'chưa có hồ sơ được đánh giá','ok',{st:'Đã duyệt'}],['Tỷ lệ đạt tiêu chí',fr(cs.rate),cs.t?`${cs.p}/${cs.t} lượt đánh giá tiêu chí`:'chưa có phiếu rà soát được xác nhận','',{v:8}],['Hồ sơ quá hạn',s.od,'chưa nộp và quá hạn nộp','er',{st:'_od'}]];
+const WS=[-5,-4,-3,-2,-1,0].map(i=>CW+i),c=WS.map(w=>ds.filter(d=>d.ver.length&&wkOf(d.ver[0].at)==w).length),m=Math.max(1,...c),pts=c.map((v,i)=>`${20+i*52},${105-v/m*80}`).join(' ');
+const L=insights(ds,s,rs,od);
+return heroC()+filterBar()+(D.mode=='that'?'':'<p class="note">Số liệu minh hoạ: dữ liệu mẫu của bản demo, không phải số liệu thật của nhà trường.</p>')+`<div class="bar"><span class="sp"></span><button class="btn g" onclick="copyCsv('s')">Tải bảng (CSV)</button>${role=='bgh'||role=='ad'?'<button class="btn" onclick="taskForm()">+ Giao nhiệm vụ</button>':''}</div>
+${!ds.length?empty('Chưa có hồ sơ trong phạm vi lọc','Hãy đổi bộ lọc hoặc tạo hồ sơ mới.'):`<div class="kpis">${KP.map((k,i)=>`<button class="card kpi ${k[3]}" onclick="kp(${i})"><i class="ic" aria-hidden="true">${ICN[i]||''}</i><span>${k[0]}</span><b>${k[1]}</b><small>${k[2]}</small></button>`).join('')}</div>
+${pilotCard(ds)}<div class="card"><h2>So sánh các điểm trường <span class="note">${MH()}</span></h2>${schoolTable(rs)}<p class="note">Mỗi điểm trường có số giáo viên và số hồ sơ khác nhau: cần đọc cùng số lượng thực tế và bối cảnh, không dùng để xếp hạng.</p></div>
+<div class="g2">${bars('Tỷ lệ hoàn thành hồ sơ',rs,r=>[r.st.rate||0,`${fr(r.st.rate)} (${r.st.sub}/${r.st.n})`])}${bars('Hồ sơ cần chỉnh sửa',rs,r=>[r.st.n?pc(r.st.fix,r.st.n):0,r.st.fix+' hồ sơ'])}
+<div class="card"><h2>Số hồ sơ nộp theo tuần <span class="note">${MH()}</span></h2><svg viewBox="0 0 300 130" width="100%" role="img" aria-label="Số hồ sơ nộp theo tuần">${c.length?`<polyline points="${pts}" fill="none" stroke="#2563eb" stroke-width="3"/>`:''}${c.map((v,i)=>`<circle cx="${20+i*52}" cy="${105-v/m*80}" r="4" fill="#2563eb"/><text x="${20+i*52}" y="${99-v/m*80}" font-size="10" text-anchor="middle" fill="currentColor">${v}</text><text x="${20+i*52}" y="124" font-size="10" text-anchor="middle" fill="currentColor">T${WS[i]}</text>`).join('')}</svg><p class="note">Tuần 1 bắt đầu 21/09/2026; hôm nay (${TODAY}) là tuần T${CW}. Đếm theo ngày nộp bản đầu tiên.</p></div>
+<div class="card ai"><h2>Tổng hợp tự động từ dữ liệu</h2><ul>${L.map(x=>`<li>${x}</li>`).join('')}</ul><p class="note">Tổng hợp theo quy tắc từ số liệu hiện có, chưa dùng AI. Quyết định cuối cùng thuộc Cán bộ quản lý.</p></div></div>`}`}
+function insights(ds,s,rs,od){const L=[`Đã nộp ${s.sub}/${s.n} hồ sơ (${fr(s.rate)}); ${s.fix} hồ sơ cần chỉnh sửa. <a class="l" onclick="kp(6)">Xem danh sách</a>`];
+const lo=rs.filter(r=>r.st.n).sort((a,b)=>a.st.rate-b.st.rate)[0];
+if(rs.length>1&&lo)L.push(`${esc(lo.s.name)} có tỷ lệ nộp thấp nhất (${lo.st.sub}/${lo.st.n}, ${lo.gv} giáo viên); cần xem thêm bối cảnh trước khi kết luận. <a class="l" onclick="selId='${lo.s.id}';go(1)">Xem chi tiết</a>`);
+if(od)L.push(`${od} nhiệm vụ quá hạn. <a class="l" onclick="go(2)">Xem nhiệm vụ</a>`);
+if(s.ev<10)L.push(`Mới có ${s.ev} hồ sơ được đánh giá nên chưa đủ căn cứ nhận định chất lượng.`);return L}
+function kp(i){const g=KP[i][4];if(g.v!=null)return go(g.v);hf.st=g.st;hf.ty='';hf.q='';hf.pg=1;go(3)}
+/* Hồ sơ */
+const SORT={upd:(a,b)=>b.upd.localeCompare(a.upd)||a.id.localeCompare(b.id),name:(a,b)=>a.name.localeCompare(b.name,'vi'),due:(a,b)=>(a.due||'9').localeCompare(b.due||'9'),st:(a,b)=>ALLST.indexOf(a.st)-ALLST.indexOf(b.st)};
+const hdocs=()=>docsF().filter(d=>(!hf.st||(hf.st=='_nop'?SUB.includes(d.st):hf.st=='_chua'?!SUB.includes(d.st):hf.st=='_od'?odDoc(d):d.st==hf.st))&&(!hf.ty||d.ty==hf.ty)&&(!hf.q||(d.name+d.tname).toLowerCase().includes(hf.q.toLowerCase()))).sort(SORT[hf.sort]);
+function chips(){const b=docsF(),bt=b.filter(d=>!hf.ty||d.ty==hf.ty),ST8=ALLST.filter(x=>x!='Từ chối');
+return`<div class="chips" role="group" aria-label="Lọc nhanh theo loại hồ sơ">${[['','Tất cả loại'],...TY.map(x=>[x,x])].map(x=>`<button class="${hf.ty==x[0]?'on':''}" onclick="hf.ty='${x[0]}';hf.pg=1;render()">${esc(x[1])} (${x[0]?b.filter(d=>d.ty==x[0]).length:b.length})</button>`).join('')}</div><div class="chips" role="group" aria-label="Lọc nhanh theo trạng thái">${[['','Mọi trạng thái'],...ST8.map(x=>[x,x=='Bản nháp'?'Nháp':x=='Chờ duyệt'?'Chờ phê duyệt':x])].map(x=>`<button class="${hf.st==x[0]?'on':''}" onclick="hf.st='${x[0]}';hf.pg=1;render()">${esc(x[1])} (${x[0]?bt.filter(d=>d.st==x[0]).length:bt.length})</button>`).join('')}</div>`}
+function hoso(){const ds=hdocs(),n=Math.max(1,Math.ceil(ds.length/PG));if(hf.pg>n)hf.pg=n;
+return filterBar()+chips()+`<div class="bar"><input id="q" placeholder="Tìm theo tên hồ sơ hoặc người nộp" value="${esc(hf.q)}" oninput="hf.q=this.value;hf.pg=1;render(1)" aria-label="Tìm hồ sơ"><select aria-label="Trạng thái" onchange="hf.st=this.value;hf.pg=1;render()">${opt([['','Mọi trạng thái'],['_nop','Đã nộp (tất cả)'],['_chua','Chưa nộp (tất cả)'],['_od','Quá hạn nộp'],...ALLST.map(x=>[x,x])],hf.st)}</select><select aria-label="Loại hồ sơ" onchange="hf.ty=this.value;hf.pg=1;render()">${opt([['','Mọi loại'],...TY.map(x=>[x,x])],hf.ty)}</select><select aria-label="Sắp xếp" onchange="hf.sort=this.value;render()">${opt([['upd','Mới cập nhật'],['name','Tên A–Z'],['due','Hạn nộp'],['st','Trạng thái']],hf.sort)}</select><span class="sp"></span><button class="btn g" onclick="copyCsv('h')">Tải CSV</button>${role!='ad'?'<button class="btn" onclick="newDoc()">+ Tạo hồ sơ</button>':''}</div>
+<div class="card">${docTable(ds.slice((hf.pg-1)*PG,hf.pg*PG))}<div class="bar" style="margin-top:10px"><button class="btn g" ${hf.pg<=1?'disabled':''} onclick="hf.pg--;render()">Trước</button><span>Trang ${hf.pg}/${n} · ${ds.length} hồ sơ</span><button class="btn g" ${hf.pg>=n?'disabled':''} onclick="hf.pg++;render()">Sau</button></div></div>`}
+const TRN={nop:{r:['gv'],f:['Chưa nộp','Bản nháp','Thu hồi','Cần chỉnh sửa'],own:1},thuhoi:{r:['gv'],f:['Đã nộp'],own:1,n:1},ver:{r:['gv'],f:['Đã duyệt'],own:1,n:1},rs:{r:['tt'],f:['Đã nộp']},cho:{r:['tt'],f:['Đang rà soát']},duyet:{r:['bgh'],f:['Chờ duyệt']},sua:{r:['tt','bgh'],f:['Đang rà soát','Chờ duyệt'],n:1},tc:{r:['bgh'],f:['Chờ duyệt'],n:1}};
+const actions=d=>Object.keys(TRN).filter(k=>{const t=TRN[k];return t.r.includes(role)&&t.f.includes(d.st)&&(!t.own||d.tid==R.gv.tid)});
+function pvBlock(d){const lv=d.ver[d.ver.length-1],ok=/^https?:\/\//.test(d.qdoc||''),can=role!='ad'&&(role!='gv'||d.tid==R.gv.tid);
+return`<h3>Xem nhanh nội dung</h3><div class="pv">${d.pv?esc(d.pv):'<span class="note">Chưa có nội dung xem nhanh. Dán nội dung trích hoặc tóm tắt hồ sơ vào ô bên dưới để xem ngay trên điện thoại, không cần tải tệp.</span>'}</div>${lv?`<p class="note">Phiên bản mới nhất: v${lv.v} · ${esc(lv.note)}</p>`:''}${ok?`<p><a class="l" href="${esc(d.qdoc)}" target="_blank" rel="noopener">Mở tệp trên Q.DOC</a></p>`:''}${can?`<textarea id="pvt" rows="3" placeholder="Dán nội dung để xem nhanh">${esc(d.pv||'')}</textarea><div class="bar" style="margin-top:6px"><button class="btn g" onclick="pvSave('${d.id}')">Lưu nội dung xem nhanh</button></div>`:''}`}
+function pvSave(id){const d=doc(id);if(!d||role=='ad')return;d.pv=$('pvt').value.slice(0,6000);aud('Cập nhật nội dung xem nhanh: '+d.name);save();openDoc(id);toast('Đã lưu')}
+function openDoc(id){const d=doc(id),a=actions(d);
+$('dlg').innerHTML=`<h2>${esc(d.name)}</h2><p>${pill(d.st)} ${esc(d.ty)} · ${esc(d.tname)} · ${esc(sn(d.sid))} · ${esc(d.to)} · hạn ${d.due||'không có'}</p>
+${pvBlock(d)}<h3>Phiên bản</h3>${d.ver.length?`<ul>${d.ver.map(v=>`<li>v${v.v} · ${v.at} · ${esc(v.by)}: ${esc(v.note)}${v.file?' · tên tệp '+esc(v.file)+' (chỉ lưu tên, chưa tải lên)':''}</li>`).join('')}</ul>`:'<p class="note">Chưa có phiên bản nào được nộp.</p>'}
+<h3>Lịch sử xử lý và phản hồi</h3>${d.log.length?`<ul>${d.log.map(l=>`<li>${l.at} · ${esc(l.by)} · <b>${esc(l.act)}</b>${l.note?': '+esc(l.note):''}</li>`).join('')}</ul>`:'<p class="note">Chưa có xử lý nào.</p>'}
+${qdBlock(d)}${role=='tt'&&d.st=='Đang rà soát'?`<div class="bar"><button class="btn g" onclick="rv('${d.id}')">Mở phiếu rà soát (9 tiêu chí)</button></div>`:''}
+${d.st=='Đã duyệt'?'<p class="note">Hồ sơ đã duyệt không thể sửa trực tiếp; muốn thay đổi hãy nộp phiên bản mới.</p>':''}
+${a.length?`<label for="nt">Nhận xét hoặc nội dung thay đổi</label><textarea id="nt" rows="3"></textarea><div class="bar" style="margin-top:10px">${a.map(k=>`<button class="btn ${k=='tc'?'g':''}" onclick="act('${d.id}','${k}')">${AC[k][1]}</button>`).join('')}</div>`:'<p class="note">Vai trò đang xem thử không có thao tác với hồ sơ này.</p>'}
+<div class="bar" style="margin-top:12px"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Đóng</button></div>`;$('dlg').showModal()}
+function act(id,k){const d=doc(id),n=$('nt').value.trim();if(!actions(d).includes(k))return;
+if(TRN[k].n&&!n)return toast('Hãy nhập nhận xét trước khi thực hiện',1);
+if(role=='tt'&&(k=='cho'||k=='sua')&&!(d.rv&&d.rv.ok))return toast('Hãy hoàn tất và xác nhận phiếu rà soát (mục AI rà soát hồ sơ) trước khi gửi',1);
+ask(AC[k][1]+' hồ sơ “'+d.name+'”?',()=>{if(!actions(d).includes(k))return toast('Thao tác không còn hợp lệ',1);d.st=AC[k][0];d.upd=TODAY;if((k=='nop'||k=='ver')&&d.rv){(d.rvh=d.rvh||[]).push(d.rv);delete d.rv}if(k=='nop'||k=='ver'){d.ver.push({v:d.ver.length+1,by:ME().n,at:nowTs(),note:n||'Nộp hồ sơ',file:''})}
+d.log.push({at:nowTs(),by:ME().n+' ('+ME().l+')',act:AC[k][1],note:n});aud(AC[k][1]+': '+d.name);save();$('dlg').close();render();toast('Đã thực hiện: '+AC[k][1])})}
+function newDoc(){const g=role=='gv';$('dlg').innerHTML=`<h2>Tạo hồ sơ mới</h2><label for="n1">Tên hồ sơ</label><input id="n1"><label for="n2">Loại hồ sơ</label><select id="n2">${opt(TY.map(x=>[x,x]),'')}</select>
+${g?'':`<label for="n3">Người nộp</label><select id="n3">${opt(D.teachers.filter(t=>t.active!==false).map(t=>[t.id,t.name+' – '+sn(t.sid)]),'')}</select>`}
+<label for="n4">Hạn nộp (có thể để trống)</label><input id="n4" type="date"><label for="n5">Tệp đính kèm (PDF, DOCX, XLSX, ảnh)</label><input id="n5" type="file" accept=".pdf,.docx,.xlsx,image/*"><p class="note">Bản demo chỉ lưu tên tệp, không lưu nội dung tệp.</p>
+<div class="bar" style="margin-top:12px"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Hủy</button><button class="btn g" onclick="saveDoc(0)">Lưu nháp</button><button class="btn" onclick="saveDoc(1)">Lưu và nộp</button></div>`;$('dlg').showModal()}
+function saveDoc(sub){const name=$('n1').value.trim(),due=$('n4').value;if(!name)return toast('Hãy nhập tên hồ sơ',1);
+const t=D.teachers.find(x=>x.id==(role=='gv'?R.gv.tid:$('n3').value)),f=$('n5').files[0],id=uid('HS',D.docs,4);if(!t)return toast('Không tìm thấy giáo viên nộp hồ sơ. Hãy thêm giáo viên ở mục Quản lý người dùng trước.',1);if(due&&!/^\d{4}-\d\d-\d\d$/.test(due))return toast('Hạn nộp không hợp lệ',1);
+const d={id,name,ty:$('n2').value,tid:t.id,tname:t.name,sid:t.sid,to:t.to,mo:+due.slice(5,7),due,st:sub?'Đã nộp':'Bản nháp',upd:TODAY,ver:[],log:[{at:nowTs(),by:ME().n+' ('+ME().l+')',act:'Tạo hồ sơ',note:''}]};
+if(sub){d.ver.push({v:1,by:ME().n,at:nowTs(),note:'Bản đầu',file:f?f.name:''});d.log.push({at:nowTs(),by:ME().n+' ('+ME().l+')',act:'Nộp hồ sơ',note:''})}
+D.docs.push(d);aud('Tạo hồ sơ: '+name);save();$('dlg').close();render();toast(sub?'Đã nộp hồ sơ':'Đã lưu bản nháp')}
+/* Điểm trường */
+const canS=()=>role=='bgh'||role=='ad';
+function truong(){if(selId){const s=D.schools.find(x=>x.id==selId),r=rows().find(x=>x.s.id==selId)||{ds:D.docs.filter(d=>d.sid==selId),st:stats(D.docs.filter(d=>d.sid==selId)),gv:0};
+const ts=D.teachers.filter(t=>t.sid==selId);
+return`<div class="bar"><button class="btn g" onclick="selId=null;render()">← Danh sách</button><span class="sp"></span>${canS()?`<button class="btn g" onclick="schoolForm('${s.id}')">Sửa thông tin</button>`:''}</div>
+<div class="card"><h2>${esc(s.name)} (${esc(s.code)}) ${s.active?pill('Hoạt động','ok'):pill('Ngừng hoạt động','er')}</h2><p>Người phụ trách: ${esc(s.pt||'chưa gán')} · Địa chỉ: ${esc(s.addr||'chưa nhập')} · Liên hệ: ${esc(s.ct||'chưa nhập')}</p>
+<div class="kpis">${[['Giáo viên',ts.length],['Hồ sơ cần nộp',r.st.n],['Đã nộp',r.st.sub],['Cần chỉnh sửa',r.st.fix],['Đã duyệt',r.st.ap]].map(x=>`<div class="card kpi"><b>${x[1]}</b><span>${x[0]}</span></div>`).join('')}</div></div>
+<div class="g2"><div class="card"><h2>Giáo viên và hồ sơ</h2><div class="tw"><table><tr><th>Họ tên</th><th>Tổ</th><th>Hồ sơ đã nộp</th><th>Lượt dự giờ</th></tr>${ts.map(t=>{const x=D.docs.filter(d=>d.tid==t.id);return`<tr><td>${esc(t.name)}</td><td>${esc(t.to)}</td><td>${x.filter(d=>SUB.includes(d.st)).length}/${x.length}</td><td>${(D.events||[]).filter(z=>z.k=='dg'&&z.teacher==t.name).length}</td></tr>`}).join('')}</table></div></div>
+<div class="card"><h2>Lịch sử thay đổi</h2><ul>${s.hist.map(h=>`<li>${h.at} · ${esc(h.by)}: ${esc(h.act)}</li>`).join('')}</ul>${canS()?`<button class="btn g" onclick="toggleSchool('${s.id}')">${s.active?'Ngừng hoạt động':'Kích hoạt lại'}</button>`:''}</div></div>
+<div class="card"><h2>Hồ sơ gần đây</h2>${docTable(r.ds.slice().sort(SORT.upd).slice(0,8))}<button class="btn g" onclick="fl.sid='${s.id}';hf.st='';hf.ty='';go(3)">Xem tất cả hồ sơ</button></div>`}
+return`<div class="bar"><span class="sp"></span>${canS()?'<button class="btn" onclick="schoolForm()">+ Thêm điểm trường</button>':''}</div><div class="card"><div class="tw"><table><tr><th>Mã</th><th>Tên điểm trường</th><th>Người phụ trách</th><th>Giáo viên</th><th>Hồ sơ</th><th>Hoàn thành</th><th>Trạng thái</th></tr>${D.schools.map(s=>{const st=stats(D.docs.filter(d=>d.sid==s.id));return`<tr class="cl" tabindex="0" onclick="selId='${s.id}';render()"><td>${esc(s.code)}</td><td><b>${esc(s.name)}</b></td><td>${esc(s.pt||'chưa gán')}</td><td>${D.teachers.filter(t=>t.sid==s.id).length}</td><td>${st.n}</td><td>${fr(st.rate)}</td><td>${s.active?pill('Hoạt động','ok'):pill('Ngừng hoạt động','er')}</td></tr>`}).join('')}</table></div></div>`}
+function schoolForm(id){const s=D.schools.find(x=>x.id==id)||{code:'',name:'',addr:'',pt:'',ct:''};
+$('dlg').innerHTML=`<h2>${id?'Sửa':'Thêm'} điểm trường</h2>${[['s1','Mã điểm trường (duy nhất)',s.code],['s2','Tên điểm trường',s.name],['s3','Địa chỉ',s.addr],['s4','Người phụ trách',s.pt],['s5','Thông tin liên hệ',s.ct]].map(f=>`<label for="${f[0]}">${f[1]}</label><input id="${f[0]}" value="${esc(f[2])}">`).join('')}<div class="bar" style="margin-top:12px"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Hủy</button><button class="btn" onclick="saveSchool('${id||''}')">Lưu</button></div>`;$('dlg').showModal()}
+function saveSchool(id){const v=k=>$(k).value.trim(),code=v('s1'),name=v('s2');if(!code||!name)return toast('Hãy nhập mã và tên điểm trường',1);
+if(D.schools.some(x=>x.id!=id&&x.code.toLowerCase()==code.toLowerCase()))return toast('Mã điểm trường đã tồn tại',1);
+let s=D.schools.find(x=>x.id==id);if(!s){s={id:uid('DT',D.schools,2),active:true,hist:[]};D.schools.push(s);s.hist.push({at:TODAY,by:ME().n,act:'Tạo điểm trường'})}else s.hist.push({at:TODAY,by:ME().n,act:'Cập nhật thông tin'});
+Object.assign(s,{code,name,addr:v('s3'),pt:v('s4'),ct:v('s5')});aud('Lưu điểm trường: '+name);save();$('dlg').close();render();toast('Đã lưu điểm trường')}
+function toggleSchool(id){const s=D.schools.find(x=>x.id==id);ask((s.active?'Ngừng hoạt động ':'Kích hoạt lại ')+s.name+'? Dữ liệu lịch sử được giữ nguyên.',()=>{s.active=!s.active;s.hist.push({at:TODAY,by:ME().n,act:s.active?'Kích hoạt lại':'Ngừng hoạt động'});aud('Đổi trạng thái điểm trường: '+s.name);save();render();toast('Đã cập nhật trạng thái')})}
+/* Nhiệm vụ */
+const addD=(iso,n)=>new Date(Date.parse(iso)+n*864e5).toISOString().slice(0,10);
+function nvAlert(ts){const o=ts.filter(overdue),sn3=ts.filter(t=>!t.done&&!overdue(t)&&t.due<=addD(TODAY,3));if(!o.length&&!sn3.length)return'';
+return`<div class="card alr"><h2>Cần xử lý ngay</h2>${o.length?`<p><b>${o.length} nhiệm vụ quá hạn</b></p><ul>${o.slice(0,5).map(t=>`<li>${esc(t.title)} · hạn ${t.due}</li>`).join('')}</ul>`:''}${sn3.length?`<p><b>${sn3.length} nhiệm vụ sắp đến hạn (3 ngày tới)</b></p><ul>${sn3.slice(0,5).map(t=>`<li>${esc(t.title)} · hạn ${t.due}</li>`).join('')}</ul>`:''}</div>`}
+function lazy(){const m={};D.docs.filter(odDoc).forEach(d=>{(m[d.sid]=m[d.sid]||{})[d.tid]=d.tname});return m}
+function remindForm(){if(!canS())return;const m=lazy(),k=Object.keys(m);$('dlg').innerHTML=`<h2>Nhắc nhở hàng loạt</h2>${k.length?`<p>Giáo viên có hồ sơ quá hạn chưa nộp:</p><ul>${k.map(x=>`<li><b>${esc(sn(x))}</b>: ${Object.keys(m[x]).length} giáo viên</li>`).join('')}</ul><p class="note">Hệ thống tạo mỗi điểm trường một nhiệm vụ nhắc nhở, hạn sau 2 ngày, hiện trên chuông thông báo.</p>`:'<p>Hiện không có giáo viên nào quá hạn nộp hồ sơ.</p>'}<div class="bar"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Đóng</button>${k.length?'<button class="btn" onclick="remindAll()">Tạo nhiệm vụ nhắc nhở</button>':''}</div>`;$('dlg').showModal()}
+function remindAll(){if(!canS())return;const m=lazy();Object.keys(m).forEach(x=>{const n=Object.values(m[x]);D.tasks.unshift({id:uid('NV',D.tasks,2),title:'Nhắc nộp hồ sơ quá hạn: '+n.length+' giáo viên ('+n.slice(0,3).join(', ')+(n.length>3?'…':'')+')',sid:x,due:addD(TODAY,2),done:false,rm:nowTs().slice(0,16)})});aud('Tạo nhiệm vụ nhắc nhở hàng loạt');save();$('dlg').close();go(2);toast('Đã tạo nhiệm vụ nhắc nhở')}
+function nv(){const ts=tasksF().slice().sort((a,b)=>(a.done-b.done)||a.due.localeCompare(b.due)),c=canS();return filterBar()+nvAlert(ts)+`<div class="bar"><span class="sp"></span>${c?'<button class="btn g" onclick="remindForm()">Nhắc giáo viên chưa hoàn thành</button><button class="btn" onclick="taskForm()">+ Giao nhiệm vụ</button>':''}</div><div class="card">${ts.length?`<div class="tw"><table><tr><th>Nhiệm vụ</th><th>Điểm trường</th><th>Hạn</th><th>Trạng thái</th><th></th></tr>${ts.map(t=>`<tr><td>${esc(t.title)}</td><td>${t.sid=='all'?'Tất cả':esc(sn(t.sid))}</td><td>${t.due}</td><td>${t.done?pill('Hoàn thành','ok'):overdue(t)?pill('Quá hạn','er'):pill('Đang xử lý','wa')}</td><td>${!t.done&&canS()?`<button class="btn g" onclick="doneTask('${t.id}')">Hoàn thành</button>`:''}</td></tr>`).join('')}</table></div>`:'<div class="empty">Chưa có nhiệm vụ trong phạm vi lọc.</div>'}</div>`}
+function taskForm(){$('dlg').innerHTML=`<h2>Giao nhiệm vụ mới</h2><label for="k1">Tiêu đề</label><input id="k1"><label for="k2">Điểm trường</label><select id="k2">${opt([['all','Tất cả điểm trường'],...D.schools.filter(s=>s.active).map(s=>[s.id,s.name])],'all')}</select><label for="k3">Hạn nộp</label><input id="k3" type="date"><label for="k4">Hẹn giờ nhắc trên chuông thông báo (tùy chọn)</label><input id="k4" type="datetime-local"><div class="bar" style="margin-top:12px"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Hủy</button><button class="btn" onclick="saveTask()">Giao nhiệm vụ</button></div>`;$('dlg').showModal()}
+function saveTask(){const t=$('k1').value.trim(),d=$('k3').value;if(!t||!d)return toast('Hãy nhập tiêu đề và hạn nộp',1);D.tasks.unshift({id:uid('NV',D.tasks,2),title:t,sid:$('k2').value,due:d,done:false,rm:$('k4').value.replace('T',' ')});aud('Giao nhiệm vụ: '+t);save();$('dlg').close();go(2);toast('Đã giao nhiệm vụ')}
+function doneTask(id){const t=D.tasks.find(x=>x.id==id);if(!t||t.done||!canS())return;ask('Đánh dấu hoàn thành nhiệm vụ “'+t.title+'”?',()=>{t.done=true;t.doneBy=ME().n;t.doneAt=nowTs();aud('Hoàn thành nhiệm vụ: '+t.title);save();render();toast('Đã đánh dấu hoàn thành')})}
+/* Báo cáo, AI, cài đặt */
+function bcCharts(rs){const ds=docsF(),bar=(l,v)=>`<div class="bch"><span>${esc(l)}</span><i><b style="width:${v||0}%"></b></i><span>${fr(v)}</span></div>`,s=stats(ds),r=s.rate||0,WS=[-5,-4,-3,-2,-1,0].map(i=>CW+i),c=WS.map(w=>ds.filter(d=>d.ver.length&&wkOf(d.ver[0].at)==w).length),m=Math.max(1,...c);
+return`<div class="g2"><div class="card"><h2>Tỷ lệ hoàn thành theo điểm trường</h2>${rs.map(x=>bar(x.s.name,x.st.rate)).join('')}<h2 style="margin-top:14px">Theo tổ chuyên môn</h2>${TO.map(x=>bar(x,stats(ds.filter(d=>d.to==x)).rate)).join('')}</div><div class="card"><h2>Tổng quan nộp hồ sơ</h2><div class="bar"><div class="dn" style="background:conic-gradient(#10b981 0 ${r}%,#64748b ${r}% 100%)" role="img" aria-label="Đã nộp ${r}%"></div><div><b>${fr(s.rate)}</b> đã nộp<br><span class="note">${s.sub}/${s.n} hồ sơ</span></div></div><h2 style="margin-top:14px">Hồ sơ nộp theo tuần</h2>${WS.map((w,i)=>`<div class="bch"><span>Tuần ${w}</span><i><b style="width:${Math.round(c[i]/m*100)}%"></b></i><span>${c[i]}</span></div>`).join('')}</div></div>`}
+function bc(){const rs=rows();return filterBar()+`<div class="bar"><span class="sp"></span><button class="btn g" onclick="copyCsv('s')">Tải bảng (CSV/Excel)</button></div>${bcCharts(rs)}<div class="card"><h2>So sánh điểm trường</h2>${rs.length?schoolTable(rs):'<div class="empty">Chưa có dữ liệu</div>'}</div><div class="card"><h2>Số hồ sơ theo trạng thái</h2><div class="tw"><table><tr><th>Điểm trường</th>${ALLST.map(x=>`<th>${x}</th>`).join('')}</tr>${rs.map(r=>`<tr><td>${esc(r.s.name)}</td>${ALLST.map(x=>`<td>${cnt(r.ds,x)}</td>`).join('')}</tr>`).join('')}</table></div></div>`}
+function ai(){const q=D.docs.filter(d=>d.st=='Đang rà soát'&&(role!='gv'||d.tid==R.gv.tid)&&(role!='tt'||d.to==ttTo));
+return`<div class="card"><h2>Quy trình rà soát có AI (thí điểm 29/10)</h2><ol><li>Tổ trưởng bấm <b>Sao chép câu lệnh rà soát</b>.</li><li>Mở Gemini bằng tài khoản Google của trường, dán câu lệnh rồi tải kế hoạch bài dạy lên (hoặc dán nội dung vào cuối câu lệnh).</li><li>Chọn hồ sơ trong danh sách bên dưới, dán nhận xét của Gemini vào phiếu rà soát.</li><li>Tổ trưởng đọc lại, tích Đạt/Chưa đạt từng tiêu chí, sửa chỗ AI sai rồi bấm <b>Xác nhận</b>. Có xác nhận mới gửi được nhận xét cho giáo viên.</li></ol><div class="bar"><input id="pm" placeholder="Môn / lớp / bài" oninput="pu()" style="flex:1;min-width:180px" aria-label="Môn, lớp, bài"><select id="ph" onchange="pu()" aria-label="Lớp có học sinh khuyết tật"><option value="">Lớp có HSKT?</option><option>Có</option><option>Không</option></select><select id="pd" onchange="pu()" aria-label="Bài đã dạy chưa"><option value="">Bài đã dạy?</option><option>Đã dạy</option><option>Chưa dạy</option></select></div><div class="bar"><button class="btn" onclick="cp()">Sao chép câu lệnh rà soát</button></div><p class="note">Điền 3 ô trên (nếu không điền, tổ trưởng điền tay trong Gemini) rồi sao chép.</p><details><summary>Xem câu lệnh</summary><textarea id="pt" readonly rows="10" style="width:100%">${esc(PR)}</textarea></details><p class="note">Web không tự gọi AI và không tạo nhận xét. AI chạy trong Gemini; web chỉ lưu kết quả do tổ trưởng dán vào, sửa và xác nhận.</p></div>
+<div class="card"><h2>Bốn điều bắt buộc khi dùng (theo Quy tắc sử dụng AI của trường)</h2><ul><li>Chỉ dùng công cụ trong danh mục Hiệu trưởng đã phê duyệt (Điều 9).</li><li>Xóa tên học sinh, giáo viên, đồng nghiệp và thông tin nhận dạng khác trong bài trước khi tải lên (Điều 5, 10).</li><li>Tổ trưởng đọc lại toàn bộ kết quả, sửa chỗ AI sai rồi mới gửi giáo viên. Thời gian đọc và sửa được tính vào số phút “có AI” (Điều 3, 5, 11).</li><li>Ghi lại số nhận định AI sai: đây là số liệu chứng minh “AI có trách nhiệm”. Kết quả AI không dùng để chấm điểm hay xếp loại giáo viên (Điều 4).</li></ul></div>
+<div class="card"><h2>Hồ sơ đang rà soát (${q.length})</h2>${q.length?`<div class="tw"><table><tr><th>Hồ sơ</th><th>Người nộp</th><th>Điểm trường</th><th>Phiếu rà soát</th></tr>${q.slice(0,15).map(d=>`<tr class="cl" tabindex="0" onkeydown="if(event.key=='Enter')rv('${d.id}')" onclick="rv('${d.id}')"><td>${esc(d.name)}</td><td>${esc(d.tname)}</td><td>${esc(sn(d.sid))}</td><td>${d.rv&&d.rv.ok?pill('Đã xác nhận','ok'):d.rv?pill('Đang soạn','wa'):pill('Chưa có','mu')}</td></tr>`).join('')}</table></div>${q.length>15?`<p class="note">Đang hiện 15/${q.length} hồ sơ; dùng bộ lọc ở trang Hồ sơ chuyên môn để xem thêm.</p>`:''}`:'<div class="empty">Chưa có hồ sơ ở trạng thái Đang rà soát. Tổ trưởng bấm “Bắt đầu rà soát” trong hồ sơ đã nộp.</div>'}</div>`}
+function rv(id){const d=doc(id),r=d.rv||{c:[],ai:'',min:'',gem:'',wrong:'',note:'',ok:false},ed=role=='tt'&&d.st=='Đang rà soát',dis=ed?'':'disabled';
+$('dlg').innerHTML=`<h2>Phiếu rà soát: ${esc(d.name)}</h2><p class="note">${esc(d.tname)} · ${esc(sn(d.sid))} · ${esc(d.to)}</p>${ed?'':'<p class="note">Chỉ tổ trưởng được ghi phiếu khi hồ sơ đang ở trạng thái Đang rà soát.</p>'}
+<label for="r1">Có dùng AI: Có/Không</label><select id="r1" ${dis}>${opt([['','— Chọn —'],['Có','Có'],['Không','Không']],r.ai)}</select>
+<label for="r2">Thời gian rà soát (phút)</label><input id="r2" type="number" min="0" max="600" value="${esc(r.min)}" ${dis}>
+<label for="r3">Nhận xét của Gemini (dán vào; nếu không dùng AI thì để trống)</label><textarea id="r3" rows="5" ${dis}>${esc(r.gem)}</textarea>${ed?'<div class="bar"><button class="btn g" onclick="rvParse()">Điền 9 tiêu chí từ dòng KQ</button></div>':''}
+<label for="r4">Số nhận định AI sai (sau khi tổ trưởng đọc lại)</label><input id="r4" type="number" min="0" value="${esc(r.wrong)}" ${dis}>
+<h3>Đánh giá theo 9 tiêu chí</h3>${CR.map((x,i)=>`<div class="cr"><span>${i+1}. ${esc(x[0])}</span><select id="c${i}" aria-label="Tiêu chí ${i+1}" ${dis}>${opt([['','—'],['d','Đạt'],['c','Chưa đạt'],['k','Không áp dụng']],r.c[i]||'')}</select></div>`).join('')}
+<label for="r5">Nhận xét gửi giáo viên (tổ trưởng viết hoặc sửa lại)</label><textarea id="r5" rows="4" ${dis}>${esc(r.note)}</textarea>
+${r.ok?`<p class="note">Đã xác nhận bởi ${esc(r.by)} lúc ${esc(r.at)}. Gửi giáo viên bằng thao tác “Yêu cầu chỉnh sửa” hoặc “Chuyển chờ duyệt” trong hồ sơ.</p>`:''}
+<div class="bar" style="margin-top:12px"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Đóng</button><button class="btn g" onclick="openDoc('${d.id}')">Mở hồ sơ</button>${ed?`<button class="btn g" onclick="rvSave('${d.id}',0)">Lưu nháp</button><button class="btn" onclick="rvSave('${d.id}',1)">Xác nhận đã đọc và sửa</button>`:''}</div>`;$('dlg').showModal()}
+function rvSave(id,ok){const d=doc(id);if(role!='tt'||d.st!='Đang rà soát')return;const v=k=>$(k).value.trim(),c=CR.map((_,i)=>$('c'+i).value),r={ai:v('r1'),min:v('r2'),gem:v('r3'),wrong:v('r4'),note:v('r5'),c};
+if(r.min!==''&&(isNaN(r.min)||+r.min<0||+r.min>600))return toast('Thời gian rà soát phải là số phút từ 0 đến 600',1);
+if(r.wrong!==''&&(isNaN(r.wrong)||+r.wrong<0))return toast('Số nhận định AI sai phải là số không âm',1);
+if(ok){if(!r.ai)return toast('Hãy chọn có dùng AI hay không',1);if(r.min==='')return toast('Hãy nhập thời gian rà soát (phút)',1);if(r.ai=='Có'&&(!r.gem||r.wrong===''))return toast('Có dùng AI: hãy dán nhận xét của Gemini và ghi số nhận định AI sai (có thể là 0)',1);if(d.ty==TY[0]&&c.includes(''))return toast('Hãy tích Đạt/Chưa đạt cho cả 9 tiêu chí',1)}
+d.rv=Object.assign(r,{ver:d.ver.length,ok:!!ok,by:ME().n,at:nowTs()});if(ok)d.log.push({at:nowTs(),by:ME().n+' ('+ME().l+')',act:'Xác nhận phiếu rà soát (Có dùng AI: '+r.ai+', '+r.min+' phút)',note:''});
+aud((ok?'Xác nhận':'Lưu nháp')+' phiếu rà soát: '+d.name);save();$('dlg').close();render();toast(ok?'Đã xác nhận phiếu rà soát':'Đã lưu nháp phiếu')}
+function tc(){const c=critStat(docsF());return`<div class="card"><h2>Bộ tiêu chí rà soát kế hoạch bài dạy (9 tiêu chí)</h2><div class="tw"><table><tr><th>#</th><th>Tiêu chí</th><th>Đạt khi</th><th>Đạt / đã đánh giá</th></tr>${CR.map((x,i)=>`<tr><td>${i+1}</td><td style="white-space:normal"><b>${esc(x[0])}</b></td><td style="white-space:normal;min-width:320px">${esc(x[1])}</td><td>${c.per[i][1]?c.per[i][0]+'/'+c.per[i][1]:'—'}</td></tr>`).join('')}</table></div><p class="note">Tỷ lệ đạt chung: ${fr(c.rate)}${c.t?' ('+c.p+'/'+c.t+')':''}. Tính từ các phiếu rà soát đã được tổ trưởng xác nhận; tổ trưởng tích từng tiêu chí trong phiếu ở mục AI rà soát hồ sơ.</p></div>`}
+function sb(){const a=document.querySelector('.app');a.classList.toggle('sc');try{localStorage.setItem('edm-sb',a.classList.contains('sc')?'1':'')}catch(e){}}
+const uid=(p,a,w)=>{let m=0;a.forEach(x=>{const n=parseInt(String(x.id).slice(p.length),10);if(n>m)m=n});return p+String(m+1).padStart(w,'0')};
+const EV={sh:{t:'Sinh hoạt chuyên môn',ST:['Kế hoạch','Đã diễn ra','Đã có biên bản'],F:[['title','Nội dung sinh hoạt','i'],['date','Ngày giờ','dt'],['place','Địa điểm','i'],['att','Thành phần tham dự','i'],['goal','Mục tiêu','t'],['concl','Kết luận và biên bản','t'],['follow','Nhiệm vụ sau buổi sinh hoạt (người phụ trách, hạn)','t']]},dg:{t:'Dự giờ',ST:['Kế hoạch','Đã dự giờ','Đã trao đổi sau dự giờ'],F:[['teacher','Giáo viên được dự giờ','i'],['obs','Người dự giờ','i'],['subj','Môn học, lớp','i'],['date','Ngày dự giờ','d'],['pro','Điểm mạnh','t'],['imp','Điểm cần điều chỉnh','t'],['sup','Đề xuất hỗ trợ và minh chứng','t'],['follow','Trao đổi và theo dõi sau dự giờ','t']]}};
+const gvTo=()=>(D.teachers.find(t=>t.id==R.gv.tid)||{}).to;
+function evList(k){return(D.events||[]).filter(e=>e.k==k&&(!fl.sid||e.sid==fl.sid)&&(!fl.to||e.to==fl.to)&&(role!='tt'||e.to==ttTo)&&(role!='gv'||(k=='dg'?e.teacher==R.gv.n:e.to==gvTo())))}
+function ev(k){const c=EV[k],l=evList(k).sort((a,b)=>(b.date||'').localeCompare(a.date||''));return`<div class="bar"><select aria-label="Điểm trường" onchange="fl.sid=this.value;render()">${opt([['','Tất cả điểm trường'],...D.schools.map(x=>[x.id,x.name])],fl.sid)}</select>${role=='tt'?'':`<select aria-label="Tổ chuyên môn" onchange="fl.to=this.value;render()">${opt([['','Tất cả tổ'],...TO.map(x=>[x,x])],fl.to)}</select>`}<span class="sp"></span><button class="btn g" onclick="expE('${k}')">Xuất CSV</button>${role=='gv'?'':`<button class="btn" onclick="evForm('${k}')">+ Thêm</button>`}</div><div class="card">${l.length?`<div class="tw"><table><tr><th>Ngày</th><th>${k=='sh'?'Nội dung':'Giáo viên và môn học'}</th><th>Điểm trường</th><th>Tổ</th><th>Trạng thái</th>${k=='sh'?'<th>Xác nhận Tổ trưởng</th>':''}</tr>${l.map(e=>`<tr class="cl" tabindex="0" onkeydown="if(event.key=='Enter')evForm('${k}','${e.id}')" onclick="evForm('${k}','${e.id}')"><td>${esc(e.date||'—')}</td><td>${esc(k=='sh'?e.title:(e.teacher||'')+' · '+(e.subj||''))}</td><td>${esc(sn(e.sid))}</td><td>${esc(e.to)}</td><td>${pill(e.st,e.st==c.ST[0]?'wa':'ok')}</td>${k=='sh'?`<td>${e.sig?esc(e.sig.by)+' · '+esc(e.sig.at):'Chưa xác nhận'}</td>`:''}</tr>`).join('')}</table></div>`:'<div class="empty">Chưa có dữ liệu. Bấm “+ Thêm” để ghi nhận.</div>'}<p class="note">Mục này chỉ ghi nhận thông tin; hệ thống không tự chấm điểm hay xếp loại giáo viên.</p></div>`}
+const DGC=['Mục tiêu bài học rõ ràng, phù hợp học sinh','Nội dung đúng yêu cầu cần đạt của chương trình','Phương pháp, hình thức tổ chức phù hợp','Học sinh tham gia hoạt động tích cực','Sử dụng thiết bị, học liệu hiệu quả','Quản lý lớp học, nề nếp tốt','Kiểm tra đánh giá, phản hồi kịp thời','Quan tâm học sinh cần hỗ trợ (kể cả HSKT)'],KWP=['Tổ chức lớp học linh hoạt','Học sinh hứng thú','Lời giảng rõ ràng','Phân hóa tốt'],KWI=['Cần tăng thời gian học sinh nói','Cần đa dạng hoạt động','Quản lý thời gian chưa hợp lý','Cần hỗ trợ học sinh yếu'];
+function dgBlock(e,d){const kw=(id,a)=>a.map(x=>`<button type="button" class="btn g" ${d} onclick="kwAdd('${id}','${x}')">${x}</button>`).join('');
+return`<h3>Phiếu dự giờ điện tử: tích tiêu chí đạt</h3>${DGC.map((t,i)=>`<label class="ck"><input type="checkbox" class="dgc" ${(e.cr||'')[i]=='1'?'checked':''} ${d}> ${t}</label>`).join('')}<p class="note">Từ khóa nhanh cho điểm mạnh</p><div class="bar">${kw('e_pro',KWP)}<button type="button" class="btn g" ${d} onclick="mic('e_pro')">🎤 Nói</button></div><p class="note">Từ khóa nhanh cho điểm cần điều chỉnh</p><div class="bar">${kw('e_imp',KWI)}<button type="button" class="btn g" ${d} onclick="mic('e_imp')">🎤 Nói</button></div>`}
+function kwAdd(id,t){const x=$(id);x.value=(x.value?x.value.replace(/\s*$/,'; '):'')+t}
+function mic(id){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return toast('Trình duyệt này chưa hỗ trợ nhập bằng giọng nói. Hãy dùng micro của bàn phím điện thoại.',1);const r=new SR();r.lang='vi-VN';r.onresult=z=>{const x=$(id);x.value=(x.value?x.value+' ':'')+z.results[0][0].transcript};r.onerror=()=>toast('Không nhận được giọng nói',1);r.start();toast('Đang nghe…')}
+function shSig(e){if(!e.id)return'';const can=role=='tt'&&e.to==ttTo;return`<p>${e.sig?`<b>Đã xác nhận điện tử:</b> ${esc(e.sig.by)} lúc ${esc(e.sig.at)}`:'<span class="note">Chưa có xác nhận của Tổ trưởng.</span>'}</p>${can?`<button type="button" class="btn g" onclick="sigEv('${e.id}')">${e.sig?'Xác nhận lại':'Tổ trưởng xác nhận biên bản'}</button>`:''}`}
+function sigEv(id){const e=(D.events||[]).find(x=>x.id==id);if(!e||role!='tt'||e.to!=ttTo)return;e.sig={by:ME().n,at:nowTs().slice(0,16)};aud('Tổ trưởng xác nhận biên bản: '+(e.title||e.id));save();$('dlg').close();render();toast('Đã xác nhận')}
+function evForm(k,id){const c=EV[k],e=(D.events||[]).find(x=>x.id==id)||{st:c.ST[0],sid:D.schools[0].id,to:role=='tt'?ttTo:TO[0]},ro=role=='gv'||(role=='tt'&&e.to!=ttTo),d=ro?'disabled':'';
+$('dlg').innerHTML=`<h2>${c.t}</h2>${c.F.map(f=>`<label for="e_${f[0]}">${f[1]}</label>${f[2]=='t'?`<textarea id="e_${f[0]}" rows="3" ${d}>${esc(e[f[0]])}</textarea>`:`<input id="e_${f[0]}" type="${f[2]=='i'?'text':f[2]=='d'?'date':'datetime-local'}" value="${esc(e[f[0]])}" ${d}>`}`).join('')}${k=='dg'?dgBlock(e,d):''}${k=='sh'?shSig(e):''}<label for="e_sid">Điểm trường</label><select id="e_sid" ${d}>${opt(D.schools.map(s=>[s.id,s.name]),e.sid)}</select><label for="e_to">Tổ chuyên môn</label><select id="e_to" ${d||role=='tt'?'disabled':''}>${opt(TO.map(x=>[x,x]),e.to)}</select><label for="e_st">Trạng thái</label><select id="e_st" ${d}>${opt(c.ST.map(x=>[x,x]),e.st)}</select><div class="bar" style="margin-top:12px"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Đóng</button>${ro?'':`<button class="btn" onclick="evSave('${k}','${id||''}')">Lưu</button>`}</div>`;$('dlg').showModal()}
+function evSave(k,id){if(role=='gv')return;const c=EV[k];D.events=D.events||[];const e=D.events.find(x=>x.id==id);if(e&&role=='tt'&&e.to!=ttTo)return;const v=f=>$('e_'+f).value.trim(),n={k,sid:v('sid'),to:role=='tt'?ttTo:v('to'),st:v('st')};c.F.forEach(f=>n[f[0]]=v(f[0]));if(k=='dg')n.cr=[...document.querySelectorAll('.dgc')].map(x=>x.checked?1:0).join('');
+if(!n[c.F[0][0]]||!n.date)return toast('Hãy nhập '+c.F[0][1].toLowerCase()+' và ngày',1);
+if(e){Object.assign(e,n);delete e.sig}else D.events.push(Object.assign({id:uid('SK',D.events,3)},n));aud('Lưu '+c.t+': '+n[c.F[0][0]]);save();$('dlg').close();render();toast('Đã lưu')}
+function usr(){if(role!='bgh'&&role!='ad')return empty('Quản lý người dùng','Chỉ Cán bộ quản lý và Quản trị viên được quản lý danh sách giáo viên. Chưa có đăng nhập; vai trò chỉ để xem thử.');
+const q=(hf.tq||'').toLowerCase(),a=D.teachers.filter(t=>!q||(t.name+t.id).toLowerCase().includes(q)),l=a.slice(0,50);
+return`<div class="bar"><input id="q" placeholder="Tìm theo tên hoặc mã giáo viên" value="${esc(hf.tq||'')}" oninput="hf.tq=this.value;render(1)" aria-label="Tìm giáo viên"><span class="sp"></span><button class="btn g" onclick="expT()">Xuất danh sách (CSV)</button><button class="btn g" onclick="impForm()">Nhập danh sách (CSV)</button><button class="btn" onclick="tForm()">+ Thêm giáo viên</button></div><div class="card"><div class="tw"><table><tr><th>Mã</th><th>Họ tên</th><th>Tổ</th><th>Điểm trường</th><th>Hồ sơ</th><th>Trạng thái</th></tr>${l.map(t=>`<tr class="cl" tabindex="0" onkeydown="if(event.key=='Enter')tForm('${t.id}')" onclick="tForm('${t.id}')"><td>${t.id}</td><td>${esc(t.name)}</td><td>${esc(t.to)}</td><td>${esc(sn(t.sid))}</td><td>${D.docs.filter(d=>d.tid==t.id).length}</td><td>${t.active===false?pill('Ngừng','er'):pill('Đang công tác','ok')}</td></tr>`).join('')}</table></div><p class="note">Hiện ${l.length}/${a.length} giáo viên (tối đa 50 dòng; dùng ô tìm kiếm để thu hẹp). Danh sách này là dữ liệu mẫu cho đến khi nhập danh sách thật. Chưa có tài khoản đăng nhập.</p></div>`}
+function tForm(id){const t=D.teachers.find(x=>x.id==id)||{name:'',to:TO[0],sid:D.schools[0].id,active:true};
+$('dlg').innerHTML=`<h2>${id?'Sửa':'Thêm'} giáo viên</h2><label for="t1">Họ tên</label><input id="t1" value="${esc(t.name)}"><label for="t2">Tổ chuyên môn</label><select id="t2">${opt(TO.map(x=>[x,x]),t.to)}</select><label for="t3">Điểm trường</label><select id="t3">${opt(D.schools.filter(s=>s.active||s.id==t.sid).map(s=>[s.id,s.name]),t.sid)}</select><label for="t4">Trạng thái công tác</label><select id="t4">${opt([['1','Đang công tác'],['0','Ngừng']],t.active===false?'0':'1')}</select><p class="note">Chuyển tổ hoặc điểm trường không làm mất hồ sơ cũ: mỗi hồ sơ giữ tổ và điểm trường tại thời điểm nộp.</p><div class="bar"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Hủy</button><button class="btn" onclick="tSave('${id||''}')">Lưu</button></div>`;$('dlg').showModal()}
+function tSave(id){const n=$('t1').value.trim();if(!n)return toast('Hãy nhập họ tên',1);const o={name:n,to:$('t2').value,sid:$('t3').value,active:$('t4').value=='1'};
+if(D.teachers.some(x=>x.id!=id&&x.name.toLowerCase()==n.toLowerCase()&&x.sid==o.sid&&x.to==o.to))return toast('Đã có giáo viên trùng họ tên, tổ và điểm trường',1);
+const t=D.teachers.find(x=>x.id==id);if(t){const ch=t.to!=o.to||t.sid!=o.sid;Object.assign(t,o);aud('Sửa giáo viên: '+n+(ch?' (chuyển tổ/điểm trường)':''))}else{D.teachers.push(Object.assign({id:uid('GV',D.teachers,3)},o));aud('Thêm giáo viên: '+n)}save();$('dlg').close();render();toast('Đã lưu giáo viên')}
+function impForm(){$('dlg').innerHTML=`<h2>Nhập danh sách giáo viên</h2><p class="note">Mỗi dòng một giáo viên: Họ tên; Tổ; Mã điểm trường. Dòng trùng họ tên-tổ-điểm trường, sai tên tổ hoặc sai mã điểm trường sẽ bị bỏ qua và được báo lại.</p><textarea id="im" rows="8" placeholder="Nguyễn Văn A;${esc(TO[0])};${esc(D.schools[0].code)}"></textarea><input id="imf" type="file" accept=".csv,.txt" onchange="const f=this.files[0];if(f&&f.size<2e6){const r=new FileReader();r.onload=()=>$('im').value=r.result;r.readAsText(f)}"><div class="bar" style="margin-top:12px"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Hủy</button><button class="btn" onclick="impDo()">Nhập</button></div>`;$('dlg').showModal()}
+function impDo(){const L=$('im').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean),bad=[];let ok=0;L.forEach((ln,i)=>{const[n,to,cd]=ln.split(/[;\t,]/).map(x=>x.trim()),s=D.schools.find(x=>x.code.toLowerCase()==(cd||'').toLowerCase());if(i==0&&/họ tên/i.test(n))return;
+if(!n||!TO.includes(to)||!s||D.teachers.some(x=>x.name.toLowerCase()==n.toLowerCase()&&x.sid==s.id&&x.to==to)){bad.push(i+1);return}
+D.teachers.push({id:uid('GV',D.teachers,3),name:n,to,sid:s.id,active:true});ok++});aud('Nhập danh sách giáo viên: '+ok+' dòng hợp lệ');save();$('dlg').close();render();toast('Đã nhập '+ok+' giáo viên'+(bad.length?'; bỏ qua dòng '+bad.slice(0,10).join(', '):''),!ok)}
+const MH=()=>D.mode=='that'?'':' · số liệu minh hoạ';
+function errCard(){return`<div class="card"><h2>Dữ liệu đã lưu bị lỗi, chưa bị ghi đè</h2><p>${esc(LOADERR)}</p><p>Bản gốc vẫn nằm nguyên trong trình duyệt (và có một bản sao ở khóa edm-corrupt). Ứng dụng đang tạm hiển thị dữ liệu mẫu và <b>không lưu</b> thay đổi cho đến khi bạn chọn cách xử lý:</p><div class="bar"><button class="btn g" onclick="dl('du-lieu-loi.json',RAW||'','application/json')">Tải bản gốc bị lỗi</button><label class="btn g" style="display:inline-block;margin:0">Khôi phục từ tệp sao lưu<input type="file" accept=".json,application/json" hidden onchange="restore(this)"></label><button class="btn g" onclick="resetData()">Bỏ dữ liệu lỗi, bắt đầu bằng dữ liệu mẫu</button></div></div>`}
+function csvOut(name,rows){const q=a=>a.map(r=>r.map(c=>'"'+String(c==null?'':c).replace(/"/g,'""')+'"').join(',')).join('\r\n');return dl(name,'\uFEFF'+q([['Xuất lúc '+nowTs()+' · '+(D.mode=='that'?'dữ liệu thật':'dữ liệu mẫu')],...rows]),'text/csv;charset=utf-8')?toast('Đã tạo tệp '+name):toast('Trình duyệt không tạo được tệp',1)}
+function expT(){csvOut('giao-vien.csv',[['Mã','Họ tên','Tổ','Điểm trường','Trạng thái'],...D.teachers.map(t=>[t.id,t.name,t.to,sn(t.sid),t.active===false?'Ngừng':'Đang công tác'])])}
+function expE(k){csvOut(k=='sh'?'sinh-hoat.csv':'du-gio.csv',[['Mã',...EV[k].F.map(f=>f[1]),'Điểm trường','Tổ','Trạng thái'],...evList(k).map(e=>[e.id,...EV[k].F.map(f=>e[f[0]]||''),sn(e.sid),e.to,e.st])])}
+function startReal(){ask('Chuyển sang dữ liệu thật: xóa toàn bộ giáo viên, hồ sơ, nhiệm vụ, sinh hoạt, dự giờ và phiếu mẫu hiện có, chỉ giữ các điểm trường. Hệ thống giữ một bản trước khi xóa, nhưng bạn nên tải bản sao lưu trước. Tiếp tục?',()=>{prev();D={v:3,mode:'that',events:[],pilot:{},upd:nowTs(),lib:[],schools:D.schools.map(s=>({...s,hist:[{at:TODAY,by:ME().n,act:'Bắt đầu dùng dữ liệu thật'}]})),teachers:[],docs:[],tasks:[],audit:[]};selId=null;aud('Bắt đầu dùng dữ liệu thật');save();render();toast('Đã chuyển sang dữ liệu thật. Hãy thêm giáo viên ở mục Quản lý người dùng.')})}
+const ICN=['🏫','👩‍🏫','📁','📤','📥','🔍','✏️','✅','⏳','📌','📊','🎯','🧾','⚠️'];
+const heroC=()=>`<div class="hero"><b>Xin chào, ${esc(ME().n)}</b><small>${esc(ME().l)} · Năm học 2026–2027 · Học kỳ I · tuần T${CW} · ${D.mode=='that'?'dữ liệu thật':'dữ liệu mẫu'}</small></div>`;
+const buildPR=()=>PR.replace('[điền]',($('pm')||{}).value||'[điền]').replace('[Có / Không]',($('ph')||{}).value||'[Có / Không]').replace('[Đã dạy / Chưa dạy]',($('pd')||{}).value||'[Đã dạy / Chưa dạy]');
+const pu=()=>{const t=$('pt');if(t)t.value=buildPR()};
+function rvParse(){const t=$('r3').value,i=t.lastIndexOf('KQ:');if(i<0)return toast('Không thấy dòng “KQ:” trong nhận xét đã dán',1);const mp={'Đ':'d','C':'c','K':'k'},o={},re=/(\d)\s*=\s*([ĐCKđck])/g,ln=t.slice(i).split('\n')[0];let m;while((m=re.exec(ln)))o[m[1]]=mp[m[2].toUpperCase()];
+if(Object.keys(o).length!=9||!CR.every((_,j)=>o[j+1]))return toast('Dòng KQ phải đủ 9 tiêu chí (1–9), mỗi tiêu chí là Đ, C hoặc K',1);CR.forEach((_,j)=>$('c'+j).value=o[j+1]);toast('Đã điền 9 tiêu chí từ dòng KQ. Tổ trưởng đọc lại và sửa trước khi xác nhận.')}
+function cfg(){return`<div class="card"><h2>Thông tin hệ thống</h2><p>Trường Tiểu học Đỗ Thúc Tịnh · Năm học 2026–2027 · Học kỳ I · ${D.schools.length} điểm trường</p><p class="note">Dữ liệu (${D.mode=='that'?'thật':'mẫu'}) chỉ được lưu trong trình duyệt và thiết bị này${persistOK?'':' (hiện không lưu được, dữ liệu sẽ mất khi tải lại trang)'}. Không dùng cho dữ liệu học sinh hoặc dữ liệu nhạy cảm.</p>${canS()?'<button class="btn g" onclick="backup()">Tải bản sao lưu (JSON)</button> ':''}${role=='ad'?'<label class="btn g" style="display:inline-block;margin:0">Khôi phục từ tệp<input type="file" accept=".json,application/json" hidden onchange="restore(this)"></label> <button class="btn g" onclick="resetData()">Đặt lại dữ liệu mẫu</button> <button class="btn" onclick="startReal()">Bắt đầu dùng dữ liệu thật</button>':''}</div><div class="card"><h2>Phân quyền theo vai trò</h2><div class="tw"><table><tr><th>Vai trò</th><th>Quyền chính</th></tr><tr><td>Cán bộ quản lý (Hiệu trưởng, Phó Hiệu trưởng, phụ trách phân hiệu)</td><td>Xem toàn trường, phê duyệt hoặc từ chối hồ sơ, giao nhiệm vụ, quản lý điểm trường và giáo viên, sao lưu</td></tr><tr><td>Tổ trưởng chuyên môn</td><td>Tiếp nhận, rà soát (phiếu 9 tiêu chí), gửi duyệt hồ sơ của tổ; xác nhận biên bản; ghi phiếu dự giờ</td></tr><tr><td>Giáo viên</td><td>Tạo, nộp, thu hồi hồ sơ của mình; xem nhận xét và nhiệm vụ</td></tr><tr><td>Quản trị viên</td><td>Quản lý dữ liệu hệ thống, sao lưu, khôi phục; không xử lý hồ sơ chuyên môn</td></tr></table></div><p class="note">Chưa có đăng nhập; vai trò chỉ để xem thử. Cần máy chủ nếu muốn khóa tài khoản thật.</p></div><div class="card"><h2>Nhật ký thao tác</h2>${canS()?'<button class="btn g" onclick="expAudit()">Tải nhật ký (CSV)</button>':''}${D.audit.length?`<div class="tw"><table><tr><th>Thời điểm</th><th>Người thực hiện</th><th>Thao tác</th></tr>${D.audit.slice(0,100).map(a=>`<tr><td>${a.at}</td><td>${esc(a.by)} (${esc(a.role)})</td><td>${esc(a.act)}</td></tr>`).join('')}</table></div>`:'<div class="empty">Chưa có thao tác nào được ghi nhận.</div>'}</div>`}
+function expAudit(){if(!canS())return;csvOut('nhat-ky-thao-tac.csv',[['Thời điểm','Người thực hiện','Vai trò','Thao tác'],...D.audit.map(a=>[a.at,a.by,a.role,a.act])])}
+function resetData(){ask('Đặt lại toàn bộ dữ liệu về dữ liệu mẫu ban đầu? Thao tác này không hoàn tác được.',()=>{if(!LOADERR)prev();try{localStorage.removeItem(KEY)}catch(e){}LOADERR='';D=seed();selId=null;aud('Đặt lại dữ liệu mẫu');save();render();toast('Đã đặt lại dữ liệu mẫu')})}
+function dl(name,text,type){try{const a=document.createElement('a'),u=URL.createObjectURL(new Blob([text],{type}));a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000);return true}catch(e){return false}}
+function copyCsv(k){const q=a=>a.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\r\n'),sc=`Phạm vi: ${fl.sid?sn(fl.sid):'mọi điểm trường'}; ${fl.to||'mọi tổ'}; tháng ${fl.mo||'mọi'}; hạn từ ${fl.df||'—'} đến ${fl.dt||'—'}${k=='h'?'; trạng thái '+(hf.st||'mọi'):''}; xuất lúc ${nowTs()}`;
+const a=k=='h'?[['Mã','Tên','Loại','Người nộp','Điểm trường','Tổ','Hạn','Trạng thái','Quá hạn','Số phiên bản'],...hdocs().map(d=>[d.id,d.name,d.ty,d.tname,sn(d.sid),d.to,d.due||'',d.st,odDoc(d)?'Có':'Không',d.ver.length])]:[['Điểm trường','Giáo viên','Hồ sơ cần nộp','Đã nộp','Chờ duyệt','Đã duyệt','Cần chỉnh sửa','Hồ sơ quá hạn','Nhiệm vụ quá hạn'],...rows().map(r=>[r.s.name,r.gv,r.st.n,r.st.sub,r.st.wait,r.st.ap,r.st.fix,r.st.od,r.od])];
+if(dl(k=='h'?'ho-so.csv':'tong-hop.csv','\uFEFF'+q([[sc],...a]),'text/csv;charset=utf-8'))toast('Đã tạo tệp CSV ('+(a.length-1)+' dòng)');else toast('Trình duyệt không tạo được tệp CSV',1)}
+function backup(){dl('edumanage-v5-'+TODAY+'.json',JSON.stringify(D,null,1),'application/json')?toast('Đã tạo tệp sao lưu'):toast('Trình duyệt không tạo được tệp sao lưu',1)}
+function restore(i){const f=i.files[0];if(!f)return;if(f.size>5e6)return toast('Tệp quá lớn (tối đa 5 MB)',1);const r=new FileReader();r.onerror=()=>toast('Không đọc được tệp',1);r.onload=()=>{let x;try{x=migrate(JSON.parse(r.result))}catch(e){return toast('Tệp không phải JSON hợp lệ',1)}const er=validate(x);if(er)return toast('Không khôi phục: '+er,1);ask('Thay toàn bộ dữ liệu hiện tại bằng dữ liệu trong tệp '+f.name+'? Nên tải bản sao lưu hiện tại trước; hệ thống cũng giữ một bản trước khi thay.',()=>{if(!LOADERR)prev();D=x;LOADERR='';selId=null;aud('Khôi phục dữ liệu từ tệp sao lưu');save();render();toast('Đã khôi phục dữ liệu')})};r.readAsText(f);i.value=''}
+function notes(){const L=[],w=cnt(D.docs,'Chờ duyệt'),o=D.tasks.filter(t=>overdue(t)&&(role!='gv'||t.sid=='all'||t.sid==gvSid())).length,f=D.docs.filter(d=>d.st=='Cần chỉnh sửa'&&d.tid==R.gv.tid).length;
+if(role=='bgh'&&w)L.push([`${w} hồ sơ chờ Cán bộ quản lý phê duyệt`,"hf.st='Chờ duyệt';hf.ty='';go(3)"]);if(role=='tt'){const n=D.docs.filter(d=>d.st=='Đã nộp'&&d.to==ttTo).length;if(n)L.push([n+' hồ sơ đã nộp chờ tiếp nhận rà soát',"hf.st='Đã nộp';hf.ty='';go(3)"])}if(o)L.push([`${o} nhiệm vụ quá hạn`,'go(2)']);if(role=='gv'&&f)L.push([`${f} hồ sơ của bạn cần chỉnh sửa`,"hf.st='Cần chỉnh sửa';hf.ty='';go(3)"]);nt2(L);return L}
+function nt2(L){if(role=='bgh'||role=='tt'){const n=(D.lib||[]).filter(x=>x.st=='Chờ duyệt'&&(role=='bgh'||x.to==ttTo)).length;if(n)L.push([n+' học liệu chờ duyệt','go(11)'])}const v=t=>!t.done&&(role!='gv'||t.sid=='all'||t.sid==gvSid()),now=nowTs().slice(0,16),a=D.tasks.filter(t=>v(t)&&!overdue(t)&&t.due<=addD(TODAY,3)).length;if(a)L.push([a+' nhiệm vụ sắp đến hạn (3 ngày tới)','go(2)']);D.tasks.filter(t=>v(t)&&t.rm&&t.rm<=now).slice(0,3).forEach(t=>L.push(['Nhắc: '+t.title,'go(2)']))}
+function bell(){const L=notes();
+$('dlg').innerHTML=`<h2>Thông báo</h2>${L.length?`<ul>${L.map(x=>`<li><a class="l" onclick="$('dlg').close();${x[1]}">${x[0]}</a></li>`).join('')}</ul>`:'<p class="note">Không có thông báo mới.</p>'}<div class="bar"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Đóng</button></div>`;$('dlg').showModal()}
+/* Điều hướng */
+const GR=[['Điều hành',[[0,'📊','Tổng quan'],[1,'🏫','Quản lý 4 điểm trường'],[2,'📌','Giao nhiệm vụ']]],['Chuyên môn',[[3,'📁','Hồ sơ chuyên môn'],[4,'🤖','AI rà soát hồ sơ'],[5,'👥','Sinh hoạt chuyên môn'],[6,'🎓','Dự giờ và đánh giá'],[11,'📚','Kho học liệu'],[7,'📈','Báo cáo – Thống kê']]],['Hệ thống',[[8,'✅','Bộ tiêu chí chuyên môn'],[9,'👤','Quản lý người dùng'],[10,'⚙️','Cài đặt hệ thống']]]];
+const LB={};GR.forEach(g=>g[1].forEach(i=>LB[i[0]]=i[2]));
+const VW={0:dash,1:truong,2:nv,3:hoso,4:ai,5:()=>ev('sh'),6:()=>ev('dg'),7:bc,8:tc,9:usr,10:cfg,11:lib};
+
+const LG=['Lớp 1','Lớp 2','Lớp 3','Lớp 4','Lớp 5'],LS=['Toán','Tiếng Việt','Tự nhiên và Xã hội','Khoa học','Lịch sử và Địa lí','Tin học','Ngoại ngữ','Đạo đức','Hoạt động trải nghiệm','Khác'],LF=['Giáo án','Slide','Video bài giảng','Ngân hàng đề kiểm tra','Sáng kiến kinh nghiệm / Chuyên đề'];
+let lf={q:'',g:'',s:'',f:'',o:'dl',wk:Math.max(1,CW)};
+const avgR=x=>{const v=Object.values(x.rt||{});return v.length?v.reduce((a,b)=>a+b,0)/v.length:0},nR=x=>Object.keys(x.rt||{}).length,stars=n=>'★'.repeat(Math.round(n))+'☆'.repeat(5-Math.round(n));
+function seedLib(){const a=(t,au,sid,to,g,sj,f,dl,rt,wk,pv,st)=>({title:t,author:au,sid,to,grade:g,subj:sj,fmt:f,dl,rt,wk,pv,st:st||'Đã duyệt',at:TODAY,url:'',chk:[],mod:st=='Chờ duyệt'?null:{by:'Tổ trưởng',at:TODAY,note:''},smp:1});
+return[a('Giáo án Toán 2 – Phép cộng có nhớ trong phạm vi 100','Nguyễn Thị Lan','DT01','Tổ 2','Lớp 2','Toán','Giáo án',46,{p:5,q:4,r:5},7,'Yêu cầu cần đạt: thực hiện được phép cộng có nhớ. Hoạt động: khởi động, khám phá, luyện tập, vận dụng.'),
+a('Slide Tiếng Anh 5 – Unit 3 Where did you go on holiday?','Phạm Thị Ngọc Bích','DT01','Tổ 5','Lớp 5','Ngoại ngữ','Slide',38,{p:5,q:5},7,'Slide gồm từ vựng, mẫu câu quá khứ đơn, trò chơi ôn tập.'),
+a('Ngân hàng đề kiểm tra giữa kỳ I – Tiếng Việt 3','Lê Thị Hoa','DT02','Tổ 3','Lớp 3','Tiếng Việt','Ngân hàng đề kiểm tra',61,{p:4,q:4,r:5,s:4},6,'10 đề đọc hiểu và luyện từ, câu, có đáp án.'),
+a('Video bài giảng Khoa học 5 – Sự sinh sản của thực vật','Trần Thị Mỹ Hạnh','DT04','Tổ 5','Lớp 5','Khoa học','Video bài giảng',24,{p:4,q:5},8,'Video 12 phút, có câu hỏi dừng để thảo luận.'),
+a('Sáng kiến: Trò chơi hóa hoạt động khởi động môn Toán lớp 1','Nguyễn Thị Thuý Hằng','DT03','Tổ 1','Lớp 1','Toán','Sáng kiến kinh nghiệm / Chuyên đề',19,{p:5,q:4},0,'Tóm tắt: 8 trò chơi khởi động, kết quả áp dụng sau 6 tuần.'),
+a('Giáo án Tin học 4 – Soạn thảo văn bản','Nguyễn Thị Lan','DT01','Tổ 4','Lớp 4','Tin học','Giáo án',0,{},7,'Bài soạn 2 tiết, thiếu phần đánh giá.','Chờ duyệt'),
+a('Slide Hoạt động trải nghiệm 4 – Chủ đề tháng 10','Lê Thị Hoa','DT02','Tổ 4','Lớp 4','Hoạt động trải nghiệm','Slide',0,{},6,'Slide 14 trang, có hoạt động nhóm.','Chờ duyệt')].map((x,i)=>({...x,id:'HL'+String(i+1).padStart(3,'0')}))}
+const canMod=x=>role=='bgh'||(role=='tt'&&x.to==ttTo);
+function libChk(x){const w=[],n=z=>z.toLowerCase().replace(/\s+/g,' ').trim();if((D.lib||[]).some(y=>y.id!=x.id&&n(y.title)==n(x.title)))w.push('Trùng tiêu đề với học liệu đã có');if(!x.url&&!x.pv)w.push('Chưa có đường dẫn hoặc nội dung');if(x.fmt=='Giáo án'&&x.pv&&!/yêu cầu cần đạt|năng lực|phẩm chất/i.test(x.pv))w.push('Giáo án chưa thấy cụm yêu cầu cần đạt, năng lực hoặc phẩm chất (CT GDPT 2018)');if(/\s[,.;:!?]/.test(x.pv||''))w.push('Có khoảng trắng thừa trước dấu câu');return w}
+function libBadge(x){return x.st=='Đã duyệt'?'<span class="bd">✔ Tổ trưởng/CBQL đã duyệt</span>':x.st=='Từ chối'?pill('Từ chối','er'):pill('Chờ duyệt','wa')}
+function libCard(x){return`<div class="card lc"><h3>${esc(x.title)}</h3><span class="note">${esc(x.author)} · ${esc(sn(x.sid))} · ${esc(x.to)}</span><span class="note">${esc(x.grade)} · ${esc(x.subj)} · ${esc(x.fmt)}${x.wk?' · tuần '+x.wk:''}</span><span><span class="stv" aria-label="${avgR(x).toFixed(1)} sao">${stars(avgR(x))}</span> <span class="note">${nR(x)?avgR(x).toFixed(1)+' ('+nR(x)+' lượt)':'chưa có đánh giá'} · ${x.dl} lượt tải</span></span><span>${libBadge(x)}${(x.chk||[]).length?` <span class="bd" title="${esc(x.chk.join('; '))}">⚠ ${x.chk.length} lưu ý</span>`:''}</span><div class="bar"><button class="btn g" onclick="libPrev('${x.id}')">Xem trước</button><button class="btn g" ${x.st!='Đã duyệt'?'disabled':''} onclick="libDl('${x.id}')">Tải về</button></div></div>`}
+function lib(){const L=D.lib||[],vis=x=>x.st=='Đã duyệt'||canMod(x)||(role=='gv'&&x.author==R.gv.n),q=lf.q.toLowerCase(),
+ls=L.filter(x=>vis(x)&&(!lf.g||x.grade==lf.g)&&(!lf.s||x.subj==lf.s)&&(!lf.f||x.fmt==lf.f)&&(!q||(x.title+x.author).toLowerCase().includes(q))).sort((a,b)=>lf.o=='rate'?avgR(b)-avgR(a):lf.o=='new'?b.id.localeCompare(a.id):b.dl-a.dl),
+ap=L.filter(x=>x.st=='Đã duyệt'),pend=L.filter(x=>x.st=='Chờ duyệt'&&canMod(x)),
+sg=ap.filter(x=>x.wk==lf.wk).sort((a,b)=>avgR(b)-avgR(a)).slice(0,3),sg2=sg.length?sg:ap.slice().sort((a,b)=>avgR(b)-avgR(a)).slice(0,3);
+return`<div class="bar"><input id="q" placeholder="Tìm theo tên tài liệu hoặc tác giả" value="${esc(lf.q)}" oninput="lf.q=this.value;render(1)" aria-label="Tìm học liệu" style="flex:1;min-width:180px"><select aria-label="Môn học" onchange="lf.s=this.value;render()">${opt([['','Mọi môn'],...LS.map(x=>[x,x])],lf.s)}</select><select aria-label="Định dạng" onchange="lf.f=this.value;render()">${opt([['','Mọi định dạng'],...LF.map(x=>[x,x])],lf.f)}</select><select aria-label="Sắp xếp" onchange="lf.o=this.value;render()">${opt([['dl','Nhiều lượt tải'],['rate','Đánh giá cao'],['new','Mới đóng góp']],lf.o)}</select>${role!='ad'?'<button class="btn" onclick="libForm()">+ Đóng góp tài nguyên</button>':''}</div>
+<div class="chips" role="group" aria-label="Khối lớp">${[['','Tất cả khối'],...LG.map(x=>[x,x])].map(x=>`<button class="${lf.g==x[0]?'on':''}" onclick="lf.g='${x[0]}';render()">${x[1]}</button>`).join('')}</div>
+<div class="card"><div class="bar"><h2 style="margin:0">Gợi ý học liệu cho tuần</h2><input type="number" min="1" max="35" value="${lf.wk}" style="width:70px" aria-label="Tuần" onchange="lf.wk=+this.value||1;render()"></div>${sg.length?'':'<p class="note">Chưa có học liệu gắn tuần này, hiển thị học liệu nổi bật.</p>'}${sg2.length?`<ul>${sg2.map(x=>`<li><a class="l" onclick="libPrev('${x.id}')">${esc(x.title)}</a> <span class="stv">${stars(avgR(x))}</span></li>`).join('')}</ul>`:'<p class="note">Chưa có học liệu đã duyệt.</p>'}</div>
+${pend.length?`<div class="card"><h2>Chờ kiểm duyệt (${pend.length})</h2><ul>${pend.map(x=>`<li><a class="l" onclick="libPrev('${x.id}')">${esc(x.title)}</a> · ${esc(x.author)}${(x.chk||[]).length?' · ⚠ '+x.chk.length+' lưu ý':''}</li>`).join('')}</ul></div>`:''}
+<div class="g2">${ls.length?ls.map(libCard).join(''):'<div class="card empty">Không có học liệu phù hợp. Hãy bỏ bớt bộ lọc hoặc đóng góp tài nguyên mới.</div>'}</div>${role=='bgh'||role=='tt'||role=='ad'?libStats():''}`}
+function libStats(){const L=(D.lib||[]).filter(x=>x.st!='Từ chối'),m=TODAY.slice(0,7),cm=L.filter(x=>x.at.slice(0,7)==m),mx=Math.max(1,...D.schools.map(s=>cm.filter(x=>x.sid==s.id).length),...TO.map(t=>cm.filter(x=>x.to==t).length)),b=(l,n)=>`<div class="bch"><span>${esc(l)}</span><i><b style="width:${Math.round(n/mx*100)}%"></b></i><span>${n}</span></div>`,ap=L.filter(x=>x.st=='Đã duyệt'),top=(f,k)=>ap.slice().sort((a,c)=>f(c)-f(a)).slice(0,3).map(x=>`<li>${esc(x.title)} · ${esc(x.author)} · ${k(x)}</li>`).join('');
+return`<div class="g2"><div class="card"><h2>Đóng góp học liệu tháng ${m.slice(5)}</h2><p class="note">Theo điểm trường</p>${D.schools.map(s=>b(s.name,cm.filter(x=>x.sid==s.id).length)).join('')}<p class="note">Theo tổ chuyên môn</p>${TO.map(t=>b(t,cm.filter(x=>x.to==t).length)).join('')}</div><div class="card"><h2>Điển hình tiên tiến</h2><p class="note">Nhiều lượt tải nhất</p><ol>${top(x=>x.dl,x=>x.dl+' lượt')}</ol><p class="note">Đánh giá cao nhất</p><ol>${top(x=>nR(x)>=2?avgR(x):0,x=>avgR(x).toFixed(1)+' sao ('+nR(x)+' lượt)')}</ol></div></div>`}
+function libPrev(id){const x=(D.lib||[]).find(z=>z.id==id);if(!x)return;const ok=/^https?:\/\//.test(x.url||''),mod=x.st=='Chờ duyệt'&&canMod(x);
+$('dlg').innerHTML=`<h2>${esc(x.title)}</h2><p>${libBadge(x)} ${esc(x.grade)} · ${esc(x.subj)} · ${esc(x.fmt)}</p><p class="note">${esc(x.author)} · ${esc(sn(x.sid))} · ${esc(x.to)} · đóng góp ${x.at}${x.file?' · tệp '+esc(x.file)+' (chỉ lưu tên)':''}</p><div class="pv">${x.pv?esc(x.pv):'<span class="note">Chưa có nội dung xem trước.</span>'}</div>${ok?`<p><a class="l" href="${esc(x.url)}" target="_blank" rel="noopener">Mở tài liệu</a></p>`:''}
+${(x.chk||[]).length?`<h3>Kiểm tra tự động cơ bản</h3><ul>${x.chk.map(w=>`<li>${esc(w)}</li>`).join('')}</ul><p class="note">Đây là kiểm tra theo quy tắc đơn giản, không phải AI; tổ trưởng cần đọc lại.</p>`:''}
+${x.st=='Đã duyệt'?`<p>Đánh giá của bạn: ${[1,2,3,4,5].map(v=>`<button class="btn g" onclick="libRate('${x.id}',${v})" aria-label="${v} sao">${(x.rt||{})[ME().n]>=v?'★':'☆'}${v}</button>`).join(' ')}</p>`:''}
+${mod?`<label for="lmn">Nhận xét kiểm duyệt (bắt buộc khi từ chối)</label><textarea id="lmn" rows="2"></textarea><div class="bar" style="margin-top:8px"><button class="btn" onclick="libMod('${x.id}',1)">Phê duyệt</button><button class="btn g" onclick="libMod('${x.id}',0)">Từ chối</button></div>`:''}${x.mod&&x.mod.note?`<p class="note">Nhận xét kiểm duyệt: ${esc(x.mod.note)}</p>`:''}
+<div class="bar" style="margin-top:10px"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Đóng</button>${x.st=='Đã duyệt'?`<button class="btn" onclick="libDl('${x.id}')">Tải về</button>`:''}</div>`;$('dlg').showModal()}
+function libDl(id){const x=(D.lib||[]).find(z=>z.id==id);if(!x||x.st!='Đã duyệt')return;x.dl++;aud('Tải học liệu: '+x.title);save();if(/^https?:\/\//.test(x.url||''))window.open(x.url,'_blank','noopener');else dl((x.title.replace(/[^\wÀ-ỹ]+/g,'_').slice(0,50)||'hoc-lieu')+'.txt','\uFEFF'+x.title+'\n'+x.author+'\n\n'+(x.pv||''),'text/plain;charset=utf-8');render()}
+function libRate(id,v){const x=(D.lib||[]).find(z=>z.id==id);if(!x||x.st!='Đã duyệt')return;(x.rt=x.rt||{})[ME().n]=v;aud('Đánh giá học liệu '+v+' sao: '+x.title);save();libPrev(id);render();toast('Đã ghi nhận đánh giá')}
+function libMod(id,ok){const x=(D.lib||[]).find(z=>z.id==id),n=$('lmn').value.trim();if(!x||x.st!='Chờ duyệt'||!canMod(x))return;if(!ok&&!n)return toast('Hãy nhập lý do từ chối',1);x.st=ok?'Đã duyệt':'Từ chối';x.mod={by:ME().n,at:nowTs().slice(0,16),note:n};aud((ok?'Phê duyệt':'Từ chối')+' học liệu: '+x.title);save();$('dlg').close();render();toast(ok?'Đã đưa vào kho chung':'Đã từ chối')}
+function libForm(){if(role=='ad')return;const sid=role=='gv'?gvSid():mgSid,to=role=='gv'?gvTo():role=='tt'?ttTo:TO[0],lock=role=='gv'?'disabled':'';
+$('dlg').innerHTML=`<h2>Đóng góp tài nguyên</h2><label for="h6">Chọn tệp (hệ thống nhận diện định dạng, chỉ lưu tên tệp)</label><input id="h6" type="file" onchange="libFile(this)"><label for="h1">Tiêu đề</label><input id="h1"><label for="h2">Khối lớp</label><select id="h2">${opt(LG.map(x=>[x,x]),'')}</select><label for="h3">Môn học</label><select id="h3">${opt(LS.map(x=>[x,x]),'')}</select><label for="h4">Định dạng</label><select id="h4">${opt(LF.map(x=>[x,x]),'')}</select><label for="h5">Gắn với tuần (tùy chọn)</label><input id="h5" type="number" min="1" max="35"><label for="h7">Điểm trường</label><select id="h7" ${lock}>${opt(D.schools.map(x=>[x.id,x.name]),sid)}</select><label for="h8">Tổ chuyên môn</label><select id="h8" ${lock||role=='tt'?'disabled':''}>${opt(TO.map(x=>[x,x]),to)}</select><label for="h9">Đường dẫn (Q.DOC, Drive...)</label><input id="h9" placeholder="https://..."><label for="h10">Nội dung hoặc tóm tắt (để xem trước)</label><textarea id="h10" rows="4"></textarea><div class="bar" style="margin-top:12px"><span class="sp"></span><button class="btn g" onclick="$('dlg').close()">Hủy</button><button class="btn" onclick="libSave()">Gửi</button></div>`;$('dlg').showModal()}
+function libFile(i){const f=i.files[0];if(!f)return;const e=(f.name.split('.').pop()||'').toLowerCase(),m={ppt:1,pptx:1,key:1,doc:0,docx:0,pdf:0,mp4:2,mov:2,webm:2,xls:3,xlsx:3}[e];if(m!=null)$('h4').value=LF[m];if(!$('h1').value)$('h1').value=f.name.replace(/\.[^.]+$/,'');$('h1').dataset.f=f.name}
+function libSave(){const t=$('h1').value.trim(),u=$('h9').value.trim();if(!t)return toast('Hãy nhập tiêu đề',1);if(u&&!/^https?:\/\//.test(u))return toast('Đường dẫn phải bắt đầu bằng http:// hoặc https://',1);
+const x={id:uid('HL',D.lib,3),title:t,author:ME().n,sid:$('h7').value,to:$('h8').value,grade:$('h2').value,subj:$('h3').value,fmt:$('h4').value,dl:0,rt:{},wk:+$('h5').value||0,pv:$('h10').value.trim().slice(0,6000),url:u,file:$('h1').dataset.f||'',st:'Chờ duyệt',at:TODAY,mod:null};x.chk=libChk(x);D.lib.unshift(x);aud('Đóng góp học liệu: '+t);save();$('dlg').close();render();toast('Đã gửi, chờ Tổ trưởng duyệt')}
+function setRole(v){role=v;selId=null;fl.to='';render()}
+function setMg(v){mgSid=v;render()}
+function nav(i){cur=i;selId=null;hf.pg=1;hf.q='';if([3,5,6].includes(i)){hf.st='';hf.ty=i==5?TY[2]:i==6?TY[3]:''}render()}
+function go(i){cur=i;render()}
+function render(keep){$('nav').innerHTML=GR.map(g=>`<div class="ng">${g[0]}</div>`+g[1].map(i=>`<button class="${i[0]==cur?'on':''}" onclick="nav(${i[0]})">${i[1]} ${i[2]}</button>`).join('')).join('');
+$('v').innerHTML=LOADERR?errCard():`<h2>${LB[cur]}</h2>`+VW[cur]();const m=ME();$('un').textContent=m.n;$('ul').textContent=m.l;$('av').textContent=m.av||m.n.trim().split(' ').pop()[0].toUpperCase();$('mg').style.display=role=='bgh'?'':'none';$('mg').innerHTML=opt(D.schools.filter(x=>x.pt).map(x=>[x.id,x.pt+' – '+x.name]),mgSid);$('tt2').style.display=role=='tt'?'':'none';$('tt2').innerHTML=opt(TO.map(x=>[x,x]),ttTo);
+$('rl').value=role;$('bc').textContent=notes().length||'';$('ban').textContent='V5 · '+(D.mode=='that'?'DỮ LIỆU THẬT':'DỮ LIỆU MẪU (số liệu minh hoạ)')+', chỉ lưu trên trình duyệt và thiết bị này. Chưa có đăng nhập hay máy chủ; web không tự gọi AI, việc rà soát có AI thực hiện trong Gemini của trường. Vai trò phía trên chỉ để xem thử, không phải xác thực.'+(persistOK?'':' Trình duyệt không cho lưu dữ liệu, thay đổi sẽ mất khi tải lại.');
+if(keep){const q=$('q');if(q){q.focus();q.setSelectionRange(q.value.length,q.value.length)}}}
+try{const t=localStorage.getItem('edm-theme');if(t)document.documentElement.dataset.theme=t;if(localStorage.getItem('edm-sb'))document.querySelector('.app').classList.add('sc')}catch(e){}
+save();render();
+</script><!-- ===== EduBot AI: trợ lý ảo nghiệp vụ (chạy hoàn toàn trên trình duyệt) ===== -->
+<style id="edubot-css">
+#edb{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:90;font-family:inherit}
+#edb-btn{display:flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:11px 18px;background:linear-gradient(110deg,#0e8f8a,#2f7fd1);color:#fff;font:inherit;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(14,143,138,.4)}
+#edb-btn:focus-visible,#edb-box button:focus-visible,#edb-in:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+#edb-box{display:none;flex-direction:column;width:min(380px,calc(100vw - 24px));height:min(560px,calc(100vh - 100px));background:var(--card);color:var(--tx);border:1px solid var(--ln);border-radius:14px;box-shadow:0 14px 36px rgba(0,0,0,.28);overflow:hidden}
+#edb.on #edb-box{display:flex}#edb.on #edb-btn{display:none}
+.edb-h{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(110deg,#0e8f8a,#2f7fd1);color:#fff}
+.edb-h b{display:block;font-size:15px}.edb-h small{opacity:.9;font-size:12px}.edb-h div{flex:1}
+.edb-h button{background:none;border:0;color:#fff;font-size:18px;cursor:pointer;padding:4px 8px;border-radius:6px}
+#edb-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--bg);font-size:14px}
+.edb-m{max-width:88%;padding:9px 12px;border-radius:12px;line-height:1.5;overflow-wrap:anywhere}
+.edb-m.b{background:var(--card);border:1px solid var(--ln);align-self:flex-start}
+.edb-m.u{background:var(--blue);color:#fff;align-self:flex-end}
+.edb-m p{margin:0 0 6px}.edb-m p:last-child{margin:0}.edb-m ol{margin:4px 0 6px;padding-left:20px}.edb-m li{margin:3px 0}
+.edb-a,.edb-chip{font:inherit;font-size:13px;cursor:pointer;border-radius:8px;border:1px solid var(--ln);background:var(--sel);color:var(--tx);padding:6px 10px;margin:4px 6px 0 0}
+.edb-a:hover,.edb-chip:hover{border-color:var(--blue)}
+.edb-row{display:block;width:100%;text-align:left;font:inherit;font-size:13px;cursor:pointer;background:var(--card);color:var(--tx);border:1px solid var(--ln);border-radius:8px;padding:7px 9px;margin-top:5px}
+.edb-row:hover{border-color:var(--blue)}.edb-row .note{display:block}
+#edb-chips{padding:6px 10px 0;background:var(--bg);border-top:1px solid var(--ln)}
+.edb-f{display:flex;gap:8px;padding:10px;border-top:1px solid var(--ln);background:var(--card)}
+#edb-in{flex:1;min-width:0;padding:9px 12px;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit;font-size:16px}
+#edb-send{border:0;border-radius:8px;padding:0 16px;background:var(--blue);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+#toast{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+@media print{#edb{display:none!important}}
+</style>
+<div id="edb">
+  <button id="edb-btn" aria-expanded="false" aria-controls="edb-box"><span aria-hidden="true">🤖</span> EduBot AI</button>
+  <section id="edb-box" role="dialog" aria-label="EduBot AI, trợ lý nghiệp vụ chuyên môn">
+    <div class="edb-h"><span aria-hidden="true" style="font-size:24px">🤖</span><div><b>EduBot AI</b><small>Hỗ trợ nghiệp vụ chuyên môn</small></div><button id="edb-x" aria-label="Đóng EduBot">✕</button></div>
+    <div id="edb-msgs" role="log" aria-live="polite"></div>
+    <div id="edb-chips"></div>
+    <div class="edb-f"><input id="edb-in" type="text" maxlength="500" placeholder="Nhập câu hỏi..." aria-label="Nhập câu hỏi cho EduBot" autocomplete="off"><button id="edb-send">Gửi</button></div>
+  </section>
+</div>
+<script>
+(()=>{
+const g=id=>document.getElementById(id),box=g('edb'),msgs=g('edb-msgs'),inp=g('edb-in'),chips=g('edb-chips');
+const nz=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d');
+let wantBug=false;
+const CHIPS=['Cách nộp sổ chủ nhiệm thế nào?','Hồ sơ của tôi hiện ra sao?','Xem lịch sử rà soát AI ở đâu?','Báo lỗi phần mềm'];
+chips.innerHTML=CHIPS.map(c=>`<button class="edb-chip" data-q="${esc(c)}">${esc(c)}</button>`).join('');
+
+function add(cls,html,txt){const m=document.createElement('div');m.className='edb-m '+cls;if(txt!=null)m.textContent=txt;else m.innerHTML=html;msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;return m}
+const btnGo=(i,l)=>`<button class="edb-a" data-go="${i}">${esc(l)}</button>`;
+
+/* 1. Hướng dẫn nghiệp vụ: bám đúng các màn hình và nút có trong hệ thống */
+const KB=[
+{k:['nop','tao ho so','so chu nhiem','gui ho so','nop ho so','giao an'],go:[3,'Mở Hồ sơ chuyên môn'],
+ a:'<p><b>Nộp hồ sơ (giáo viên):</b></p><ol><li>Vào <b>📁 Hồ sơ chuyên môn</b>, bấm <b>+ Tạo hồ sơ</b>.</li><li>Nhập tên hồ sơ, chọn loại (ví dụ <i>Sổ chủ nhiệm</i>), chọn tệp và hạn nộp rồi lưu.</li><li>Mở hồ sơ vừa tạo, dán đường dẫn Q.DOC nếu có, rồi bấm <b>Nộp hồ sơ</b>.</li></ol><p class="note">Hồ sơ ở trạng thái Chưa nộp, Bản nháp, Thu hồi hoặc Cần chỉnh sửa thì mới nộp được. Hệ thống chỉ lưu tên tệp, nên hãy để bản chính trên Q.DOC.</p>'},
+{k:['quy trinh','phe duyet','duyet ho so','ra soat','to truong','trang thai'],go:[3,'Mở Hồ sơ chuyên môn'],
+ a:'<p><b>Quy trình một hồ sơ:</b></p><ol><li>Giáo viên <b>Nộp hồ sơ</b>.</li><li>Tổ trưởng bấm <b>Bắt đầu rà soát</b>, hoàn tất phiếu 9 tiêu chí, rồi <b>Chuyển chờ duyệt</b> (hoặc <b>Yêu cầu chỉnh sửa</b>).</li><li>Cán bộ quản lý <b>Phê duyệt</b>, <b>Yêu cầu chỉnh sửa</b> hoặc <b>Từ chối</b>.</li></ol><p class="note">Nếu bị yêu cầu chỉnh sửa, giáo viên sửa rồi nộp lại. Hồ sơ đã duyệt vẫn có thể <b>Nộp phiên bản mới</b>.</p>'},
+{k:['lich su','xem lich su','nhat ky','ai ra soat','cua ai','gemini','phieu ra soat'],go:[4,'Mở AI rà soát hồ sơ'],go2:[10,'Mở Cài đặt (Nhật ký)'],
+ a:'<p>Mục <b>🤖 AI rà soát hồ sơ</b> liệt kê các hồ sơ đang rà soát; phiếu 9 tiêu chí do Tổ trưởng ghi và xác nhận. Mở một hồ sơ trong <b>📁 Hồ sơ chuyên môn</b> để xem <b>Lịch sử xử lý và phản hồi</b> của hồ sơ đó.</p><p class="note">Toàn bộ thao tác của mọi người nằm ở <b>⚙️ Cài đặt hệ thống → Nhật ký thao tác</b>. Lưu ý: web không tự gọi AI, việc rà soát bằng AI được thực hiện trong Gemini của trường.</p>'},
+{k:['thu hoi','rut lai'],go:[3,'Mở Hồ sơ chuyên môn'],a:'<p>Hồ sơ đang ở trạng thái <b>Đã nộp</b> (Tổ trưởng chưa tiếp nhận) thì giáo viên mở hồ sơ và bấm <b>Thu hồi hồ sơ</b> để sửa lại.</p>'},
+{k:['chinh sua','nop lai','phien ban'],go:[3,'Mở Hồ sơ chuyên môn'],a:'<p>Hồ sơ <b>Cần chỉnh sửa</b>: mở hồ sơ, đọc phần phản hồi trong <b>Lịch sử xử lý</b>, sửa rồi bấm <b>Nộp hồ sơ</b>. Hồ sơ đã duyệt muốn cập nhật thì bấm <b>Nộp phiên bản mới</b>.</p>'},
+{k:['q.doc','qdoc','duong dan','link'],go:[3,'Mở Hồ sơ chuyên môn'],a:'<p>Mở hồ sơ, tìm ô <b>Đường dẫn trên Q.DOC</b>, dán đường dẫn (bắt đầu bằng https://) rồi bấm <b>Lưu</b>. Tên tệp nên đặt theo gợi ý ngay dưới ô đó.</p>'},
+{k:['sao luu','khoi phuc','backup','mat du lieu','xoa du lieu'],go:[10,'Mở Cài đặt hệ thống'],a:'<p>Dữ liệu chỉ lưu trong trình duyệt của thiết bị này. Vào <b>⚙️ Cài đặt hệ thống</b> bấm <b>Tải bản sao lưu (JSON)</b> định kỳ. Khôi phục từ tệp chỉ dành cho Quản trị viên.</p>'},
+{k:['nhiem vu','giao viec','giao nhiem vu'],go:[2,'Mở Giao nhiệm vụ'],a:'<p>Cán bộ quản lý và Quản trị viên vào <b>📌 Giao nhiệm vụ</b>, bấm <b>+ Giao nhiệm vụ</b>. Giáo viên xem nhiệm vụ của điểm trường mình ở cùng mục.</p>'},
+{k:['sinh hoat','bien ban'],go:[5,'Mở Sinh hoạt chuyên môn'],a:'<p>Vào <b>👥 Sinh hoạt chuyên môn</b>, bấm <b>+ Thêm</b> để ghi biên bản. Tổ trưởng của tổ đó bấm <b>Tổ trưởng xác nhận biên bản</b>.</p>'},
+{k:['du gio','danh gia gio'],go:[6,'Mở Dự giờ'],a:'<p>Vào <b>🎓 Dự giờ và đánh giá</b>, bấm <b>+ Thêm</b> để ghi phiếu dự giờ. Mục này chỉ ghi nhận, hệ thống không tự chấm điểm hay xếp loại giáo viên.</p>'},
+{k:['hoc lieu','kho','tai nguyen','dong gop'],go:[11,'Mở Kho học liệu'],a:'<p>Vào <b>📚 Kho học liệu</b>, bấm <b>+ Đóng góp tài nguyên</b>. Tài liệu hiển thị cho mọi người sau khi Tổ trưởng hoặc Cán bộ quản lý duyệt.</p>'},
+{k:['csv','xuat','tai bang','in trang'],a:'<p>Các bảng có nút <b>Tải CSV</b> hoặc <b>Xuất CSV</b>. Muốn in, bấm biểu tượng 🖨 trên thanh đầu trang.</p>'},
+{k:['vai tro','quyen','xem thu'],go:[10,'Xem phân quyền'],a:'<p>Hệ thống hiện chưa có đăng nhập; ô <b>Xem thử</b> trên đầu trang chỉ để chuyển vai trò xem giao diện. Bảng phân quyền chi tiết nằm ở <b>⚙️ Cài đặt hệ thống</b>.</p>'},
+{k:['thong bao','chuong'],a:'<p>Bấm biểu tượng <b>🔔</b> trên đầu trang để xem việc cần xử lý như hồ sơ chờ duyệt, nhiệm vụ sắp đến hạn.</p>'},
+{k:['che do toi','che do sang','giao dien'],a:'<p>Bấm biểu tượng <b>◐</b> trên đầu trang để đổi giữa chế độ sáng và tối.</p>'}
+];
+
+/* 2. Tra cứu nhanh hồ sơ theo vai trò đang xem */
+function lookup(t){
+ const pool=role=='gv'?D.docs.filter(d=>d.tid==R.gv.tid):role=='tt'?D.docs.filter(d=>d.to==ttTo):D.docs;
+ const who=role=='gv'?'của thầy/cô':role=='tt'?'của '+ttTo:'toàn trường';
+ const T=[[/ke hoach giao duc ca nhan|hskt|khuyet tat/,6],[/ke hoach bai day|giao an|khbd/,0],[/ke hoach giao duc/,1],[/bien ban|sinh hoat/,2],[/du gio/,3],[/bao cao/,4],[/so chu nhiem/,5]];
+ let ty='';for(const [re,i] of T)if(re.test(t)){ty=TY[i];break}
+ let ds=ty?pool.filter(d=>d.ty==ty):pool,when='',miss=false;
+ const wn=t.match(/tuan\s*(\d+)/);
+ if(wn){const n=+wn[1];ds=ds.filter(d=>(d.due&&wkOf(d.due)==n)||new RegExp('tuan\\s*'+n+'\\b').test(nz(d.name)));when=' tuần '+n}
+ else if(/tuan nay/.test(t)){ds=ds.filter(d=>d.due&&wkOf(d.due)==CW);when=' trong tuần này (T'+CW+')'}
+ else if(/qua han/.test(t)){ds=ds.filter(odDoc);when=' quá hạn'}
+ else if(/cho (phe )?duyet/.test(t)){ds=ds.filter(d=>d.st=='Chờ duyệt');when=' đang chờ duyệt'}
+ else if(/can chinh sua/.test(t)){ds=ds.filter(d=>d.st=='Cần chỉnh sửa');when=' cần chỉnh sửa'}
+ else if(/chua nop/.test(t)){ds=ds.filter(d=>d.st=='Chưa nộp');when=' chưa nộp'}
+ let note='';
+ if(!ds.length&&ty&&when){miss=true;note='<p class="note">Chưa có hồ sơ '+esc(ty.toLowerCase())+when+'. Các hồ sơ cùng loại hiện có:</p>';ds=pool.filter(d=>d.ty==ty)}
+ if(!ds.length)return'<p>Em chưa tìm thấy hồ sơ phù hợp '+who+(ty?' (loại '+esc(ty)+')':'')+'. Nếu chưa tạo, thầy/cô vào <b>📁 Hồ sơ chuyên môn → + Tạo hồ sơ</b> nhé.</p>';
+ ds=[...ds].sort((a,b)=>(b.due||'').localeCompare(a.due||''));
+ const sum=ALLST.map(s=>[s,cnt(ds,s)]).filter(x=>x[1]).map(x=>x[1]+' '+x[0].toLowerCase()).join(', ');
+ const head=miss?'':'<p>Em tìm thấy <b>'+ds.length+'</b> hồ sơ'+(ty?' '+esc(ty.toLowerCase()):'')+when+' '+who+': '+esc(sum)+'.</p>';
+ const rows=ds.slice(0,6).map(d=>`<button class="edb-row" data-doc="${esc(d.id)}">${esc(d.name)} ${pill(d.st)}<span class="note">${role=='gv'?'':esc(d.tname||'')+' · '}hạn ${esc(d.due||'không có')}</span></button>`).join('');
+ const more=ds.length>6?`<p class="note">Và ${ds.length-6} hồ sơ khác.</p>`:'';
+ return head+note+rows+more+`<p>${btnGo(3,'Mở danh sách đầy đủ').replace('data-go="3"','data-go="3" data-ty="'+esc(ty)+'"')}</p>`+(role=='gv'?'':'<p class="note">Bạn đang xem thử vai trò '+esc(R[role].l)+'.</p>');
+}
+
+/* 3. Ghi nhận lỗi: lưu trong dữ liệu ứng dụng (D.bugs), có trong bản sao lưu */
+function saveBug(text){
+ D.bugs=D.bugs||[];const n=D.bugs.length?Math.max(...D.bugs.map(b=>+String(b.id).slice(3)||0))+1:1;
+ const b={id:'LOI'+String(n).padStart(3,'0'),at:nowTs().slice(0,16),by:ME().n,role:ME().l,page:LB[cur]||'',text:text.slice(0,500),st:'Mới'};
+ D.bugs.unshift(b);D.bugs.splice(200);aud('Báo lỗi qua EduBot: '+b.id);save();return b}
+function bugList(){
+ const L=(D.bugs||[]);if(!L.length)return'<p>Chưa có báo lỗi nào.</p>';
+ return'<p>Có <b>'+L.filter(b=>b.st!='Đã xử lý').length+'</b> lỗi chưa xử lý (tổng '+L.length+'):</p>'+L.slice(0,5).map(b=>`<div class="edb-row" style="cursor:default"><b>${esc(b.id)}</b> ${pill(b.st,b.st=='Mới'?'wa':'ok')}<span class="note">${esc(b.at)} · ${esc(b.by)} · ${esc(b.page)}</span>${esc(b.text)}${b.st=='Mới'?` <button class="edb-a" data-fix="${esc(b.id)}">Đã xử lý</button>`:''}</div>`).join('')+'<p><button class="edb-a" data-csv="1">Tải danh sách lỗi (CSV)</button></p>'}
+
+function reply(raw){
+ const t=nz(raw);
+ if(wantBug){wantBug=false;if(/^(huy|thoi|khong)\b/.test(t))return'<p>Dạ, em đã huỷ báo lỗi ạ.</p>';const b=saveBug(raw);return'<p>Em đã ghi nhận lỗi <b>'+b.id+'</b> (màn hình “'+esc(b.page)+'”).</p><p class="note">Lỗi được lưu cùng dữ liệu của hệ thống trên thiết bị này; Quản trị viên xem bằng cách hỏi “danh sách lỗi”. Hãy gửi kèm bản sao lưu nếu cần chuyển cho bộ phận kỹ thuật.</p>'}
+ if(/danh sach loi|xem loi|loi da bao/.test(t))return role=='ad'||role=='bgh'?bugList():'<p>Danh sách lỗi chỉ dành cho Quản trị viên và Cán bộ quản lý ạ.</p>';
+ const help=/cach|lam sao|lam the nao|huong dan|o dau|the nao|nhu the nao/.test(t);
+ if(/bao loi|loi |bi loi|su co|\bhong\b|treo|khong (luu|mo|hien|bam|tai|hoat dong)/.test(t)&&!/lich su/.test(t)){
+  if(raw.length>=40){const b=saveBug(raw);return'<p>Em đã ghi nhận lỗi <b>'+b.id+'</b> (màn hình “'+esc(b.page)+'”). Cảm ơn thầy/cô ạ.</p><p class="note">Lỗi được lưu cùng dữ liệu trên thiết bị này.</p>'}
+  wantBug=true;return'<p>Thầy/cô mô tả giúp em: đang thao tác ở đâu, bấm gì và thấy hiện tượng gì ạ? (Gõ “huỷ” nếu không muốn báo.)</p>'}
+ if(!help&&/(da|duoc|chua).*(duyet|nop)|trang thai|tinh trang|cua toi|toi da|qua han|con thieu|cho (phe )?duyet|can chinh sua|ho so.*(tuan|thang)|tuan nay/.test(t))return lookup(t);
+ let best=null,sc=0;for(const e of KB){const s=e.k.filter(k=>t.includes(k)).length;if(s>sc){sc=s;best=e}}
+ if(best){let h=best.a;if(best.go)h+='<p>'+btnGo(best.go[0],best.go[1])+(best.go2?btnGo(best.go2[0],best.go2[1]):'')+'</p>';return h}
+ if(/xin chao|^chao|hello|^hi\b/.test(t))return'<p>Xin chào! EduBot có thể giúp gì cho nghiệp vụ chuyên môn hôm nay ạ?</p>';
+ if(/cam on|thanks/.test(t))return'<p>Dạ không có gì ạ!</p>';
+ return'<p>Em chưa hiểu rõ câu hỏi. Em hỗ trợ ba việc: <b>hướng dẫn nghiệp vụ</b> (nộp hồ sơ, quy trình duyệt, sao lưu...), <b>tra cứu hồ sơ</b> (“hồ sơ giáo án tuần này đã duyệt chưa?”) và <b>báo lỗi</b> phần mềm. Thầy/cô thử hỏi lại ngắn gọn giúp em nhé.</p>'}
+
+function send(q){const raw=(q||inp.value).trim();if(!raw)return;add('u',null,raw);inp.value='';chips.style.display='none';
+ setTimeout(()=>{let h;try{h=reply(raw)}catch(e){h='<p>Em gặp sự cố khi xử lý câu hỏi này. Thầy/cô thử diễn đạt lại hoặc báo lỗi giúp em ạ.</p>'}add('b',h)},250)}
+function setOpen(v){box.classList.toggle('on',v);g('edb-btn').setAttribute('aria-expanded',v);if(v)setTimeout(()=>inp.focus(),30);else g('edb-btn').focus()}
+
+g('edb-btn').onclick=()=>setOpen(true);g('edb-x').onclick=()=>setOpen(false);g('edb-send').onclick=()=>send();
+inp.addEventListener('keydown',e=>{if(e.key=='Enter'&&!e.isComposing){e.preventDefault();send()}});
+box.addEventListener('keydown',e=>{if(e.key=='Escape')setOpen(false)});
+box.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.q)send(b.dataset.q);
+ else if(b.dataset.go){const i=+b.dataset.go;if(b.dataset.ty!==undefined){nav(i);hf.ty=b.dataset.ty;hf.st='';render()}else nav(i);if(innerWidth<=820)setOpen(false)}
+ else if(b.dataset.doc){nav(3);openDoc(b.dataset.doc);if(innerWidth<=820)setOpen(false)}
+ else if(b.dataset.csv){csvOut('loi-he-thong.csv',[['Mã','Thời điểm','Người báo','Vai trò','Màn hình','Nội dung','Trạng thái'],...(D.bugs||[]).map(x=>[x.id,x.at,x.by,x.role,x.page,x.text,x.st])])}
+ else if(b.dataset.fix){const x=(D.bugs||[]).find(z=>z.id==b.dataset.fix);if(x&&(role=='ad'||role=='bgh')){x.st='Đã xử lý';aud('Đánh dấu đã xử lý lỗi '+x.id);save();b.closest('.edb-m').innerHTML=bugList()}}
+});
+add('b','<p>Xin chào! EduBot có thể giúp gì cho nghiệp vụ chuyên môn hôm nay ạ?</p>');
+})();
+</script>
+
+<!-- ===== Menu dọc trên điện thoại ===== -->
+<style id="mobile-menu-css">
+@media(max-width:820px){
+.app.sc aside{display:block}
+aside{padding:12px 14px}
+aside nav{display:none;flex-direction:column;gap:2px;overflow:visible;margin-top:6px}
+.app.mo aside nav{display:flex}
+aside .ng{display:block;padding:12px 12px 4px}
+aside nav button{width:100%;white-space:normal;padding:13px 14px;font-size:15px;border-radius:10px}
+.top>button.btn.g:first-child{font-weight:700;border-color:var(--blue);padding:10px 16px}
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style id="luxe">
+/* ===== EduManage AI – Giao diện Luxe: xanh ngọc đêm + vàng champagne ===== */
+:root{
+  --gold:#c8a15a;--gold2:#e8cf94;--gold-d:#9a7634;
+  --navy:#071f2b;--blue:#0b8a86;--blue2:#2a6fd0;
+  --bg:#f2f5f4;--card:#ffffff;--tx:#10242c;--mu:#5a6f78;--ln:#e3eaea;--sel:#e6f4f2;
+  --sh1:0 1px 2px rgba(7,31,43,.05),0 8px 24px -8px rgba(7,31,43,.10);
+  --sh2:0 2px 4px rgba(7,31,43,.06),0 18px 40px -12px rgba(7,31,43,.22);
+  --grad:linear-gradient(115deg,#0b8a86 0%,#1b78b8 60%,#2a6fd0 100%);
+  --fh:'Playfair Display','Be Vietnam Pro',Georgia,serif;
+}
+:root[data-theme="dark"]{
+  --bg:#06141b;--card:#0e222c;--tx:#e9f2f3;--mu:#8fa9b2;--ln:#1d3743;--sel:#12303b;
+  --gold:#e0bb72;--gold2:#f3dfae;
+  --sh1:0 1px 2px rgba(0,0,0,.3),0 8px 24px -8px rgba(0,0,0,.5);
+  --sh2:0 2px 4px rgba(0,0,0,.35),0 18px 40px -12px rgba(0,0,0,.6);
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#06141b;--card:#0e222c;--tx:#e9f2f3;--mu:#8fa9b2;--ln:#1d3743;--sel:#12303b;--gold:#e0bb72;--gold2:#f3dfae}}
+
+html{scroll-behavior:smooth}
+body{
+  font:14.5px/1.55 'Be Vietnam Pro',system-ui,Arial,sans-serif;letter-spacing:.005em;
+  background:
+    radial-gradient(1100px 520px at 88% -8%,rgba(11,138,134,.10),transparent 60%),
+    radial-gradient(900px 480px at -5% 105%,rgba(200,161,90,.10),transparent 60%),
+    var(--bg);
+  background-attachment:fixed;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(200,161,90,.35)}
+*{scrollbar-width:thin;scrollbar-color:rgba(120,150,160,.45) transparent}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:rgba(120,150,160,.4);border-radius:9px;border:2px solid transparent;background-clip:content-box}
+
+/* ---------- Thanh bên ---------- */
+aside{
+  background:
+    radial-gradient(420px 260px at 0% 0%,rgba(200,161,90,.16),transparent 70%),
+    radial-gradient(380px 300px at 100% 100%,rgba(11,138,134,.28),transparent 70%),
+    linear-gradient(185deg,#08222f 0%,#06192a 55%,#051420 100%);
+  border-right:1px solid rgba(200,161,90,.22);
+  box-shadow:6px 0 30px -12px rgba(5,20,32,.55);
+  padding:22px 14px;
+}
+.logo{
+  font-family:var(--fh);font-size:23px;font-weight:800;letter-spacing:.3px;line-height:1.1;
+  padding:6px 10px 18px;margin-bottom:6px;border-bottom:1px solid rgba(200,161,90,.25);position:relative;
+  background:linear-gradient(100deg,#fff 20%,var(--gold2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.logo small{
+  font-family:'Be Vietnam Pro',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.4px;margin-top:6px;
+  -webkit-text-fill-color:#9fb8c4;color:#9fb8c4;
+}
+.ng{
+  font-size:10.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold)!important;
+  padding:18px 12px 6px;display:flex;align-items:center;gap:8px;
+}
+.ng::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(200,161,90,.35),transparent)}
+nav button{
+  position:relative;color:#c4d6de;font-weight:500;padding:10px 14px;border-radius:12px;margin:2px 0;
+  transition:background .2s,color .2s,transform .2s,padding .2s;
+}
+nav button:hover{background:rgba(255,255,255,.07);color:#fff;transform:translateX(3px)}
+nav button.on{
+  color:#fff;font-weight:600;
+  background:linear-gradient(100deg,rgba(11,138,134,.95),rgba(42,111,208,.9));
+  box-shadow:0 8px 20px -6px rgba(11,138,134,.65),inset 0 1px 0 rgba(255,255,255,.18);
+}
+nav button.on::before{
+  content:"";position:absolute;left:-14px;top:22%;bottom:22%;width:4px;border-radius:0 4px 4px 0;
+  background:linear-gradient(180deg,var(--gold2),var(--gold));box-shadow:0 0 12px rgba(232,207,148,.7);
+}
+
+/* ---------- Thanh trên ---------- */
+.top{
+  background:rgba(255,255,255,.78);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);
+  border-bottom:1px solid rgba(200,161,90,.28);box-shadow:0 6px 24px -14px rgba(7,31,43,.3);padding:12px 26px;
+}
+:root[data-theme="dark"] .top{background:rgba(10,28,37,.78)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .top{background:rgba(10,28,37,.78)}}
+.top h1{font-family:var(--fh);font-size:21px;font-weight:700;letter-spacing:.2px;color:var(--navy)}
+:root[data-theme="dark"] .top h1{color:var(--gold2)}
+.top p{font-size:12.5px;letter-spacing:.3px}
+.who select{border-radius:12px;border:1px solid var(--ln);background-color:var(--card);font-weight:500;box-shadow:var(--sh1)}
+.who .btn.g{border-radius:12px;box-shadow:var(--sh1)}
+.av{
+  width:40px;height:40px;font-weight:700;font-size:15px;color:#fff;
+  background:var(--grad);box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--gold),0 8px 16px -6px rgba(11,138,134,.6);
+}
+.ban{
+  background:linear-gradient(90deg,#fff6df,#fdf0d0 60%,#fff6df);color:#8a5a08;font-weight:500;
+  border-bottom:1px solid rgba(200,161,90,.35);padding:9px 26px;
+}
+:root[data-theme="dark"] .ban{background:linear-gradient(90deg,#2b230d,#33290f);color:var(--gold2)}
+
+/* ---------- Nội dung ---------- */
+.ct{padding:24px 26px 90px;gap:20px;animation:luxeIn .5s ease both}
+.ct>h2{
+  font-family:var(--fh);font-size:27px;font-weight:700;color:var(--navy);letter-spacing:.2px;
+  display:flex;align-items:center;gap:14px;
+}
+.ct>h2::after{content:"";flex:0 0 70px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--gold),transparent)}
+:root[data-theme="dark"] .ct>h2{color:#fff}
+h2{font-family:var(--fh);font-weight:700;font-size:17px;letter-spacing:.15px}
+h3{font-weight:700;color:var(--blue)}
+@keyframes luxeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Banner chào mừng */
+.hero{
+  position:relative;overflow:hidden;border-radius:22px;padding:28px 32px;color:#fff;
+  background:
+    radial-gradient(520px 220px at 92% -20%,rgba(232,207,148,.40),transparent 65%),
+    radial-gradient(420px 260px at 8% 130%,rgba(255,255,255,.14),transparent 65%),
+    linear-gradient(115deg,#064e56 0%,#0b8a86 42%,#1f6fc0 100%);
+  box-shadow:0 22px 44px -18px rgba(11,138,134,.65),inset 0 1px 0 rgba(255,255,255,.22);
+  border:1px solid rgba(232,207,148,.35);
+}
+.hero::before{
+  content:"";position:absolute;right:-60px;top:-80px;width:260px;height:260px;border-radius:50%;
+  border:1px solid rgba(232,207,148,.45);box-shadow:0 0 0 28px rgba(232,207,148,.07),0 0 0 62px rgba(255,255,255,.04);
+}
+.hero::after{
+  content:"";position:absolute;left:32px;bottom:0;width:90px;height:3px;border-radius:3px;
+  background:linear-gradient(90deg,var(--gold2),transparent);
+}
+.hero b{font-family:var(--fh);font-size:27px;font-weight:700;letter-spacing:.3px;text-shadow:0 2px 12px rgba(0,0,0,.25);position:relative}
+.hero small{margin-top:6px;font-size:13px;opacity:.95;letter-spacing:.3px;position:relative}
+
+/* Thẻ */
+.card{
+  background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:20px;box-shadow:var(--sh1);
+  transition:box-shadow .25s,transform .25s,border-color .25s;
+}
+.card:hover{box-shadow:var(--sh2)}
+.card h2{position:relative;padding-bottom:10px;margin-bottom:14px}
+.card h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:2.5px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+
+/* Thẻ chỉ số */
+.kpis{gap:16px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.kpis button.kpi{
+  --c:#0b8a86;position:relative;overflow:hidden;border:1px solid var(--ln);border-left:1px solid var(--ln);
+  border-radius:20px;padding:18px 18px 16px;
+  background:
+    radial-gradient(160px 110px at 100% 0%,color-mix(in srgb,var(--c) 14%,transparent),transparent 70%),
+    var(--card);
+  box-shadow:var(--sh1);transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.kpis button.kpi::before{
+  content:"";position:absolute;left:0;top:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--c),color-mix(in srgb,var(--c) 40%,#fff));
+}
+.kpis button.kpi:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--c) 55%,var(--ln));box-shadow:0 20px 38px -16px color-mix(in srgb,var(--c) 55%,transparent)}
+.kpis button.kpi b{
+  font-family:var(--fh);font-size:34px;font-weight:800;letter-spacing:-.5px;margin:6px 0 4px;color:var(--c);
+}
+.kpi span{color:var(--tx);font-size:13px;font-weight:600;letter-spacing:.1px}
+.kpi small{color:var(--mu);font-size:11.8px;line-height:1.35;display:block}
+.kpis button.kpi .ic{
+  width:42px;height:42px;border-radius:14px;font-size:20px;margin-left:8px;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--c) 20%,transparent),color-mix(in srgb,var(--c) 6%,transparent));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 22%,transparent);
+}
+:root[data-theme="dark"] .kpis button.kpi:nth-child(n){filter:none}
+
+/* ---------- Nút ---------- */
+.btn{
+  background:var(--grad);border-radius:12px;padding:10px 18px;font-weight:600;letter-spacing:.2px;
+  box-shadow:0 8px 18px -8px rgba(11,138,134,.7),inset 0 1px 0 rgba(255,255,255,.25);
+  transition:transform .18s,box-shadow .18s,filter .18s;
+}
+.btn:hover{filter:brightness(1.07);transform:translateY(-2px);box-shadow:0 14px 24px -10px rgba(11,138,134,.75),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn:active{transform:translateY(0)}
+.btn.g{
+  background:var(--card);color:var(--tx);border:1px solid var(--ln);box-shadow:var(--sh1);
+}
+.btn.g:hover{border-color:var(--gold);color:var(--gold-d);filter:none;box-shadow:0 10px 20px -10px rgba(200,161,90,.6)}
+:root[data-theme="dark"] .btn.g:hover{color:var(--gold2)}
+
+/* ---------- Ô nhập ---------- */
+select,input,textarea{
+  border-radius:12px;border:1px solid var(--ln);background-color:var(--card);padding:9px 12px;
+  transition:border-color .2s,box-shadow .2s;
+}
+select:hover,input:hover,textarea:hover{border-color:#b7cccf}
+select:focus,input:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(11,138,134,.16)}
+:is(.btn,nav button,select,input,textarea,tr.cl,.kpi):focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+label{font-weight:600;color:var(--tx)}
+
+/* ---------- Bảng ---------- */
+.tw{border-radius:16px;border:1px solid var(--ln)}
+table{border-collapse:separate;border-spacing:0}
+th{
+  background:linear-gradient(180deg,var(--sel),color-mix(in srgb,var(--sel) 70%,var(--card)));
+  color:var(--blue);font-weight:700;font-size:11.5px;letter-spacing:.9px;border-bottom:2px solid rgba(200,161,90,.45);padding:12px 12px;
+}
+td{padding:11px 12px;border-bottom:1px solid var(--ln)}
+tr:nth-child(even) td{background:rgba(11,138,134,.03)}
+tr.cl{transition:background .15s}
+tr.cl:hover td{background:var(--sel)}
+tr:last-child td{border-bottom:0}
+
+/* ---------- Nhãn trạng thái ---------- */
+.pill{padding:3px 11px;font-size:11.8px;letter-spacing:.2px;border:1px solid transparent}
+.p-ok{background:var(--okb);color:var(--ok);border-color:color-mix(in srgb,var(--ok) 25%,transparent)}
+.p-wa{background:var(--wab);color:var(--wa);border-color:color-mix(in srgb,var(--wa) 25%,transparent)}
+.p-er{background:var(--erb);color:var(--er);border-color:color-mix(in srgb,var(--er) 25%,transparent)}
+.p-mu{background:var(--sel);color:var(--blue);border-color:color-mix(in srgb,var(--blue) 22%,transparent)}
+.bd{background:var(--sel);color:var(--blue);font-weight:600;border:1px solid color-mix(in srgb,var(--blue) 20%,transparent)}
+
+/* ---------- Thanh tiến độ ---------- */
+.tr{height:12px;border-radius:99px;background:var(--sel);box-shadow:inset 0 1px 3px rgba(7,31,43,.12)}
+.tr i{border-radius:99px;background:linear-gradient(90deg,#0b8a86,#2a6fd0);box-shadow:0 0 10px rgba(11,138,134,.45);transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.bch i{border-radius:99px}
+
+/* Chip lọc / liên kết / xem nhanh */
+.chips button{border-radius:99px;transition:all .2s}
+.chips button:hover{border-color:var(--gold)}
+.chips button.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 6px 14px -6px rgba(11,138,134,.7)}
+a.l{color:var(--blue);font-weight:600;text-decoration-color:var(--gold);text-underline-offset:3px}
+a.l:hover{color:var(--gold-d)}
+.pv{border-radius:14px;border:1px solid var(--ln);background:var(--sel)}
+.note{color:var(--mu)}
+.empty{border:2px dashed var(--ln);border-radius:18px;background:color-mix(in srgb,var(--sel) 40%,transparent)}
+
+/* ---------- Hộp thoại & thông báo ---------- */
+dialog{
+  border:1px solid rgba(200,161,90,.35);border-radius:24px;padding:26px;box-shadow:0 40px 80px -20px rgba(5,20,32,.55);
+  animation:luxeIn .3s ease both;
+}
+dialog::backdrop{background:rgba(5,20,32,.55);backdrop-filter:blur(5px)}
+dialog h2{font-family:var(--fh);font-size:21px}
+#toast{
+  background:linear-gradient(110deg,#06222f,#0b3b4a);color:#fff;border:1px solid rgba(200,161,90,.5);
+  border-radius:14px;padding:12px 20px;box-shadow:0 18px 36px -12px rgba(0,0,0,.5);
+}
+#toast.e{background:linear-gradient(110deg,#8f2a1d,#c4392b)}
+
+/* ---------- EduBot ---------- */
+#edb-btn{
+  background:linear-gradient(115deg,#0b8a86,#1f6fc0);padding:13px 22px;font-weight:700;letter-spacing:.3px;
+  border:1px solid rgba(232,207,148,.6);box-shadow:0 14px 28px -10px rgba(11,138,134,.75),0 0 0 4px rgba(200,161,90,.14);
+  transition:transform .2s,box-shadow .2s;
+}
+#edb-btn:hover{transform:translateY(-3px) scale(1.02)}
+#edb-box{border-radius:22px;border:1px solid rgba(200,161,90,.35);box-shadow:0 30px 60px -18px rgba(5,20,32,.6)}
+.edb-h{background:linear-gradient(115deg,#064e56,#0b8a86 55%,#1f6fc0);border-bottom:2px solid var(--gold)}
+.edb-h b{font-family:var(--fh);font-size:16px}
+.edb-m{border-radius:16px}
+.edb-m.u{background:var(--grad)}
+.edb-a,.edb-chip,.edb-row{border-radius:12px;transition:border-color .2s,transform .2s}
+.edb-a:hover,.edb-chip:hover,.edb-row:hover{border-color:var(--gold);transform:translateY(-1px)}
+#edb-send{background:var(--grad);border-radius:12px}
+
+@media(max-width:820px){
+  .ct{padding:16px 14px 90px}.top{padding:10px 14px}
+  .ct>h2{font-size:22px}.hero{padding:22px 20px;border-radius:18px}.hero b{font-size:22px}
+  .kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.kpis button.kpi b{font-size:28px}
+  nav button.on::before{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{.hero{background:#0b8a86!important;box-shadow:none}.card,.kpis button.kpi{box-shadow:none}}
+</style>
+<style id="luxe2">
+/* ===== Luxe 2: bỏ hết nền trắng/xám → xanh ngọc đêm – vàng champagne ===== */
+:root[data-theme="dark"],:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#06202a;--card:#0c2f3b;--tx:#f1ead6;--mu:#a9c2bd;--ln:rgba(214,176,98,.24);--sel:#123f4c;
+  --blue:#3fd0c2;--navy:#06202a;--gold:#d9b46a;--gold2:#f2deaa;
+  --ok:#62e3a6;--okb:#0f4033;--wa:#f3c978;--wab:#42330f;--er:#ff9d8e;--erb:#4a2220;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#efe3c4;--card:#faf2dc;--tx:#143840;--mu:#63756d;--ln:#d9c48c;--sel:#ecdcb2;
+  --blue:#0a7f7a;--navy:#06202a;--gold:#b98a2f;--gold2:#8a6414;
+  --ok:#0e7a4b;--okb:#d5ecd3;--wa:#8f5a07;--wab:#f5deaa;--er:#b23a2b;--erb:#f6d5c8;
+}
+body{
+  background:
+    radial-gradient(900px 520px at 92% -6%,rgba(24,170,158,.22),transparent 62%),
+    radial-gradient(800px 500px at -4% 100%,rgba(217,180,106,.16),transparent 62%),
+    var(--bg);background-attachment:fixed;color:var(--tx);
+}
+:root[data-theme="light"] body{
+  background:
+    radial-gradient(900px 520px at 92% -6%,rgba(10,127,122,.14),transparent 62%),
+    radial-gradient(800px 500px at -4% 100%,rgba(185,138,47,.20),transparent 62%),
+    var(--bg);background-attachment:fixed}
+
+/* chữ tiêu đề */
+.ct>h2,.top h1,dialog h2{color:var(--gold2)!important}
+:root[data-theme="light"] .ct>h2,:root[data-theme="light"] .top h1,:root[data-theme="light"] dialog h2{color:#0b3f47!important}
+h2{color:var(--tx)}
+.card h2{color:var(--gold2)}
+:root[data-theme="light"] .card h2{color:#0b3f47}
+h3{color:var(--blue)}
+.note,.top p{color:var(--mu)}
+
+/* thanh trên */
+.top{background:rgba(8,37,48,.82)!important;border-bottom:1px solid rgba(217,180,106,.35)!important}
+:root[data-theme="light"] .top{background:rgba(250,242,220,.86)!important}
+.top p{color:#b6cfca}
+:root[data-theme="light"] .top p{color:var(--mu)}
+.top b#un{color:var(--tx)}
+
+/* dòng cảnh báo */
+.ban{background:linear-gradient(90deg,#3a2c0e,#4a3811 55%,#3a2c0e)!important;color:var(--gold2)!important;border-bottom:1px solid rgba(217,180,106,.4)!important}
+:root[data-theme="light"] .ban{background:linear-gradient(90deg,#f2dca0,#f7e6b4 55%,#f2dca0)!important;color:#6d4706!important}
+
+/* thẻ & bảng */
+.card{background:linear-gradient(160deg,rgba(255,255,255,.045),transparent 55%),var(--card);border-color:var(--ln)}
+:root[data-theme="light"] .card{background:linear-gradient(160deg,rgba(255,255,255,.55),transparent 60%),var(--card)}
+.kpis button.kpi{background:radial-gradient(170px 120px at 100% 0%,color-mix(in srgb,var(--c) 22%,transparent),transparent 70%),linear-gradient(160deg,rgba(255,255,255,.04),transparent 55%),var(--card)}
+:root[data-theme="dark"] .kpis button.kpi b,:root:not([data-theme="light"]) .kpis button.kpi b{color:color-mix(in srgb,var(--c) 62%,#fff)}
+.tw{background:transparent;border-color:var(--ln)}
+th{background:linear-gradient(180deg,#14495a,#0f3b49)!important;color:var(--gold2)!important;border-bottom:2px solid var(--gold)!important}
+:root[data-theme="light"] th{background:linear-gradient(180deg,#e6d49c,#dfc98a)!important;color:#5b3f07!important}
+td{border-bottom-color:var(--ln)}
+tr:nth-child(even) td{background:rgba(217,180,106,.055)!important}
+tr.cl:hover td{background:rgba(63,208,194,.14)!important}
+.pv{background:var(--sel);color:var(--tx)}
+.bch i,.tr{background:rgba(255,255,255,.10)}
+:root[data-theme="light"] .bch i,:root[data-theme="light"] .tr{background:rgba(120,90,20,.15)}
+.empty{background:rgba(217,180,106,.07);border-color:var(--ln)}
+
+/* nút phụ, ô nhập, chip, hộp thoại */
+.btn.g{background:linear-gradient(160deg,#143f4d,#0e3040);color:var(--gold2);border:1px solid rgba(217,180,106,.45)}
+:root[data-theme="light"] .btn.g{background:linear-gradient(160deg,#fbf3dd,#f0e0b0);color:#0b3f47}
+.btn.g:hover{background:linear-gradient(160deg,#1b5465,#124252);color:#fff;border-color:var(--gold)}
+:root[data-theme="light"] .btn.g:hover{background:#f6e7bb;color:#06202a}
+select,input,textarea,.who select{background-color:#0a2933;color:var(--tx);border-color:rgba(217,180,106,.35)}
+:root[data-theme="light"] select,:root[data-theme="light"] input,:root[data-theme="light"] textarea,:root[data-theme="light"] .who select{background-color:#fff8e6}
+select:hover,input:hover,textarea:hover{border-color:var(--gold)}
+select:focus,input:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(217,180,106,.22)}
+::placeholder{color:#7f9f9c}
+select option{background:#0a2933;color:var(--tx)}
+:root[data-theme="light"] select option{background:#fff8e6}
+dialog{background:linear-gradient(165deg,#10394a,#0a2833);color:var(--tx)}
+:root[data-theme="light"] dialog{background:linear-gradient(165deg,#fcf6e3,#f1e3bb)}
+.chips button{background:#0e3441;color:var(--tx);border-color:rgba(217,180,106,.35)}
+:root[data-theme="light"] .chips button{background:#f8eed0}
+.chips button.on{color:#fff}
+label{color:var(--gold2)}
+:root[data-theme="light"] label{color:#0b3f47}
+a.l{color:var(--gold2)}
+:root[data-theme="light"] a.l{color:#0a7f7a}
+.bd,.p-mu{color:var(--blue)}
+
+/* EduBot */
+#edb-box{background:#0a2833}
+#edb-msgs,#edb-chips{background:#082029}
+.edb-m.b{background:#0f3342;border-color:rgba(217,180,106,.3);color:var(--tx)}
+.edb-f{background:#0a2833}
+#edb-in{background:#082029;color:var(--tx)}
+.edb-a,.edb-chip,.edb-row{background:#0f3342;color:var(--tx);border-color:rgba(217,180,106,.35)}
+:root[data-theme="light"] #edb-box,:root[data-theme="light"] .edb-f{background:#fbf3dd}
+:root[data-theme="light"] #edb-msgs,:root[data-theme="light"] #edb-chips,:root[data-theme="light"] #edb-in{background:#f2e5c0}
+:root[data-theme="light"] .edb-m.b,:root[data-theme="light"] .edb-a,:root[data-theme="light"] .edb-chip,:root[data-theme="light"] .edb-row{background:#fff8e6}
+
+/* bố cục: thanh trên 1 hàng, menu không xuống dòng */
+@media(min-width:821px){
+  .app{grid-template-columns:276px 1fr}
+  nav button{font-size:14px;padding:10px 12px;white-space:nowrap}
+}
+@media(min-width:1180px){
+  .top{flex-wrap:nowrap;gap:14px;padding:12px 24px}
+  .top>div:nth-child(2){flex:1;min-width:0}
+  .top h1{font-size:20px;white-space:nowrap}
+  .who{flex-wrap:nowrap;gap:8px}
+  .who select{max-width:235px;font-size:13.5px;padding:8px 10px}
+  .who .btn.g{padding:8px 12px}
+}
+</style>
+<style id="luxe3">
+/* ===== Luxe 3: dịu mắt – nền xanh than, chữ kem, vàng đồng chỉ làm điểm nhấn ===== */
+:root[data-theme="dark"],:root:not([data-theme="light"]){
+  --bg:#111b29;--card:#182638;--sel:#203349;--tx:#e2e5e6;--mu:#9aabb9;--ln:rgba(255,255,255,.085);
+  --blue:#62b4b0;--gold:#c2a36b;--gold2:#d8c293;
+  --ok:#6cc79a;--okb:#173b31;--wa:#e0b966;--wab:#3a3119;--er:#e89a8e;--erb:#3d2628;
+  --sh1:0 1px 2px rgba(0,0,0,.25),0 6px 16px -8px rgba(0,0,0,.35);
+  --sh2:0 2px 4px rgba(0,0,0,.3),0 14px 28px -12px rgba(0,0,0,.5);
+  --grad:linear-gradient(115deg,#3e8f8c,#3d78ad);
+}
+:root[data-theme="light"]{
+  --bg:#ebe4d3;--card:#f6f1e4;--sel:#e7dec6;--tx:#27333f;--mu:#6a7680;--ln:rgba(60,50,20,.14);
+  --blue:#2c7f7c;--gold:#a98a4c;--gold2:#7a5f2a;
+  --ok:#2c7a56;--okb:#d8e9da;--wa:#8a5d12;--wab:#f1e0b4;--er:#b0473a;--erb:#f1d8cf;
+  --sh1:0 1px 2px rgba(60,50,20,.08),0 6px 16px -8px rgba(60,50,20,.18);
+  --sh2:0 2px 4px rgba(60,50,20,.1),0 14px 28px -12px rgba(60,50,20,.28);
+  --grad:linear-gradient(115deg,#3b8683,#3b6fa0);
+}
+body{background:radial-gradient(900px 500px at 95% -10%,rgba(98,180,176,.07),transparent 60%),radial-gradient(800px 500px at -5% 105%,rgba(194,163,107,.05),transparent 60%),var(--bg)!important;background-attachment:fixed}
+:root[data-theme="light"] body{background:var(--bg)!important}
+
+/* thanh bên: xanh navy đậm, dịu */
+aside{background:linear-gradient(185deg,#0e1827,#0a1320)!important;border-right:1px solid rgba(255,255,255,.07)!important;box-shadow:none!important}
+.logo{background:none!important;-webkit-background-clip:initial!important;background-clip:initial!important;color:#efe6d0!important;border-bottom:1px solid rgba(194,163,107,.28)!important}
+.logo small{-webkit-text-fill-color:#93a5b5!important;color:#93a5b5!important}
+.ng{color:#b49a68!important;font-weight:600}
+.ng::after{background:linear-gradient(90deg,rgba(194,163,107,.25),transparent)!important}
+nav button{color:#b9c6d2!important}
+nav button:hover{background:rgba(255,255,255,.06)!important;color:#fff!important}
+nav button.on{background:rgba(98,180,176,.16)!important;color:#fff!important;box-shadow:inset 0 0 0 1px rgba(98,180,176,.35)!important}
+nav button.on::before{background:var(--gold)!important;box-shadow:none!important}
+
+/* thanh trên */
+.top{background:rgba(17,27,41,.9)!important;border-bottom:1px solid var(--ln)!important;box-shadow:none!important}
+:root[data-theme="light"] .top{background:rgba(246,241,228,.92)!important}
+.top p,.top .note{color:var(--mu)!important}
+.av{box-shadow:0 0 0 2px var(--card),0 0 0 3px var(--gold)!important;background:var(--grad)!important}
+.ban{background:#2a2819!important;color:#d9c48f!important;border-bottom:1px solid var(--ln)!important}
+:root[data-theme="light"] .ban{background:#efe0b8!important;color:#6b4a0c!important}
+
+/* tiêu đề & chữ */
+.ct>h2,.top h1,dialog h2,.card h2,h2{color:#ece4cf!important}
+:root[data-theme="light"] .ct>h2,:root[data-theme="light"] .top h1,:root[data-theme="light"] dialog h2,:root[data-theme="light"] .card h2,:root[data-theme="light"] h2{color:#1f3a45!important}
+.ct>h2::after,.card h2::after{background:linear-gradient(90deg,var(--gold),transparent)!important}
+h3{color:var(--blue)!important}
+label{color:var(--tx)!important;font-weight:600}
+a.l{color:#8fd0cb!important}
+:root[data-theme="light"] a.l{color:#2c7f7c!important}
+.note,.empty{color:var(--mu)!important}
+
+/* banner chào */
+.hero{
+  background:linear-gradient(115deg,#1f4a5e,#2a6670 55%,#33708a)!important;
+  border:1px solid rgba(255,255,255,.10)!important;box-shadow:0 14px 28px -16px rgba(0,0,0,.55)!important;color:#f3efe2!important;
+}
+.hero::before{border-color:rgba(216,194,147,.25)!important;box-shadow:0 0 0 26px rgba(216,194,147,.04),0 0 0 58px rgba(255,255,255,.02)!important}
+.hero b{text-shadow:none!important;color:#fbf5e4}
+.hero small{color:#d6e3e2}
+
+/* thẻ & KPI */
+.card{background:var(--card)!important;border:1px solid var(--ln)!important;box-shadow:var(--sh1)!important}
+.card:hover{box-shadow:var(--sh2)!important}
+.kpis button.kpi{background:var(--card)!important;border:1px solid var(--ln)!important;box-shadow:var(--sh1)!important}
+.kpis button.kpi::before{height:3px!important}
+.kpis button.kpi:hover{box-shadow:var(--sh2)!important;border-color:color-mix(in srgb,var(--c) 45%,var(--ln))!important}
+.kpis button.kpi b,:root[data-theme="dark"] .kpis button.kpi b,:root:not([data-theme="light"]) .kpis button.kpi b{color:var(--c)!important;font-weight:700}
+.kpis button.kpi .ic{background:color-mix(in srgb,var(--c) 14%,transparent)!important;box-shadow:none!important}
+.kpi small{color:var(--mu)!important}
+.kpis button.kpi:nth-child(1){--c:#62b4b0}.kpis button.kpi:nth-child(2){--c:#6f9fd6}.kpis button.kpi:nth-child(3){--c:#9a98dc}
+.kpis button.kpi:nth-child(4){--c:#6cc79a}.kpis button.kpi:nth-child(5){--c:#e39286}.kpis button.kpi:nth-child(6){--c:#d9ab5e}
+.kpis button.kpi:nth-child(7){--c:#dc8368}.kpis button.kpi:nth-child(8){--c:#6cc79a}.kpis button.kpi:nth-child(9){--c:#a98fd8}
+.kpis button.kpi:nth-child(10){--c:#e39286}.kpis button.kpi:nth-child(11){--c:#62b4b0}.kpis button.kpi:nth-child(12){--c:#6f9fd6}
+.kpis button.kpi:nth-child(13){--c:#a6b3bf}.kpis button.kpi:nth-child(14){--c:#d9ab5e}
+:root[data-theme="light"] .kpis button.kpi:nth-child(1){--c:#2c7f7c}:root[data-theme="light"] .kpis button.kpi:nth-child(2){--c:#3a6ea8}
+:root[data-theme="light"] .kpis button.kpi:nth-child(3){--c:#5b58b0}:root[data-theme="light"] .kpis button.kpi:nth-child(4),:root[data-theme="light"] .kpis button.kpi:nth-child(8){--c:#2c7a56}
+:root[data-theme="light"] .kpis button.kpi:nth-child(5),:root[data-theme="light"] .kpis button.kpi:nth-child(10){--c:#bd5848}:root[data-theme="light"] .kpis button.kpi:nth-child(6),:root[data-theme="light"] .kpis button.kpi:nth-child(14){--c:#a87310}
+:root[data-theme="light"] .kpis button.kpi:nth-child(7){--c:#b4502f}:root[data-theme="light"] .kpis button.kpi:nth-child(9){--c:#7a55b0}
+:root[data-theme="light"] .kpis button.kpi:nth-child(11){--c:#2c7f7c}:root[data-theme="light"] .kpis button.kpi:nth-child(12){--c:#3a6ea8}:root[data-theme="light"] .kpis button.kpi:nth-child(13){--c:#66727c}
+
+/* bảng */
+th{background:#203349!important;color:#d6c9a6!important;border-bottom:1px solid rgba(194,163,107,.45)!important}
+:root[data-theme="light"] th{background:#e2d7b8!important;color:#5a4616!important}
+tr:nth-child(even) td{background:rgba(255,255,255,.025)!important}
+:root[data-theme="light"] tr:nth-child(even) td{background:rgba(120,90,20,.045)!important}
+tr.cl:hover td{background:rgba(98,180,176,.10)!important}
+.tw{border-color:var(--ln)!important}
+.tr,.bch i{background:rgba(255,255,255,.08)!important;box-shadow:none!important}
+:root[data-theme="light"] .tr,:root[data-theme="light"] .bch i{background:rgba(60,50,20,.12)!important}
+.tr i{background:linear-gradient(90deg,#3e8f8c,#4e86b8)!important;box-shadow:none!important}
+.bch i b{background:#5aa6c8!important}
+.empty{background:rgba(255,255,255,.03)!important}
+
+/* nút */
+.btn{background:var(--grad)!important;box-shadow:0 4px 10px -4px rgba(0,0,0,.4)!important;color:#fff}
+.btn:hover{box-shadow:0 8px 16px -8px rgba(0,0,0,.5)!important;filter:brightness(1.06)}
+.btn.g{background:#1d3147!important;color:var(--tx)!important;border:1px solid rgba(255,255,255,.13)!important;box-shadow:none!important}
+:root[data-theme="light"] .btn.g{background:#f1e9d3!important;border-color:rgba(60,50,20,.2)!important}
+.btn.g:hover{border-color:var(--gold)!important;color:var(--gold2)!important;background:#243b54!important}
+:root[data-theme="light"] .btn.g:hover{background:#ebe0c3!important;color:#5a4616!important}
+.chips button{background:#1d3147!important;color:var(--tx)!important;border-color:rgba(255,255,255,.13)!important}
+.chips button.on{background:var(--grad)!important;color:#fff!important;box-shadow:none!important}
+:root[data-theme="light"] .chips button{background:#f1e9d3!important}
+
+/* ô nhập */
+select,input,textarea,.who select{background-color:#121f30!important;color:var(--tx)!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:none!important}
+:root[data-theme="light"] select,:root[data-theme="light"] input,:root[data-theme="light"] textarea,:root[data-theme="light"] .who select{background-color:#fbf8ee!important;border-color:rgba(60,50,20,.22)!important}
+select:focus,input:focus,textarea:focus{border-color:var(--blue)!important;box-shadow:0 0 0 3px rgba(98,180,176,.18)!important}
+select option{background:#121f30;color:var(--tx)}
+:root[data-theme="light"] select option{background:#fbf8ee}
+
+/* hộp thoại, thông báo */
+dialog{background:var(--card)!important;border:1px solid var(--ln)!important;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)!important}
+dialog::backdrop{background:rgba(5,10,18,.6)}
+#toast{background:#223a52!important;border:1px solid rgba(194,163,107,.4)!important;color:#fff;box-shadow:0 12px 24px -10px rgba(0,0,0,.6)!important}
+#toast.e{background:#8a3a2f!important}
+.pv{background:var(--sel)!important;color:var(--tx)}
+
+/* EduBot */
+#edb-btn{background:var(--grad)!important;border:1px solid rgba(255,255,255,.18)!important;box-shadow:0 10px 20px -10px rgba(0,0,0,.6)!important}
+#edb-box{background:var(--card)!important;border:1px solid var(--ln)!important;box-shadow:0 24px 50px -16px rgba(0,0,0,.6)!important}
+.edb-h{background:linear-gradient(115deg,#1f4a5e,#2a6670)!important;border-bottom:1px solid rgba(194,163,107,.5)!important}
+#edb-msgs,#edb-chips{background:#101c2b!important}
+.edb-f{background:var(--card)!important}
+#edb-in{background:#101c2b!important;color:var(--tx)}
+.edb-m.b,.edb-a,.edb-chip,.edb-row{background:#1d3147!important;color:var(--tx)!important;border-color:rgba(255,255,255,.12)!important}
+.edb-m.u,#edb-send{background:var(--grad)!important}
+:root[data-theme="light"] #edb-msgs,:root[data-theme="light"] #edb-chips,:root[data-theme="light"] #edb-in{background:#ece3cd!important}
+:root[data-theme="light"] .edb-m.b,:root[data-theme="light"] .edb-a,:root[data-theme="light"] .edb-chip,:root[data-theme="light"] .edb-row{background:#fbf8ee!important}
+</style>
+<style id="luxe4">
+/* ===== Luxe 4: nền vàng kem nhạt – nhấn xanh lá / vàng đậm / xanh lam ===== */
+:root[data-theme="light"]{
+  --bg:#f4ecd0;--card:#fbf6e5;--sel:#eee3bd;--tx:#2c3a35;--mu:#6e7a6d;--ln:rgba(120,92,28,.17);
+  --blue:#2d6f95;--green:#26694d;--gold:#b98a2a;--gold2:#8a6212;--navy:#1f4a3a;
+  --ok:#25704f;--okb:#d9ead2;--wa:#8a5d10;--wab:#f3e0a2;--er:#b04a38;--erb:#f4d8c8;
+  --grad:linear-gradient(115deg,#2f7a5c,#2c6f93);
+  --sh1:0 1px 2px rgba(110,85,25,.07),0 6px 16px -8px rgba(110,85,25,.18);
+  --sh2:0 2px 4px rgba(110,85,25,.09),0 14px 28px -12px rgba(110,85,25,.28);
+}
+:root[data-theme="light"] body{background:linear-gradient(180deg,#f7f0d8,#f1e7c6)!important;background-attachment:fixed;color:var(--tx)}
+
+/* thanh bên: cát vàng nhạt, chữ xanh rêu */
+:root[data-theme="light"] aside{background:linear-gradient(185deg,#efe3b9,#e7d8a6)!important;border-right:1px solid rgba(120,92,28,.22)!important}
+:root[data-theme="light"] .logo{color:#1f4a3a!important;border-bottom:1px solid rgba(185,138,42,.4)!important}
+:root[data-theme="light"] .logo small{-webkit-text-fill-color:#6d6a45!important;color:#6d6a45!important}
+:root[data-theme="light"] .ng{color:#8a6212!important}
+:root[data-theme="light"] .ng::after{background:linear-gradient(90deg,rgba(185,138,42,.4),transparent)!important}
+:root[data-theme="light"] nav button{color:#3a4a40!important}
+:root[data-theme="light"] nav button:hover{background:rgba(47,122,92,.10)!important;color:#1f4a3a!important}
+:root[data-theme="light"] nav button.on{background:linear-gradient(100deg,#2f7a5c,#2c6f93)!important;color:#fff!important;box-shadow:0 5px 12px -6px rgba(31,74,58,.55)!important}
+:root[data-theme="light"] nav button.on::before{background:#c79a2e!important}
+
+/* thanh trên, cảnh báo */
+:root[data-theme="light"] .top{background:rgba(251,246,229,.92)!important;border-bottom:1px solid rgba(120,92,28,.2)!important}
+:root[data-theme="light"] .top p,:root[data-theme="light"] .top .note{color:var(--mu)!important}
+:root[data-theme="light"] .av{background:var(--grad)!important;box-shadow:0 0 0 2px var(--card),0 0 0 3px #c79a2e!important}
+:root[data-theme="light"] .ban{background:#f3e3a6!important;color:#6a4a08!important;border-bottom:1px solid rgba(185,138,42,.35)!important}
+
+/* chữ */
+:root[data-theme="light"] .ct>h2,:root[data-theme="light"] .top h1,:root[data-theme="light"] dialog h2,:root[data-theme="light"] .card h2,:root[data-theme="light"] h2{color:#24523f!important}
+:root[data-theme="light"] .ct>h2::after,:root[data-theme="light"] .card h2::after{background:linear-gradient(90deg,#c79a2e,transparent)!important}
+:root[data-theme="light"] h3{color:#2d6f95!important}
+:root[data-theme="light"] label{color:#2c3a35!important}
+:root[data-theme="light"] a.l{color:#2d6f95!important;text-decoration-color:#c79a2e}
+:root[data-theme="light"] a.l:hover{color:#8a6212!important}
+
+/* banner chào: xanh lá – xanh lam, điểm nhấn chính */
+:root[data-theme="light"] .hero{
+  background:linear-gradient(115deg,#2a6b52,#2b7186 58%,#2f679a)!important;color:#fbf5e0!important;
+  border:1px solid rgba(199,154,46,.55)!important;box-shadow:0 12px 24px -14px rgba(31,74,58,.6)!important}
+:root[data-theme="light"] .hero::before{border-color:rgba(240,214,140,.35)!important;box-shadow:0 0 0 26px rgba(240,214,140,.06),0 0 0 58px rgba(255,255,255,.03)!important}
+:root[data-theme="light"] .hero small{color:#e4ecd9}
+
+/* thẻ */
+:root[data-theme="light"] .card,:root[data-theme="light"] .kpis button.kpi{background:var(--card)!important;border:1px solid var(--ln)!important;box-shadow:var(--sh1)!important}
+:root[data-theme="light"] .card:hover,:root[data-theme="light"] .kpis button.kpi:hover{box-shadow:var(--sh2)!important}
+:root[data-theme="light"] .kpi span{color:#2c3a35}
+:root[data-theme="light"] .kpi small{color:var(--mu)!important}
+
+/* bảng */
+:root[data-theme="light"] th{background:#ecdca6!important;color:#5a4310!important;border-bottom:2px solid #c79a2e!important}
+:root[data-theme="light"] tr:nth-child(even) td{background:rgba(185,138,42,.06)!important}
+:root[data-theme="light"] tr.cl:hover td{background:rgba(47,122,92,.10)!important}
+:root[data-theme="light"] .tr,:root[data-theme="light"] .bch i{background:rgba(120,92,28,.15)!important}
+:root[data-theme="light"] .tr i{background:linear-gradient(90deg,#2f7a5c,#2c6f93)!important}
+:root[data-theme="light"] .bch i b{background:#2c6f93!important}
+:root[data-theme="light"] .empty{background:rgba(185,138,42,.07)!important}
+:root[data-theme="light"] .pv{background:#f1e6c2!important}
+
+/* nút */
+:root[data-theme="light"] .btn{background:var(--grad)!important;color:#fff;box-shadow:0 5px 12px -6px rgba(31,74,58,.55)!important}
+:root[data-theme="light"] .btn.g{background:#f3e9c4!important;color:#2c3a35!important;border:1px solid rgba(120,92,28,.3)!important;box-shadow:none!important}
+:root[data-theme="light"] .btn.g:hover{background:#eddfae!important;border-color:#b98a2a!important;color:#6a4a08!important}
+:root[data-theme="light"] .chips button{background:#f3e9c4!important;color:#2c3a35!important;border-color:rgba(120,92,28,.3)!important}
+:root[data-theme="light"] .chips button.on{background:var(--grad)!important;color:#fff!important}
+
+/* ô nhập */
+:root[data-theme="light"] select,:root[data-theme="light"] input,:root[data-theme="light"] textarea,:root[data-theme="light"] .who select{background-color:#fbf3d8!important;color:#2c3a35!important;border:1px solid rgba(120,92,28,.3)!important}
+:root[data-theme="light"] select:focus,:root[data-theme="light"] input:focus,:root[data-theme="light"] textarea:focus{border-color:#2f7a5c!important;box-shadow:0 0 0 3px rgba(47,122,92,.18)!important}
+:root[data-theme="light"] select option{background:#fbf3d8;color:#2c3a35}
+
+/* hộp thoại, thông báo */
+:root[data-theme="light"] dialog{background:var(--card)!important;border:1px solid rgba(185,138,42,.4)!important;box-shadow:0 30px 60px -22px rgba(80,60,15,.5)!important}
+:root[data-theme="light"] dialog::backdrop{background:rgba(60,45,10,.45)}
+:root[data-theme="light"] #toast{background:#24523f!important;color:#fbf5e0!important;border:1px solid #c79a2e!important}
+:root[data-theme="light"] #toast.e{background:#a8402f!important}
+
+/* EduBot */
+:root[data-theme="light"] #edb-btn{background:var(--grad)!important;border:1px solid rgba(240,214,140,.7)!important;box-shadow:0 10px 20px -10px rgba(31,74,58,.7)!important}
+:root[data-theme="light"] #edb-box{background:var(--card)!important;border:1px solid rgba(185,138,42,.4)!important}
+:root[data-theme="light"] .edb-h{background:linear-gradient(115deg,#2a6b52,#2b7186 60%,#2f679a)!important;border-bottom:2px solid #c79a2e!important}
+:root[data-theme="light"] #edb-msgs,:root[data-theme="light"] #edb-chips{background:#f1e7c4!important}
+:root[data-theme="light"] #edb-in{background:#fbf3d8!important;color:#2c3a35}
+:root[data-theme="light"] .edb-f{background:var(--card)!important}
+:root[data-theme="light"] .edb-m.b,:root[data-theme="light"] .edb-a,:root[data-theme="light"] .edb-chip,:root[data-theme="light"] .edb-row{background:#fbf6e5!important;color:#2c3a35!important;border-color:rgba(120,92,28,.25)!important}
+:root[data-theme="light"] .edb-m.u,:root[data-theme="light"] #edb-send{background:var(--grad)!important}
+</style>
+<style id="luxe5">
+/* ===== Luxe 5: bản sáng hơn – kem vàng tươi nhẹ, xanh lá/xanh lam sáng ===== */
+:root[data-theme="light"]{
+  --bg:#fcf7e2;--card:#fffcef;--sel:#f7eecb;--tx:#34433d;--mu:#76827a;--ln:rgba(150,118,40,.15);
+  --blue:#2f7fa8;--ok:#2b8059;--okb:#e0f1d8;--wab:#f9e8b0;--erb:#f9ded0;
+  --grad:linear-gradient(115deg,#3a9a78,#3a8db5);
+  --sh1:0 1px 2px rgba(130,100,30,.06),0 6px 16px -8px rgba(130,100,30,.14);
+  --sh2:0 2px 4px rgba(130,100,30,.08),0 14px 28px -12px rgba(130,100,30,.22);
+}
+:root[data-theme="light"] body{background:linear-gradient(180deg,#fefaea,#f9f1d3)!important}
+:root[data-theme="light"] aside{background:linear-gradient(185deg,#fbf3d0,#f4e8bb)!important;border-right:1px solid rgba(150,118,40,.18)!important}
+:root[data-theme="light"] .logo{color:#2b6a52!important}
+:root[data-theme="light"] nav button{color:#40514a!important}
+:root[data-theme="light"] nav button:hover{background:rgba(58,154,120,.12)!important;color:#256049!important}
+:root[data-theme="light"] nav button.on{background:linear-gradient(100deg,#3a9a78,#3a8db5)!important;box-shadow:0 5px 12px -6px rgba(58,154,120,.55)!important}
+:root[data-theme="light"] .top{background:rgba(255,252,239,.94)!important}
+:root[data-theme="light"] .ban{background:#faebb4!important;color:#7a5510!important}
+:root[data-theme="light"] .ct>h2,:root[data-theme="light"] .top h1,:root[data-theme="light"] dialog h2,:root[data-theme="light"] .card h2,:root[data-theme="light"] h2{color:#2b6a52!important}
+:root[data-theme="light"] h3{color:#2f7fa8!important}
+:root[data-theme="light"] .hero{background:linear-gradient(115deg,#3d9d7d,#3a97a8 55%,#4a95cc)!important;box-shadow:0 12px 24px -14px rgba(58,154,120,.55)!important}
+:root[data-theme="light"] th{background:#f6e9b6!important;color:#6a4f14!important}
+:root[data-theme="light"] tr:nth-child(even) td{background:rgba(200,160,60,.05)!important}
+:root[data-theme="light"] tr.cl:hover td{background:rgba(58,154,120,.10)!important}
+:root[data-theme="light"] .tr i{background:linear-gradient(90deg,#3a9a78,#3a8db5)!important}
+:root[data-theme="light"] .btn{background:var(--grad)!important;box-shadow:0 5px 12px -6px rgba(58,154,120,.55)!important}
+:root[data-theme="light"] .btn.g{background:#fbf3d3!important;border-color:rgba(150,118,40,.26)!important}
+:root[data-theme="light"] .btn.g:hover{background:#f6e9bb!important}
+:root[data-theme="light"] .chips button{background:#fbf3d3!important}
+:root[data-theme="light"] select,:root[data-theme="light"] input,:root[data-theme="light"] textarea,:root[data-theme="light"] .who select{background-color:#fffaea!important;border-color:rgba(150,118,40,.26)!important}
+:root[data-theme="light"] select option{background:#fffaea}
+:root[data-theme="light"] .pv{background:#f8efcd!important}
+:root[data-theme="light"] #toast{background:#2f7d63!important}
+:root[data-theme="light"] .edb-h{background:linear-gradient(115deg,#3d9d7d,#3a97a8 60%,#4a95cc)!important}
+:root[data-theme="light"] #edb-msgs,:root[data-theme="light"] #edb-chips{background:#f9f1d2!important}
+:root[data-theme="light"] #edb-in{background:#fffaea!important}
+:root[data-theme="light"] .edb-m.b,:root[data-theme="light"] .edb-a,:root[data-theme="light"] .edb-chip,:root[data-theme="light"] .edb-row{background:#fffcef!important}
+/* màu số chỉ số: sáng hơn một nấc */
+:root[data-theme="light"] .kpis button.kpi:nth-child(1),:root[data-theme="light"] .kpis button.kpi:nth-child(11){--c:#2f9a8f}
+:root[data-theme="light"] .kpis button.kpi:nth-child(2),:root[data-theme="light"] .kpis button.kpi:nth-child(12){--c:#3f84c4}
+:root[data-theme="light"] .kpis button.kpi:nth-child(3){--c:#6f6cc9}
+:root[data-theme="light"] .kpis button.kpi:nth-child(4),:root[data-theme="light"] .kpis button.kpi:nth-child(8){--c:#3a9a62}
+:root[data-theme="light"] .kpis button.kpi:nth-child(5),:root[data-theme="light"] .kpis button.kpi:nth-child(10){--c:#d96a58}
+:root[data-theme="light"] .kpis button.kpi:nth-child(6),:root[data-theme="light"] .kpis button.kpi:nth-child(14){--c:#d6962a}
+:root[data-theme="light"] .kpis button.kpi:nth-child(7){--c:#d2623f}
+:root[data-theme="light"] .kpis button.kpi:nth-child(9){--c:#9166c8}
+:root[data-theme="light"] .kpis button.kpi:nth-child(13){--c:#7d8a92}
+</style>
+<script>
+(()=>{const h=document.documentElement;
+/* Luôn mở ở bản sáng (vàng kem). Nút ◐ chỉ đổi tạm trong phiên xem, không ghi nhớ. */
+h.dataset.theme='light';
+window.theme=function(){h.dataset.theme=h.dataset.theme==='dark'?'light':'dark'};
+})();
+</script>
+<script>
+(()=>{
+const app=document.querySelector('.app'),mb=document.querySelector('.top>button'),mob=()=>innerWidth<=820;
+if(mb){mb.textContent='☰ Menu';mb.setAttribute('aria-expanded','false')}
+const sb0=window.sb,nav0=window.nav;
+window.sb=function(){if(!mob())return sb0();const o=app.classList.toggle('mo');if(mb)mb.setAttribute('aria-expanded',o);if(o)window.scrollTo({top:0})};
+window.nav=function(i){nav0(i);if(mob()){app.classList.remove('mo');if(mb)mb.setAttribute('aria-expanded','false');window.scrollTo({top:0})}};
+})();
+</script>
+
+</body></html>
